@@ -1,0 +1,1170 @@
+Feb 26, 2024 9:43:53 AM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 9:43:53 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:43:53 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 9:43:58 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:43:58 AM customIO.Bankapp main
+INFO: Enter the login credentials to Proceed
+Feb 26, 2024 9:43:58 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 9:44:03 AM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 9:44:08 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:08 AM customIO.Bankapp main
+INFO: Logged in successfully
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: 4.Deposite 
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Feb 26, 2024 9:44:08 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:16 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:16 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 9:44:19 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:19 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 9:44:22 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:22 AM customIO.Bankapp main
+INFO: Enter the login credentials to Proceed
+Feb 26, 2024 9:44:22 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 9:44:24 AM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 9:44:28 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:28 AM customIO.Bankapp main
+INFO: Logged in successfully
+Feb 26, 2024 9:44:28 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:28 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Feb 26, 2024 9:44:28 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Feb 26, 2024 9:44:28 AM customIO.EmployeeIO employeeActions
+INFO: 2.Update the Details of a Customer
+Feb 26, 2024 9:44:28 AM customIO.EmployeeIO employeeActions
+INFO: 3.Delete a Customer
+Feb 26, 2024 9:44:28 AM customIO.EmployeeIO employeeActions
+INFO: 4.view Transactions of a User
+Feb 26, 2024 9:44:28 AM customIO.EmployeeIO employeeActions
+INFO: 5.Make a User Active/Inactive
+Feb 26, 2024 9:44:28 AM customIO.EmployeeIO employeeActions
+INFO: 6.Block/Unblock a Account
+Feb 26, 2024 9:44:28 AM customIO.EmployeeIO employeeActions
+INFO: 7.Log Out
+Feb 26, 2024 9:44:28 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:51 AM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 9:44:51 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:51 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 9:44:52 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:52 AM customIO.Bankapp main
+INFO: Enter the login credentials to Proceed
+Feb 26, 2024 9:44:52 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 9:44:53 AM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 9:44:56 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:56 AM customIO.Bankapp main
+INFO: Logged in successfully
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: 4.Deposite 
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Feb 26, 2024 9:44:56 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Feb 26, 2024 9:45:55 AM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 9:45:55 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:45:55 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 9:45:57 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:45:57 AM customIO.Bankapp main
+INFO: Enter the login credentials to Proceed
+Feb 26, 2024 9:45:57 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 9:45:58 AM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 9:46:00 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:46:00 AM customIO.Bankapp main
+WARNING: Your Account has been locked.You cannot login now :(
+Feb 26, 2024 9:46:00 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 9:46:00 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 10:19:49 AM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 10:19:49 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:19:49 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 10:20:00 AM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 10:20:00 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:20:00 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 10:20:13 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:20:13 AM customIO.Bankapp main
+INFO: Enter the login credentials to Proceed
+Feb 26, 2024 10:20:13 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 10:20:17 AM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 10:20:19 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:20:19 AM customIO.Bankapp main
+INFO: Logged in successfully
+Feb 26, 2024 10:20:19 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Feb 26, 2024 10:20:19 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Feb 26, 2024 10:20:19 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Feb 26, 2024 10:20:19 AM customIO.EmployeeIO employeeActions
+INFO: 2.Update the Details of a Customer
+Feb 26, 2024 10:20:19 AM customIO.EmployeeIO employeeActions
+INFO: 3.Delete a Customer
+Feb 26, 2024 10:20:19 AM customIO.EmployeeIO employeeActions
+INFO: 4.view Transactions of a User
+Feb 26, 2024 10:20:19 AM customIO.EmployeeIO employeeActions
+INFO: 5.Make a User Active/Inactive
+Feb 26, 2024 10:20:19 AM customIO.EmployeeIO employeeActions
+INFO: 6.Block/Unblock a Account
+Feb 26, 2024 10:20:19 AM customIO.EmployeeIO employeeActions
+INFO: 7.Log Out
+Feb 26, 2024 10:20:19 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Feb 26, 2024 10:20:21 AM customIO.EmployeeIO employeeActions
+INFO: Enter the Customer 
+Name
+Feb 26, 2024 10:20:23 AM customIO.EmployeeIO employeeActions
+INFO: DOB
+Feb 26, 2024 10:20:34 AM customIO.EmployeeIO employeeActions
+INFO: Mobile
+Feb 26, 2024 10:20:44 AM customIO.EmployeeIO employeeActions
+INFO: Email
+Feb 26, 2024 10:20:53 AM customIO.EmployeeIO employeeActions
+INFO: Gender
+Feb 26, 2024 10:21:03 AM customIO.EmployeeIO employeeActions
+INFO: Password
+Feb 26, 2024 10:21:07 AM customIO.EmployeeIO employeeActions
+INFO: Address
+Feb 26, 2024 10:21:38 AM customIO.EmployeeIO employeeActions
+INFO: Aadhar Number
+Feb 26, 2024 10:21:48 AM customIO.EmployeeIO employeeActions
+INFO: PAN Number
+Feb 26, 2024 10:22:08 AM customIO.Bankapp main
+INFO: An Exception occured ! Sorry for the Inconvenience
+utility.InvalidInputException: An Error Occured , Sorry for the Inconvenience
+	at Bankapp/dbLogics.CustomerOperations.insertCustomer(CustomerOperations.java:53)
+	at Bankapp/customLogics.CustomerFunctions.addCustomer(CustomerFunctions.java:17)
+	at Bankapp/customIO.EmployeeIO.employeeActions(EmployeeIO.java:65)
+	at Bankapp/customIO.Bankapp.main(Bankapp.java:75)
+Caused by: java.sql.SQLException: Generated keys not requested. You need to specify Statement.RETURN_GENERATED_KEYS to Statement.executeUpdate(), Statement.executeLargeUpdate() or Connection.prepareStatement().
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:98)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:90)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:64)
+	at com.mysql.cj.jdbc.StatementImpl.getGeneratedKeys(StatementImpl.java:1376)
+	at Bankapp/dbLogics.CustomerOperations.insertCustomer(CustomerOperations.java:44)
+	... 3 more
+
+Feb 26, 2024 10:24:23 AM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 10:24:23 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:24:23 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 10:24:25 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:24:25 AM customIO.Bankapp main
+INFO: Enter the login credentials to Proceed
+Feb 26, 2024 10:24:25 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 10:24:26 AM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 10:24:29 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:24:29 AM customIO.Bankapp main
+INFO: Logged in successfully
+Feb 26, 2024 10:24:29 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Feb 26, 2024 10:24:29 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Feb 26, 2024 10:24:29 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Feb 26, 2024 10:24:29 AM customIO.EmployeeIO employeeActions
+INFO: 2.Update the Details of a Customer
+Feb 26, 2024 10:24:29 AM customIO.EmployeeIO employeeActions
+INFO: 3.Delete a Customer
+Feb 26, 2024 10:24:29 AM customIO.EmployeeIO employeeActions
+INFO: 4.view Transactions of a User
+Feb 26, 2024 10:24:29 AM customIO.EmployeeIO employeeActions
+INFO: 5.Make a User Active/Inactive
+Feb 26, 2024 10:24:29 AM customIO.EmployeeIO employeeActions
+INFO: 6.Block/Unblock a Account
+Feb 26, 2024 10:24:29 AM customIO.EmployeeIO employeeActions
+INFO: 7.Log Out
+Feb 26, 2024 10:24:29 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Feb 26, 2024 10:24:33 AM customIO.EmployeeIO employeeActions
+INFO: 1. View all Transacions Of the User
+Feb 26, 2024 10:24:33 AM customIO.EmployeeIO employeeActions
+INFO: 2. View Single Transacions
+Feb 26, 2024 10:24:37 AM customIO.EmployeeIO employeeActions
+INFO: Enter the Account Number to Proceed
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000011     
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-21          
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Deposite            
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  success             
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  300                 
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     11300               
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000011     
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-21          
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Deposite            
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  success             
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  300                 
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     11600               
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-22          
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  success             
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10300               
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000011     
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-22          
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Deposite            
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  success             
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10500               
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-22          
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Transfer            
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  success             
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  1000                
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10500               
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-22          
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Transfer            
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  success             
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  1000                
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10500               
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-22          
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Transfer            
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  success             
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  1000                
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     11500               
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-22          
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Transfer            
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  success             
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  1000                
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10500               
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+INFO: 2.Update the Details of a Customer
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+INFO: 3.Delete a Customer
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+INFO: 4.view Transactions of a User
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+INFO: 5.Make a User Active/Inactive
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+INFO: 6.Block/Unblock a Account
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+INFO: 7.Log Out
+Feb 26, 2024 10:24:52 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Feb 26, 2024 10:29:34 AM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 10:29:34 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:29:34 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 10:29:35 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:29:35 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 10:29:38 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:29:38 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 10:29:39 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:29:39 AM customIO.Bankapp main
+INFO: Enter the login credentials to Proceed
+Feb 26, 2024 10:29:39 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 10:29:40 AM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 10:29:47 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:29:47 AM customIO.Bankapp main
+INFO: You Entered a invalid credentials
+Feb 26, 2024 10:29:47 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:29:47 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 10:29:51 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:29:51 AM customIO.Bankapp main
+INFO: Enter the login credentials to Proceed
+Feb 26, 2024 10:29:51 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 10:29:52 AM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 10:29:57 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:29:57 AM customIO.Bankapp main
+INFO: Logged in successfully
+Feb 26, 2024 10:29:57 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Feb 26, 2024 10:29:57 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Feb 26, 2024 10:29:57 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Feb 26, 2024 10:29:57 AM customIO.EmployeeIO employeeActions
+INFO: 2.Update the Details of a Customer
+Feb 26, 2024 10:29:57 AM customIO.EmployeeIO employeeActions
+INFO: 3.Delete a Customer
+Feb 26, 2024 10:29:57 AM customIO.EmployeeIO employeeActions
+INFO: 4.view Transactions of a User
+Feb 26, 2024 10:29:57 AM customIO.EmployeeIO employeeActions
+INFO: 5.Make a User Active/Inactive
+Feb 26, 2024 10:29:57 AM customIO.EmployeeIO employeeActions
+INFO: 6.Block/Unblock a Account
+Feb 26, 2024 10:29:57 AM customIO.EmployeeIO employeeActions
+INFO: 7.Log Out
+Feb 26, 2024 10:29:57 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Feb 26, 2024 10:30:00 AM customIO.EmployeeIO employeeActions
+INFO: Enter the Customer 
+Name
+Feb 26, 2024 10:30:03 AM customIO.EmployeeIO employeeActions
+INFO: DOB
+Feb 26, 2024 10:30:08 AM customIO.EmployeeIO employeeActions
+INFO: Mobile
+Feb 26, 2024 10:30:14 AM customIO.EmployeeIO employeeActions
+INFO: Email
+Feb 26, 2024 10:30:21 AM customIO.EmployeeIO employeeActions
+INFO: Gender
+Feb 26, 2024 10:30:30 AM customIO.EmployeeIO employeeActions
+INFO: Password
+Feb 26, 2024 10:30:34 AM customIO.EmployeeIO employeeActions
+INFO: Address
+Feb 26, 2024 10:30:51 AM customIO.EmployeeIO employeeActions
+INFO: Aadhar Number
+Feb 26, 2024 10:31:00 AM customIO.EmployeeIO employeeActions
+INFO: PAN Number
+Feb 26, 2024 10:31:06 AM customIO.EmployeeIO employeeActions
+INFO: Successfully inserted
+Feb 26, 2024 10:31:06 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Feb 26, 2024 10:31:06 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Feb 26, 2024 10:31:06 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Feb 26, 2024 10:31:06 AM customIO.EmployeeIO employeeActions
+INFO: 2.Update the Details of a Customer
+Feb 26, 2024 10:31:06 AM customIO.EmployeeIO employeeActions
+INFO: 3.Delete a Customer
+Feb 26, 2024 10:31:06 AM customIO.EmployeeIO employeeActions
+INFO: 4.view Transactions of a User
+Feb 26, 2024 10:31:06 AM customIO.EmployeeIO employeeActions
+INFO: 5.Make a User Active/Inactive
+Feb 26, 2024 10:31:06 AM customIO.EmployeeIO employeeActions
+INFO: 6.Block/Unblock a Account
+Feb 26, 2024 10:31:06 AM customIO.EmployeeIO employeeActions
+INFO: 7.Log Out
+Feb 26, 2024 10:31:06 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Feb 26, 2024 10:31:28 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:31:28 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 10:31:29 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:31:29 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 10:31:31 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:31:31 AM customIO.Bankapp main
+INFO: Enter the login credentials to Proceed
+Feb 26, 2024 10:31:31 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 10:31:32 AM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 10:31:36 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:31:36 AM customIO.Bankapp main
+INFO: Logged in successfully
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: ------------------------------------------
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: Select a Option to Proceed : 
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: 1.Add a Customer
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: 2.Add a Employee
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: 3.Create an Account to User
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: 4.Update the Details of a Customer
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: 5.Update the Details of a Employee
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: 6.Delete a User
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: 7.view Transactions
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: 8.Make a User Active/Inactive
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: 9.Block/Unblock a Account
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: 10.Log Out
+Feb 26, 2024 10:31:36 AM customIO.ManagerIO managerActions
+INFO: ------------------------------------------
+Feb 26, 2024 10:31:40 AM customIO.ManagerIO managerActions
+INFO: Enter the details to create a account to Customer 
+UserId
+Feb 26, 2024 10:32:25 AM customIO.ManagerIO managerActions
+INFO: Branch Id
+Feb 26, 2024 10:32:35 AM customIO.ManagerIO managerActions
+INFO: Account Type 
+ 1.Saving 
+ 2.Current 
+ 3.Salary
+Feb 26, 2024 10:32:37 AM customIO.ManagerIO managerActions
+INFO: Account created
+Feb 26, 2024 10:32:37 AM customIO.ManagerIO managerActions
+INFO: Enter the details to create a account to Customer 
+UserId
+Feb 26, 2024 10:32:51 AM customIO.ManagerIO managerActions
+INFO: Branch Id
+Feb 26, 2024 10:32:53 AM customIO.ManagerIO managerActions
+INFO: Account Type 
+ 1.Saving 
+ 2.Current 
+ 3.Salary
+Feb 26, 2024 10:32:58 AM customIO.ManagerIO managerActions
+INFO: Account created
+Feb 26, 2024 10:32:58 AM customIO.ManagerIO managerActions
+INFO: Enter the details to create a account to Customer 
+UserId
+Feb 26, 2024 10:33:04 AM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 10:33:04 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:33:04 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 10:33:05 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:33:05 AM customIO.Bankapp main
+INFO: Enter the login credentials to Proceed
+Feb 26, 2024 10:33:05 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 10:33:07 AM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 10:33:09 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 10:33:09 AM customIO.Bankapp main
+INFO: Logged in successfully
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: 4.Deposite 
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Feb 26, 2024 10:33:09 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: Account Details
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: Account Number 100000000000012
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: Balance        0              
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: Account Type   Saving         
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: Status         active         
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: Branch IFSC codeABCD1234567    
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: Account Number 100000000000013
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: Balance        0              
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: Account Type   Current        
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: Status         active         
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: Branch IFSC codeABCD1234567    
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: 4.Deposite 
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Feb 26, 2024 10:33:13 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Feb 26, 2024 2:19:01 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 2:19:01 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:19:01 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:19:08 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:19:08 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 2:19:08 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 2:19:09 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 2:19:11 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:19:11 PM customIO.Bankapp main
+INFO: Logged in successfully
+Feb 26, 2024 2:19:11 PM customIO.CustomerIO customerAction
+INFO: To change the Account log out and login
+Feb 26, 2024 2:19:11 PM customIO.CustomerIO customerAction
+WARNING: Your account has been Blocked, you cannot Proceed now :(
+Feb 26, 2024 2:19:11 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:19:11 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:26:39 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 2:26:39 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:26:39 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:26:48 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:26:48 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 2:26:48 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 2:26:49 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 2:26:51 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:26:51 PM customIO.Bankapp main
+INFO: Logged in successfully
+Feb 26, 2024 2:26:51 PM customIO.CustomerIO customerAction
+INFO: To change the Account log out and login
+Feb 26, 2024 2:26:51 PM customIO.CustomerIO customerAction
+WARNING: Your account has been Blocked, you cannot Proceed now :(
+Feb 26, 2024 2:26:51 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:26:51 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:26:54 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:26:54 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 2:26:54 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 2:26:55 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 2:26:56 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:26:56 PM customIO.Bankapp main
+INFO: An Exception occured ! Sorry for the Inconvenience
+utility.InvalidInputException: An Error Occured , Sorry for the Inconvenience
+	at Bankapp/dbLogics.UserOperations.addBlockedUser(UserOperations.java:107)
+	at Bankapp/customLogics.UserFunctions.addBlockedUser(UserFunctions.java:68)
+	at Bankapp/customIO.Bankapp.main(Bankapp.java:87)
+Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Incorrect datetime value: '1708937816409' for column 'BlockedTime' at row 1
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:104)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1054)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1003)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1312)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:988)
+	at Bankapp/dbLogics.UserOperations.addBlockedUser(UserOperations.java:105)
+	... 2 more
+
+Feb 26, 2024 2:27:36 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 2:27:36 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:27:36 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:27:37 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:27:37 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 2:27:37 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 2:27:38 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 2:27:39 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:27:39 PM customIO.Bankapp main
+INFO: You Entered a invalid credentials
+Feb 26, 2024 2:27:39 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:27:39 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:27:43 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:27:43 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 2:27:43 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 2:27:46 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 2:27:49 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:27:49 PM customIO.Bankapp main
+INFO: You Entered a invalid credentials
+Feb 26, 2024 2:27:49 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:27:49 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:28:37 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 2:28:37 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:28:37 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:28:37 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:28:37 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 2:28:37 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 2:28:38 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 2:28:39 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:28:39 PM customIO.Bankapp main
+INFO: You Entered a invalid credentials
+Feb 26, 2024 2:28:39 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:28:39 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:28:47 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:28:47 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 2:28:47 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 2:28:49 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 2:28:51 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:28:51 PM customIO.Bankapp main
+INFO: Logged in successfully
+Feb 26, 2024 2:28:51 PM customIO.CustomerIO customerAction
+INFO: To change the Account log out and login
+Feb 26, 2024 2:28:51 PM customIO.CustomerIO customerAction
+WARNING: Your account has been Blocked, you cannot Proceed now :(
+Feb 26, 2024 2:28:51 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:28:51 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:31:01 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:31:01 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 2:31:01 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 2:31:21 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 2:31:21 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:31:21 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:38:47 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 2:38:47 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:38:47 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:38:48 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:38:48 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 2:38:48 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 2:38:49 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 2:38:51 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:38:51 PM customIO.Bankapp main
+INFO: You Entered a invalid credentials
+Feb 26, 2024 2:38:51 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:38:51 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:39:05 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:39:05 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 2:39:05 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 2:39:06 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 2:39:06 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:39:06 PM customIO.Bankapp main
+INFO: You Entered a invalid credentials
+Feb 26, 2024 2:39:06 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:39:06 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:39:11 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 2:39:11 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:39:11 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:39:12 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:39:12 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 2:39:12 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 2:39:14 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 2:39:15 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:39:15 PM customIO.Bankapp main
+WARNING: Your Account has been locked.You cannot login now :(
+Feb 26, 2024 2:39:15 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:39:15 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 2:42:56 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 2:42:56 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:01:20 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 3:01:20 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:01:20 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:01:21 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:01:21 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 3:01:21 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 3:01:37 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 3:01:38 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:01:38 PM customIO.Bankapp main
+INFO: You Entered a invalid credentials
+Feb 26, 2024 3:01:38 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:01:38 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:01:39 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:01:39 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 3:01:39 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 3:01:41 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 3:01:42 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:01:42 PM customIO.Bankapp main
+INFO: You Entered a invalid credentials
+Feb 26, 2024 3:01:42 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:01:42 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:01:43 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:01:43 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 3:01:43 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 3:01:45 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 3:01:46 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:01:46 PM customIO.Bankapp main
+INFO: You Entered a invalid credentials
+Feb 26, 2024 3:01:46 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:01:46 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:01:48 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:01:48 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 3:01:48 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 3:01:50 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 3:01:51 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:14:44 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 3:14:44 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:14:44 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:14:50 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:14:50 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 3:14:50 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 3:14:51 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 3:14:54 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:15:31 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 3:15:31 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:15:31 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:15:33 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:15:33 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 3:15:33 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 3:15:34 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 3:15:37 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:22:14 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 3:22:14 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:22:14 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:22:16 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:22:16 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 3:22:16 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 3:22:16 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 3:22:19 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:22:56 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 3:22:56 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:22:56 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:22:58 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:22:58 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 3:22:58 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 3:22:58 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 3:23:02 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:23:16 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 3:23:16 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:23:16 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:23:17 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:23:17 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 3:23:17 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 3:23:17 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 3:23:21 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:24:48 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 3:24:48 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:24:48 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:24:49 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:24:49 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 3:24:49 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 3:24:50 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 3:24:53 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:24:53 PM customIO.Bankapp main
+WARNING: Your Account has been locked.You cannot login now :(
+Feb 26, 2024 3:24:53 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:24:53 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:36:59 PM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Feb 26, 2024 3:36:59 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:36:59 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:37:00 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:37:00 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 3:37:00 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 3:37:01 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 3:37:10 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:37:10 PM customIO.Bankapp main
+WARNING: you have only 0 Attempts Left :(
+Feb 26, 2024 3:37:10 PM customIO.Bankapp main
+INFO: You Entered a invalid credentials
+Feb 26, 2024 3:37:10 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:37:10 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Feb 26, 2024 3:37:16 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:37:16 PM customIO.Bankapp main
+INFO: Enter the login credentials
+Feb 26, 2024 3:37:16 PM customIO.Bankapp main
+INFO: Enter UserId :  
+Feb 26, 2024 3:37:17 PM customIO.Bankapp main
+INFO: Enter Password :
+Feb 26, 2024 3:37:18 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:37:19 PM customIO.Bankapp main
+WARNING: you have only -1 Attempts Left :(
+Feb 26, 2024 3:37:19 PM customIO.Bankapp main
+WARNING: Your Account has been locked.You cannot login now :(
+Feb 26, 2024 3:37:19 PM customIO.Bankapp main
+INFO: ------------------------------------------
+Feb 26, 2024 3:37:19 PM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
