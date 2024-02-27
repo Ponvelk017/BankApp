@@ -14,7 +14,7 @@ import utility.InvalidInputException;
 
 public class UserOperations implements User {
 
-	Connection connection = DBConnection.getConnection();
+	private Connection connection = DBConnection.getConnection();
 
 	private final String deleteUser = "update User set DeleteAt = ? where Id = ?";
 
@@ -71,6 +71,7 @@ public class UserOperations implements User {
 
 	// BlockedUser Table
 
+	@Override
 	public int addBlockedUser(int userId, int invalidAttempts, long time) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(userId);
 		InputCheck.checkNegativeInteger(invalidAttempts);
@@ -88,6 +89,7 @@ public class UserOperations implements User {
 		return affectedRows;
 	}
 
+	@Override
 	public int updateInvalidAttempt(int userId, int invalidAttempts, long time) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(userId);
 		InputCheck.checkNegativeInteger(invalidAttempts);
@@ -104,20 +106,21 @@ public class UserOperations implements User {
 		}
 		return affectedRows;
 	}
-	
+
+	@Override
 	public int deleteRecord(int userId) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(userId);
-		String query  ="delete from BlockedUser where UserId = ?";
+		String query = "delete from BlockedUser where UserId = ?";
 		int affectedRows = 0;
-		try(PreparedStatement statement = connection.prepareStatement(query)){
+		try (PreparedStatement statement = connection.prepareStatement(query)) {
 			statement.setInt(1, userId);
 			affectedRows = statement.executeUpdate();
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 		}
 		return affectedRows;
 	}
-	
+
 	@Override
 	public Map<String, Object> getBlockedDetails(int userId) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(userId);
@@ -127,8 +130,8 @@ public class UserOperations implements User {
 			statement.setInt(1, userId);
 			try (ResultSet record = statement.executeQuery()) {
 				if (record.next()) {
-					result.put("InvalidAttempts", (int)record.getInt(1));
-					result.put("BlockedTime",(long)record.getLong(2));
+					result.put("InvalidAttempts", (int) record.getInt(1));
+					result.put("BlockedTime", (long) record.getLong(2));
 				} else {
 					result.put("InvalidAttempts", 0);
 					result.put("BlockedTime", 0);

@@ -128,8 +128,11 @@ public class CustomerIO {
 			case 5: {
 				logger.info("Enter the Amount to withdraw :");
 				long withdrawAmount = scanner.nextLong();
-				long transactionId = accountFunctions.withdraw(primaryAccount, withdrawAmount);
-				transactionDetails = transactionFunctions.getTransactionDetails(transactionId);
+				logger.info("Enter Description");
+				scanner.nextLine();
+				String description =  scanner.nextLine();
+				long transactionId = accountFunctions.withdraw(primaryAccount, withdrawAmount , description);
+				transactionDetails  = transactionFunctions.getTransactionDetails(transactionId);
 				if (transactionDetails != null) {
 					logger.info("Successfully Withdrawed :)\nYour Transaction statement is");
 					logger.severe("-" + "-".repeat(40) + "-");
@@ -141,6 +144,8 @@ public class CustomerIO {
 							+ String.format("%-20s", new Date(transactionDetails.getTime()).toString()));
 					logger.severe(String.format("%-20s", "Transaction type")
 							+ String.format("%-20s", transactionDetails.getTranactionType()));
+					logger.severe(String.format("%-20s", "Description")
+							+ String.format("%-20s", transactionDetails.getDescription()));
 					logger.severe(String.format("%-20s", "Transaction Status")
 							+ String.format("%-20s", transactionDetails.getTransactionStatus()));
 					logger.severe(String.format("%-20s", "Transaction Amount")
@@ -157,8 +162,11 @@ public class CustomerIO {
 				long receiverAccountNumber = scanner.nextLong();
 				logger.info("Enter the Amount to send : ");
 				long amount = scanner.nextLong();
+				logger.info("Enter Description");
+				scanner.nextLine();
+				String description =  scanner.nextLine();
 				Map<String, Integer> result = accountFunctions.transferWithinBank(primaryAccount, receiverAccountNumber,
-						amount);
+						amount , description);
 				if (result.get("SuffientBalance") == 0) {
 					logger.warning("Insuffient Balance");
 				} else if (result.get("UpdateSenderBalance") == 0 || result.get("UpdateReceiverBalance") == 0) {
@@ -178,6 +186,8 @@ public class CustomerIO {
 								+ String.format("%-20s", new Date(transactionDetails.getTime()).toString()));
 						logger.severe(String.format("%-20s", "Transaction type")
 								+ String.format("%-20s", transactionDetails.getTranactionType()));
+						logger.severe(String.format("%-20s", "Description")
+								+ String.format("%-20s", transactionDetails.getDescription()));
 						logger.severe(String.format("%-20s", "Transaction Status")
 								+ String.format("%-20s", transactionDetails.getTransactionStatus()));
 						logger.severe(String.format("%-20s", "Transaction Amount")
@@ -193,7 +203,10 @@ public class CustomerIO {
 				long receiverAccountNumber = scanner.nextLong();
 				logger.info("Enter the Amount to send : ");
 				long amount = scanner.nextLong();
-				long transactionId = accountFunctions.transferOtherBank(primaryAccount, receiverAccountNumber, amount);
+				logger.info("Enter Description");
+				scanner.nextLine();
+				String description =  scanner.nextLine();
+				long transactionId = accountFunctions.transferOtherBank(primaryAccount, receiverAccountNumber, amount , description);
 				if (transactionId > 0) {
 					logger.info("Your Transaction Details");
 					transactionDetails = transactionFunctions.getTransactionDetails(transactionId);
@@ -209,6 +222,8 @@ public class CustomerIO {
 								+ String.format("%-20s", new Date(transactionDetails.getTime()).toString()));
 						logger.severe(String.format("%-20s", "Transaction type")
 								+ String.format("%-20s", transactionDetails.getTranactionType()));
+						logger.severe(String.format("%-20s", "Description")
+								+ String.format("%-20s", transactionDetails.getDescription()));
 						logger.severe(String.format("%-20s", "Transaction Status")
 								+ String.format("%-20s", transactionDetails.getTransactionStatus()));
 						logger.severe(String.format("%-20s", "Transaction Amount")

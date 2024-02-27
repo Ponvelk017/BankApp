@@ -3,7 +3,6 @@ package customIO;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.ConsoleHandler;
@@ -42,7 +41,6 @@ public class Bankapp {
 
 			logger.info(String.format("%50s", " Welcome to Bank of CBE "));
 			boolean breakCondition = true;
-			Map<Integer, Integer> loginDetails = new HashMap<Integer, Integer>();
 			while (breakCondition) {
 				logger.info("-" + "-".repeat(40) + "-");
 				logger.info("1.Log in\n2.Exit");
@@ -56,6 +54,10 @@ public class Bankapp {
 					logger.info(String.format("%10s", "Enter UserId :  "));
 					userId = scanner.nextInt();
 					scanner.nextLine();
+					if(userFunction.isUser(userId) == -1) {
+						logger.warning("Invalid userId :( ");
+						continue;
+					}
 					logger.info(String.format("%10s", "Enter Password :"));
 					password = scanner.nextLine();
 					logger.info("-" + "-".repeat(40) + "-");
@@ -77,7 +79,7 @@ public class Bankapp {
 					boolean isAuth = userFunction.login(userId, password);
 					if (isAuth) {
 						logger.info("Logged in successfully");
-						String isUser = userFunction.isUser(userId);
+						String isUser = userFunction.getDesignation(userId);
 						switch (isUser) {
 						case "Customer": {
 							customerIo.customerAction(userId);

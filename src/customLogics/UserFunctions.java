@@ -10,7 +10,7 @@ import utility.InvalidInputException;
 public class UserFunctions {
 
 	private UserOperations userOpertaion = new UserOperations();
-	EmployeeOperations employee = new EmployeeOperations();
+	private EmployeeOperations employee = new EmployeeOperations();
 
 	public boolean login(int userId, String password) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(userId);
@@ -22,8 +22,15 @@ public class UserFunctions {
 		}
 		return result;
 	}
+	public int isUser(int userId) throws InvalidInputException {
+		InputCheck.checkNegativeInteger(userId);
+		if(userOpertaion.getSingleRecord("Id", "Id", userId) == null) {
+			return -1;
+		}
+		return 1;
+	}
 
-	public String isUser(int userId) throws InvalidInputException {
+	public String getDesignation(int userId) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(userId);
 		String isUser = (String) userOpertaion.getSingleRecord("Type", "Id", userId);
 		if (!isUser.equals("Customer")) {

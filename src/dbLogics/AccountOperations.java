@@ -15,7 +15,7 @@ import utility.InvalidInputException;
 
 public class AccountOperations implements Account {
 
-	Connection connection = DBConnection.getConnection();
+	private Connection connection = DBConnection.getConnection();
 
 	private final String createAccount = "insert into Account(UserId , BranchId , AccountType) values (?,?,?)";
 	private final String getAccountDetails = "select * from Account where UserId = ? ";

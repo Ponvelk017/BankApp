@@ -38,8 +38,8 @@ public class ManagerIO {
 			logger.info("-" + "-".repeat(40) + "-");
 			logger.info("Select a Option to Proceed : ");
 			logger.info(String.format("%10s", "1.Add a Customer"));
-			logger.info(String.format("%10s", "2.Add a Employee"));
-			logger.info(String.format("%10s", "3.Create an Account to User"));
+			logger.info(String.format("%10s", "2.Create an Account to User"));
+			logger.info(String.format("%10s", "3.Add a Employee"));
 			logger.info(String.format("%10s", "4.Update the Details of a Customer"));
 			logger.info(String.format("%10s", "5.Update the Details of a Employee"));
 			logger.info(String.format("%10s", "6.Delete a User"));
@@ -77,8 +77,30 @@ public class ManagerIO {
 					logger.info("insertion was UnSuccessful");
 				}
 			}
-				break;
 			case 2: {
+				logger.info("Enter the details to create a account to Customer \nUserId");
+				scanner.nextLine();
+				accountDet.setUserId(scanner.nextInt());
+				logger.info("Branch Id");
+				accountDet.setBranchId(scanner.next());
+				logger.info("Account Type \n 1.Saving \n 2.Current \n 3.Salary");
+				int accTypeOption = scanner.nextInt();
+				if (accTypeOption == 1) {
+					accountDet.setAccountType("Saving");
+				} else if (accTypeOption == 2) {
+					accountDet.setAccountType("Current");
+				} else {
+					accountDet.setAccountType("Salary");
+				}
+				int affectedRow = accountFunction.addAccount(accountDet);
+				if (affectedRow > 0) {
+					logger.info("Account created");
+				} else {
+					logger.info("Account creation was UnSuccessful");
+				}
+			}
+				break;
+			case 3: {
 				logger.info("Enter the Employee \nName");
 				employeeDet.setName(scanner.next());
 				logger.info("DOB");
@@ -103,29 +125,6 @@ public class ManagerIO {
 					logger.info("Successfully inserted");
 				} else {
 					logger.info("insertion was UnSuccessful");
-				}
-			}
-				break;
-			case 3: {
-				logger.info("Enter the details to create a account to Customer \nUserId");
-				scanner.nextLine();
-				accountDet.setUserId(scanner.nextInt());
-				logger.info("Branch Id");
-				accountDet.setBranchId(scanner.next());
-				logger.info("Account Type \n 1.Saving \n 2.Current \n 3.Salary");
-				int accTypeOption = scanner.nextInt();
-				if (accTypeOption == 1) {
-					accountDet.setAccountType("Saving");
-				} else if (accTypeOption == 2) {
-					accountDet.setAccountType("Current");
-				} else {
-					accountDet.setAccountType("Salary");
-				}
-				int affectedRow = accountFunction.addAccount(accountDet);
-				if (affectedRow > 0) {
-					logger.info("Account created");
-				} else {
-					logger.info("Account creation was UnSuccessful");
 				}
 			}
 				break;

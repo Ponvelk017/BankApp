@@ -15,4 +15,10 @@ public interface User {
 	// BlockedUser
 
 	public Map<String, Object> getBlockedDetails(int userId) throws InvalidInputException;
+
+	public int addBlockedUser(int userId, int invalidAttempts, long time) throws InvalidInputException;
+
+	public int updateInvalidAttempt(int userId, int invalidAttempts, long time) throws InvalidInputException;
+
+	public int deleteRecord(int userId) throws InvalidInputException;
 }

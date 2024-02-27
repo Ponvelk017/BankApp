@@ -7,7 +7,7 @@ import utility.InvalidInputException;
 
 public class EmployeeFunctions {
 
-	EmployeeOperations employeeOperations = new EmployeeOperations();
+	private EmployeeOperations employeeOperations = new EmployeeOperations();
 
 	public int addEmployee(EmployeeDetails employee) throws InvalidInputException {
 		InputCheck.checkNull(employee);

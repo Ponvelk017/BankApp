@@ -16,11 +16,11 @@ import utility.InvalidInputException;
 
 public class TransactionOperations implements Transaction {
 
-	Connection connection = DBConnection.getConnection();
-	TransactionDetails transactionDetail;
+	private Connection connection = DBConnection.getConnection();
+	private TransactionDetails transactionDetail;
 
-	private final String setTransferTransaction = "insert into Transaction(AccountId,TransactionAccountId,UserId,TransactionTime,TransactionType,Description,Amount,ClosingBalance) "
-			+ "values(?,?,?,?,?,?,?,?)";
+	private final String setTransferTransaction = "insert into Transaction(Id,AccountId,TransactionAccountId,UserId,TransactionTime,TransactionType,Description,Amount,ClosingBalance) "
+			+ "values(?,?,?,?,?,?,?,?,?)";
 	private final String getTransferTransaction = "select * from Transaction where Id = ?";
 	private final String getStatement = "select * from Transaction where  AccountId = ? || TransactionAccountId = ? and TransactionTime <= ? and "
 			+ "TransactionTime > ?";
@@ -28,54 +28,50 @@ public class TransactionOperations implements Transaction {
 	@Override
 	public int setTransferTransaction(TransactionDetails transactionDetails) throws InvalidInputException {
 		InputCheck.checkNull(transactionDetails);
-		int transactionId = 0, affectedRows = 0;
+		int affectedRows = 0;
 		transactionDetail = new TransactionDetails();
-		try (PreparedStatement statement = connection.prepareStatement(setTransferTransaction,
-				PreparedStatement.RETURN_GENERATED_KEYS)) {
-			statement.setLong(1, transactionDetails.getAccountId());
-			statement.setLong(2, transactionDetails.getTransactionAccountId());
-			statement.setInt(3, transactionDetails.getUserId());
-			statement.setLong(4, transactionDetails.getTime());
-			statement.setString(5, transactionDetails.getTranactionType());
-			statement.setString(6, transactionDetails.getDescription());
-			statement.setLong(7, transactionDetails.getAmount());
-			statement.setLong(8, transactionDetails.getClosingBalance());
+		try (PreparedStatement statement = connection.prepareStatement(setTransferTransaction)) {
+			statement.setLong(1, transactionDetails.getId());
+			statement.setLong(2, transactionDetails.getAccountId());
+			statement.setLong(3, transactionDetails.getTransactionAccountId());
+			statement.setInt(4, transactionDetails.getUserId());
+			statement.setLong(5, transactionDetails.getTime());
+			statement.setString(6, transactionDetails.getTranactionType());
+			statement.setString(7, transactionDetails.getDescription() + " ");
+			statement.setLong(8, transactionDetails.getAmount());
+			statement.setLong(9, transactionDetails.getClosingBalance());
 			affectedRows = statement.executeUpdate();
-			if (affectedRows > 0) {
-				try (ResultSet record = statement.getGeneratedKeys()) {
-					if (record.next()) {
-						transactionId = record.getInt(1);
-					}
-				}
-			}
 		} catch (SQLException e) {
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 		}
-		return transactionId;
+		return affectedRows;
 	}
 
 	@Override
-	public TransactionDetails getTransferTransaction(long transactionId) throws InvalidInputException {
+	public List<TransactionDetails> getTransferTransaction(long transactionId) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(transactionId);
-		transactionDetail = new TransactionDetails();
+		List<TransactionDetails> records = new ArrayList<TransactionDetails>();
 		try (PreparedStatement statement = connection.prepareStatement(getTransferTransaction)) {
 			statement.setLong(1, transactionId);
 			try (ResultSet record = statement.executeQuery()) {
-				if (record.next()) {
+				while (record.next()) {
+					transactionDetail = new TransactionDetails();
 					transactionDetail.setId(transactionId);
 					transactionDetail.setAccountId(record.getLong("AccountId"));
 					transactionDetail.setTransactionAccountId(record.getLong("TransactionAccountId"));
 					transactionDetail.setTime(record.getLong("TransactionTime"));
 					transactionDetail.setTranactionType(record.getString("TransactionType"));
 					transactionDetail.setTransactionStatus(record.getString("Status"));
+					transactionDetail.setDescription(record.getString("Description"));
 					transactionDetail.setAmount(record.getLong("Amount"));
 					transactionDetail.setClosingBalance(record.getLong("ClosingBalance"));
+					records.add(transactionDetail);
 				}
 			}
 		} catch (SQLException e) {
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 		}
-		return transactionDetail;
+		return records;
 	}
 
 	@Override
@@ -114,5 +110,21 @@ public class TransactionOperations implements Transaction {
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 		}
 		return transactionRecords;
+	}
+
+	@Override
+	public long getId() {
+		String query = "select max(Id) from Transaction";
+		long id = 0;
+		try (PreparedStatement statement = connection.prepareStatement(query)) {
+			try (ResultSet record = statement.executeQuery()) {
+				if (record.next()) {
+					id = record.getLong("max(Id)");
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return id;
 	}
 }

@@ -15,20 +15,20 @@ import utility.InvalidInputException;
 
 public class CustomerOperations implements Customer {
 
-	Connection connection = DBConnection.getConnection();
-	UserOperations user = new UserOperations();
-	CustomerDetails customerDet = new CustomerDetails();
+	private Connection connection = DBConnection.getConnection();
+	private CustomerDetails customerDet = new CustomerDetails();
 
-	private String insertCustomer= "insert into User (Name,DOB,Mobile,Email,Gender,Password) values (?,?,?,?,?,?)";
-	private final String getProfile = "select User.*,Customer.Address,Customer.Aadhar,Customer.Pan from User left join \"\n"
-			+ "				+ \"Customer on User.Id = Customer.Id where User.Id = ?; "; 
-	
+	private String insertCustomer = "insert into User (Name,DOB,Mobile,Email,Gender,Password) values (?,?,?,?,?,?)";
+	private final String getProfile = "select User.*,Customer.Address,Customer.Aadhar,Customer.Pan from User "
+			+ "left join Customer on User.Id = Customer.Id where User.Id = ?";
+
 	@Override
 	public int insertCustomer(CustomerDetails customer) throws InvalidInputException {
 		InputCheck.checkNull(customer);
 		int affectedRows = 0, customerId = 0;
 		try (PreparedStatement statement = connection.prepareStatement(insertCustomer,
 				PreparedStatement.RETURN_GENERATED_KEYS)) {
+			connection.setAutoCommit(false);
 			statement.setString(1, customer.getName());
 			statement.setDouble(2, Common.dateToMilli(customer.getDob()));
 			statement.setString(3, customer.getMobile());
@@ -48,8 +48,16 @@ public class CustomerOperations implements Customer {
 				empStatement.setString(3, customer.getPan());
 				empStatement.setString(4, customer.getAddress());
 				affectedRows = empStatement.executeUpdate();
+				connection.commit();
 			}
 		} catch (SQLException e) {
+			try {
+				if (connection != null) {
+					connection.rollback();
+				}
+			} catch (SQLException e1) {
+				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e1);
+			}
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 		}
 		return affectedRows;
@@ -78,6 +86,7 @@ public class CustomerOperations implements Customer {
 	@Override
 	public CustomerDetails getProfile(int customerId) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(customerId);
+		System.out.println(customerId);
 		try (PreparedStatement statement = connection.prepareStatement(getProfile)) {
 			statement.setInt(1, customerId);
 			try (ResultSet record = statement.executeQuery()) {

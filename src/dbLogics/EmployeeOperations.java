@@ -16,8 +16,6 @@ public class EmployeeOperations implements Employee {
 
 	private Connection connection = DBConnection.getConnection();
 
-	UserOperations user = new UserOperations();
-
 	private String insertEmployee = "insert into User (Name,DOB,Mobile,Email,Gender,Password) values (?,?,?,?,?,?)";
 
 	@Override
@@ -25,6 +23,7 @@ public class EmployeeOperations implements Employee {
 		InputCheck.checkNull(employee);
 		int affecteedRows = 0;
 		try (PreparedStatement statement = connection.prepareStatement(insertEmployee)) {
+			connection.setAutoCommit(false);
 			statement.setString(1, employee.getName());
 			statement.setDouble(2, Common.dateToMilli(employee.getDob()));
 			statement.setString(3, employee.getMobile());
@@ -43,10 +42,16 @@ public class EmployeeOperations implements Employee {
 						int employeeId = record.getInt(1);
 						empStatement.setInt(1, employeeId);
 						affecteedRows = empStatement.executeUpdate();
+						connection.commit();
 					}
 				}
 			}
 		} catch (SQLException e) {
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e1);
+			}
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 		}
 		return affecteedRows;

@@ -9,6 +9,7 @@ import customLogics.AccountFunctions;
 import customLogics.CustomerFunctions;
 import customLogics.TransactionFunctions;
 import customLogics.UserFunctions;
+import details.AccountDetails;
 import details.CustomerDetails;
 import details.TransactionDetails;
 import utility.InvalidInputException;
@@ -20,6 +21,7 @@ public class EmployeeIO {
 	public void employeeActions(int employeeId) throws InvalidInputException {
 
 		TransactionDetails transactionDetails = new TransactionDetails();
+		AccountDetails accountDetails = new AccountDetails();
 		CustomerDetails customerDet = new CustomerDetails();
 		UserFunctions userFunctions = new UserFunctions();
 		AccountFunctions accountFunctions = new AccountFunctions();
@@ -33,12 +35,12 @@ public class EmployeeIO {
 			logger.info("-" + "-".repeat(40) + "-");
 			logger.info("Select a Option to Proceed : ");
 			logger.info(String.format("%10s", "1.Add a Customer"));
-			logger.info(String.format("%10s", "2.Update the Details of a Customer"));
-			logger.info(String.format("%10s", "3.Delete a Customer"));
-			logger.info(String.format("%10s", "4.view Transactions of a User"));
-			logger.info(String.format("%10s", "5.Make a User Active/Inactive"));
-			logger.info(String.format("%10s", "6.Block/Unblock a Account"));
-			logger.info(String.format("%8s", "7.Log Out"));
+			logger.info(String.format("%10s", "3.Update the Details of a Customer"));
+			logger.info(String.format("%10s", "4.Delete a Customer"));
+			logger.info(String.format("%10s", "5.view Transactions of a User"));
+			logger.info(String.format("%10s", "6.Make a User Active/Inactive"));
+			logger.info(String.format("%10s", "7.Block/Unblock a Account"));
+			logger.info(String.format("%8s", "8.Log Out"));
 			logger.info("-" + "-".repeat(40) + "-");
 			int option = scanner.nextInt();
 			switch (option) {
@@ -69,8 +71,30 @@ public class EmployeeIO {
 					logger.info("insertion was UnSuccessful");
 				}
 			}
-				break;
 			case 2: {
+				logger.info("Enter the details to create a account to Customer \nUserId");
+				scanner.nextLine();
+				accountDetails.setUserId(scanner.nextInt());
+				logger.info("Branch Id");
+				accountDetails.setBranchId(scanner.next());
+				logger.info("Account Type \n 1.Saving \n 2.Current \n 3.Salary");
+				int accTypeOption = scanner.nextInt();
+				if (accTypeOption == 1) {
+					accountDetails.setAccountType("Saving");
+				} else if (accTypeOption == 2) {
+					accountDetails.setAccountType("Current");
+				} else {
+					accountDetails.setAccountType("Salary");
+				}
+				int affectedRow = accountFunctions.addAccount(accountDetails);
+				if (affectedRow > 0) {
+					logger.info("Account created");
+				} else {
+					logger.info("Account creation was UnSuccessful");
+				}
+			}
+				break;
+			case 3: {
 				logger.info("Enter the details to update the details of the Customer \nUserId");
 				scanner.nextLine();
 				int customerId = scanner.nextInt();
@@ -87,7 +111,7 @@ public class EmployeeIO {
 				}
 			}
 				break;
-			case 3: {
+			case 4: {
 				logger.info("Enter the Customer Id to Delete(make User account Inactive) : ");
 				scanner.nextLine();
 				int userIdToDelete = scanner.nextInt();
@@ -104,7 +128,7 @@ public class EmployeeIO {
 				}
 			}
 				break;
-			case 4: {
+			case 5: {
 				logger.info("1. View all Transacions Of the User");
 				logger.info("2. View Single Transacions");
 				int transactionOption = scanner.nextInt();
@@ -141,32 +165,32 @@ public class EmployeeIO {
 					break;
 				case 2: {
 					logger.info("Enter the Transaction Id to Proceed ");
-					transactionDetails = transactionFunctions.getTransactionDetails(scanner.nextLong());
-					if (transactionDetails != null) {
+					List<TransactionDetails> record = transactionFunctions.getSingleTransactionDetails(scanner.nextLong());
+					for (TransactionDetails records : record) {
 						logger.severe("-" + "-".repeat(40) + "-");
 						logger.severe(String.format("%-20s", "Transaction Id")
-								+ String.format("%-20s", transactionDetails.getId()));
+								+ String.format("%-20s", records.getId()));
 						logger.severe(String.format("%-20s", "From ")
-								+ String.format("%-20s", transactionDetails.getAccountId()));
+								+ String.format("%-20s", records.getAccountId()));
 						logger.severe(String.format("%-20s", "To ")
-								+ String.format("%-20s", transactionDetails.getTransactionAccountId()));
+								+ String.format("%-20s", records.getTransactionAccountId()));
 						logger.severe(String.format("%-20s", "Transaction Time")
-								+ String.format("%-20s", new Date(transactionDetails.getTime()).toString()));
+								+ String.format("%-20s", new Date(records.getTime()).toString()));
 						logger.severe(String.format("%-20s", "Transaction type")
-								+ String.format("%-20s", transactionDetails.getTranactionType()));
+								+ String.format("%-20s", records.getTranactionType()));
 						logger.severe(String.format("%-20s", "Transaction Status")
-								+ String.format("%-20s", transactionDetails.getTransactionStatus()));
+								+ String.format("%-20s", records.getTransactionStatus()));
 						logger.severe(String.format("%-20s", "Transaction Amount")
-								+ String.format("%-20s", transactionDetails.getAmount()));
+								+ String.format("%-20s", records.getAmount()));
 						logger.severe(String.format("%-20s", "Closing Balance")
-								+ String.format("%-20s", transactionDetails.getClosingBalance()));
+								+ String.format("%-20s", records.getClosingBalance()));
 					}
 				}
 					break;
 				}
 			}
 				break;
-			case 5: {
+			case 6: {
 				logger.info("1. Make Customer Active \n2. Make User Inactive");
 				int activeOption = scanner.nextInt();
 				logger.info("Enter the User Id");
@@ -194,7 +218,7 @@ public class EmployeeIO {
 			}
 				break;
 
-			case 6: {
+			case 7: {
 				logger.info("1. Make Account Active \n2. Make Account Inactive");
 				int activeOption = scanner.nextInt();
 				logger.info("Enter the Account Number");
@@ -221,7 +245,7 @@ public class EmployeeIO {
 				}
 			}
 				break;
-			case 7: {
+			case 8: {
 				breakCondition = false;
 			}
 				break;

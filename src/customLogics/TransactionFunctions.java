@@ -1,5 +1,6 @@
 package customLogics;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dbLogics.TransactionOperations;
@@ -9,14 +10,12 @@ import utility.InvalidInputException;
 
 public class TransactionFunctions {
 
-	TransactionOperations transactionOpertaion = new TransactionOperations();
-	TransactionDetails transactionDetails;
+	private TransactionOperations transactionOpertaion = new TransactionOperations();
 
 	public TransactionDetails getTransactionDetails(long transactionId) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(transactionId);
-		transactionDetails = new TransactionDetails();
-		transactionDetails = transactionOpertaion.getTransferTransaction(transactionId);
-		return transactionDetails;
+		List<TransactionDetails> record = transactionOpertaion.getTransferTransaction(transactionId);
+		return record.get(0);
 	}
 
 	public List<TransactionDetails> accountStatement(int duration, long account) throws InvalidInputException {
@@ -24,5 +23,17 @@ public class TransactionFunctions {
 		InputCheck.checkNegativeInteger(account);
 		List<TransactionDetails> record = transactionOpertaion.getStatement(duration, account);
 		return record;
+	}
+	
+	public long getLastId() {
+		System.out.println("transaction function "+transactionOpertaion.getId());
+		return transactionOpertaion.getId();
+	}
+	
+	public List<TransactionDetails> getSingleTransactionDetails(long transactionId) throws InvalidInputException {
+		InputCheck.checkNegativeInteger(transactionId);
+		List<TransactionDetails> records = new ArrayList<TransactionDetails>();
+		records = transactionOpertaion.getTransferTransaction(transactionId);
+		return records;
 	}
 }
