@@ -1,11 +1,16 @@
 package dbLogics;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import customDB.Account;
 import details.AccountDetails;
@@ -20,6 +25,70 @@ public class AccountOperations implements Account {
 	private final String createAccount = "insert into Account(UserId , BranchId , AccountType) values (?,?,?)";
 	private final String getAccountDetails = "select * from Account where UserId = ? ";
 	private final String getAvailableAccount = "select AccountNumber from Account where UserId = ? ";
+
+	private Map<String, String> mappingRecords = new HashMap<String, String>();
+
+	public void getMappingDetails() throws InvalidInputException {
+		try (PreparedStatement statement = connection.prepareStatement("select * from Account");
+				ResultSet allColumns = statement.executeQuery()) {
+			ResultSetMetaData metadata = allColumns.getMetaData();
+			int columns = ((ResultSetMetaData) metadata).getColumnCount();
+			for (int i = 1; i <= columns; i++) {
+				String tempColumn = (String) metadata.getColumnName(i);
+				String field = "set" + ((tempColumn).charAt(0) + "").toUpperCase()
+						+ tempColumn.substring(1, tempColumn.length());
+				mappingRecords.put(tempColumn, field);
+			}
+		} catch (SQLException e) {
+			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
+		}
+	}
+
+	private List<AccountDetails> setDetails(ResultSet record) throws InvalidInputException {
+		getMappingDetails();
+		List<AccountDetails> records = new ArrayList<AccountDetails>();
+		ResultSetMetaData metadata;
+		try {
+			metadata = record.getMetaData();
+			int columns = metadata.getColumnCount();
+			Method[] userMethods = AccountDetails.class.getMethods();
+			List<String> customerMethodsList = new ArrayList<String>();
+			for (Method temp : userMethods) {
+				customerMethodsList.add(temp.toString());
+			}
+			AccountDetails accountDetails = (AccountDetails) AccountDetails.class.getDeclaredConstructor()
+					.newInstance();
+			while (record.next()) {
+				for (int i = 1; i <= columns; i++) {
+					String columnName = metadata.getColumnName(i);
+					String dataType = metadata.getColumnTypeName(i);
+					Method method;
+					if (dataType.equals("INT")) {
+						method = AccountDetails.class.getMethod(mappingRecords.get(columnName), int.class);
+						method.invoke(accountDetails, record.getInt(i));
+					} else if (dataType.equals("VARCHAR") || dataType.equals("ENUM") || dataType.equals("CHAR")) {
+						method = AccountDetails.class.getMethod(mappingRecords.get(columnName), String.class);
+						method.invoke(accountDetails, record.getString(i));
+					} else if (!columnName.equals("DeleteAt") && dataType.equals("MEDIUMTEXT")
+							|| dataType.equals("BIGINT")) {
+						method = AccountDetails.class.getMethod(mappingRecords.get(columnName), long.class);
+						method.invoke(accountDetails, record.getLong(i));
+					}
+				}
+				records.add(accountDetails);
+			}
+		} catch (SQLException | InstantiationException | IllegalAccessException | IllegalArgumentException
+				| InvocationTargetException | NoSuchMethodException | SecurityException e) {
+			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
+		} finally {
+			try {
+				record.close();
+			} catch (SQLException e) {
+				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
+			}
+		}
+		return records;
+	}
 
 	@Override
 	public int createAccount(AccountDetails account) throws InvalidInputException {
@@ -63,16 +132,7 @@ public class AccountOperations implements Account {
 		try (PreparedStatement statement = connection.prepareStatement(getAccountDetails)) {
 			statement.setInt(1, userId);
 			try (ResultSet record = statement.executeQuery()) {
-				while (record.next()) {
-					AccountDetails tempAccount = new AccountDetails();
-					tempAccount.setAccountNo(record.getLong("AccountNumber"));
-					tempAccount.setUserId(record.getInt("UserId"));
-					tempAccount.setBranchId(record.getString("BranchId"));
-					tempAccount.setAccountStatus(record.getString("Status"));
-					tempAccount.setBalance(record.getLong("Balance"));
-					tempAccount.setAccountType(record.getString("AccountType"));
-					userAccount.add(tempAccount);
-				}
+				userAccount = setDetails(record);
 			}
 		} catch (SQLException e) {
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
@@ -81,15 +141,13 @@ public class AccountOperations implements Account {
 	}
 
 	@Override
-	public List<Long> getAvailableAccount(int userId) throws InvalidInputException {
+	public List<AccountDetails> getAvailableAccount(int userId) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(userId);
-		List<Long> availableAccounts = new ArrayList<Long>();
+		List<AccountDetails> availableAccounts = new ArrayList<AccountDetails>();
 		try (PreparedStatement statement = connection.prepareStatement(getAvailableAccount)) {
 			statement.setInt(1, userId);
 			try (ResultSet record = statement.executeQuery()) {
-				while (record.next()) {
-					availableAccounts.add(record.getLong("AccountNumber"));
-				}
+				availableAccounts = setDetails(record);
 			}
 		} catch (SQLException e) {
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
@@ -98,12 +156,12 @@ public class AccountOperations implements Account {
 	}
 
 	@Override
-	public int updateColumn(String column ,Object DepositeAmount , long accountNumber) throws InvalidInputException {
+	public int updateColumn(String column, Object DepositeAmount, long accountNumber) throws InvalidInputException {
 		InputCheck.checkNull(column);
 		InputCheck.checkNull(DepositeAmount);
 		InputCheck.checkNull(accountNumber);
 		int affectedRows = 0;
-		String query = "update Account set "+column+" = ? where AccountNumber = ?";
+		String query = "update Account set " + column + " = ? where AccountNumber = ?";
 		try (PreparedStatement statement = connection.prepareStatement(query)) {
 			statement.setObject(1, DepositeAmount);
 			statement.setObject(2, accountNumber);

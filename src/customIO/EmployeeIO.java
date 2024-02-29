@@ -1,6 +1,7 @@
 package customIO;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -12,6 +13,7 @@ import customLogics.UserFunctions;
 import details.AccountDetails;
 import details.CustomerDetails;
 import details.TransactionDetails;
+import utility.Common;
 import utility.InvalidInputException;
 
 public class EmployeeIO {
@@ -20,7 +22,6 @@ public class EmployeeIO {
 
 	public void employeeActions(int employeeId) throws InvalidInputException {
 
-		TransactionDetails transactionDetails = new TransactionDetails();
 		AccountDetails accountDetails = new AccountDetails();
 		CustomerDetails customerDet = new CustomerDetails();
 		UserFunctions userFunctions = new UserFunctions();
@@ -45,27 +46,36 @@ public class EmployeeIO {
 			int option = scanner.nextInt();
 			switch (option) {
 			case 1: {
-				logger.info("Enter the Customer \nName");
-				customerDet.setName(scanner.next());
-				logger.info("DOB");
-				customerDet.setDob(scanner.next());
-				logger.info("Mobile");
-				customerDet.setMobile(scanner.next());
-				logger.info("Email");
-				customerDet.setEmail(scanner.next());
-				logger.info("Gender");
-				customerDet.setGender(scanner.next());
-				logger.info("Password");
-				customerDet.setPassword(scanner.next());
-				logger.info("Address");
-				scanner.nextLine();
-				customerDet.setAddress(scanner.nextLine());
-				logger.info("Aadhar Number");
-				customerDet.setAadhar(scanner.next());
-				logger.info("PAN Number");
-				customerDet.setPan(scanner.next());
-				int affectedRows = customerFunction.addCustomer(customerDet);
-				if (affectedRows > 0) {
+				logger.info("How many Customer are you going to add");
+				int customerCount = scanner.nextInt();
+				List<CustomerDetails> customer = new ArrayList<CustomerDetails>();
+				while (customerCount-- > 0) {
+					logger.info("Enter the Customer \nName");
+					customerDet.setName(scanner.next());
+					logger.info("DOB");
+					customerDet.setDOB(Common.dateToMilli(scanner.next()));
+					logger.info("Mobile");
+					customerDet.setMobile(scanner.next());
+					logger.info("Email");
+					customerDet.setEmail(scanner.next());
+					logger.info("Gender");
+					customerDet.setGender(scanner.next());
+					logger.info("Password");
+					customerDet.setPassword(scanner.next());
+					logger.info("Address");
+					scanner.nextLine();
+					customerDet.setAddress(scanner.nextLine());
+					logger.info("Aadhar Number");
+					customerDet.setAadhar(scanner.next());
+					logger.info("PAN Number");
+					customerDet.setPan(scanner.next());
+					customer.add(customerDet);
+				}
+				int affectedRows = customerFunction.addCustomer(customer);
+				if (affectedRows == -1) {
+					logger.warning("Invalid Input");
+					break;
+				} else if (affectedRows > 0) {
 					logger.info("Successfully inserted");
 				} else {
 					logger.info("insertion was UnSuccessful");
@@ -131,6 +141,12 @@ public class EmployeeIO {
 			case 5: {
 				logger.info("1. View all Transacions Of the User");
 				logger.info("2. View Single Transacions");
+				logger.info("3. View transaction of a Account");
+				logger.info("4. View (Deposite/Withdraw)transaction of a Account");
+				logger.info("5. View Single Transacions");
+				logger.info("6. View Single Transacions");
+				logger.info("7. View Single Transacions");
+				logger.info("8. View Single Transacions");
 				int transactionOption = scanner.nextInt();
 				switch (transactionOption) {
 				case 1: {
@@ -153,9 +169,9 @@ public class EmployeeIO {
 						logger.severe(String.format("%-20s", "Transaction Time")
 								+ String.format("%-20s", new Date(singleTransaction.getTime()).toString()));
 						logger.severe(String.format("%-20s", "Transaction type")
-								+ String.format("%-20s", singleTransaction.getTranactionType()));
+								+ String.format("%-20s", singleTransaction.getTransactionType()));
 						logger.severe(String.format("%-20s", "Transaction Status")
-								+ String.format("%-20s", singleTransaction.getTransactionStatus()));
+								+ String.format("%-20s", singleTransaction.getStatus()));
 						logger.severe(String.format("%-20s", "Transaction Amount")
 								+ String.format("%-20s", singleTransaction.getAmount()));
 						logger.severe(String.format("%-20s", "Closing Balance")
@@ -165,21 +181,21 @@ public class EmployeeIO {
 					break;
 				case 2: {
 					logger.info("Enter the Transaction Id to Proceed ");
-					List<TransactionDetails> record = transactionFunctions.getSingleTransactionDetails(scanner.nextLong());
+					List<TransactionDetails> record = transactionFunctions
+							.getSingleTransactionDetails(scanner.nextLong());
 					for (TransactionDetails records : record) {
 						logger.severe("-" + "-".repeat(40) + "-");
-						logger.severe(String.format("%-20s", "Transaction Id")
-								+ String.format("%-20s", records.getId()));
-						logger.severe(String.format("%-20s", "From ")
-								+ String.format("%-20s", records.getAccountId()));
+						logger.severe(
+								String.format("%-20s", "Transaction Id") + String.format("%-20s", records.getId()));
+						logger.severe(String.format("%-20s", "From ") + String.format("%-20s", records.getAccountId()));
 						logger.severe(String.format("%-20s", "To ")
 								+ String.format("%-20s", records.getTransactionAccountId()));
 						logger.severe(String.format("%-20s", "Transaction Time")
 								+ String.format("%-20s", new Date(records.getTime()).toString()));
 						logger.severe(String.format("%-20s", "Transaction type")
-								+ String.format("%-20s", records.getTranactionType()));
+								+ String.format("%-20s", records.getTransactionType()));
 						logger.severe(String.format("%-20s", "Transaction Status")
-								+ String.format("%-20s", records.getTransactionStatus()));
+								+ String.format("%-20s", records.getStatus()));
 						logger.severe(String.format("%-20s", "Transaction Amount")
 								+ String.format("%-20s", records.getAmount()));
 						logger.severe(String.format("%-20s", "Closing Balance")

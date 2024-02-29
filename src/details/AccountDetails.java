@@ -3,10 +3,10 @@ package details;
 public class AccountDetails {
 	
 	
-	private Long accountNo;
+	private long accountNumber;
 	private int userId;
 	private String branchId;
-	private Long balance;
+	private long balance;
 	private String accountStatus;
 	private String accountType;
 	
@@ -16,11 +16,11 @@ public class AccountDetails {
 	public void setAccountType(String accountType) {
 		this.accountType = accountType;
 	}
-	public Long getAccountNo() {
-		return accountNo;
+	public long getAccountNumber() {
+		return accountNumber;
 	}
-	public void setAccountNo(Long accountNo) {
-		this.accountNo = accountNo;
+	public void setAccountNumber(long accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 	public int getUserId() {
 		return userId;
@@ -34,16 +34,16 @@ public class AccountDetails {
 	public void setBranchId(String branchId) {
 		this.branchId = branchId;
 	}
-	public Long getBalance() {
+	public long getBalance() {
 		return balance;
 	}
-	public void setBalance(Long balance) {
+	public void setBalance(long balance) {
 		this.balance = balance;
 	}
-	public String getAccountStatus() {
+	public String getStatus() {
 		return accountStatus;
 	}
-	public void setAccountStatus(String accountStatus) {
+	public void setStatus(String accountStatus) {
 		this.accountStatus = accountStatus;
 	}
 }

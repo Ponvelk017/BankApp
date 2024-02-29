@@ -22,10 +22,13 @@ public class TransactionFunctions {
 		InputCheck.checkNegativeInteger(duration);
 		InputCheck.checkNegativeInteger(account);
 		List<TransactionDetails> record = transactionOpertaion.getStatement(duration, account);
+		for(TransactionDetails temp : record) {
+			System.out.println(temp.getAccountId()+" "+temp.getAmount());
+		}
 		return record;
 	}
 	
-	public long getLastId() {
+	public long getLastId() throws InvalidInputException {
 		System.out.println("transaction function "+transactionOpertaion.getId());
 		return transactionOpertaion.getId();
 	}

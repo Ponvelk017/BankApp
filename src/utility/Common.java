@@ -32,4 +32,5 @@ public class Common {
         long dateBefore = dateBefore30Days.toEpochDay() * 24 * 60 * 60 * 1000;
         return dateBefore;
 	}
+	
 }

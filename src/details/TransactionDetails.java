@@ -45,19 +45,19 @@ public class TransactionDetails {
 		this.userId = userId;
 	}
 
-	public String getTranactionType() {
+	public String getTransactionType() {
 		return tranactionType;
 	}
 
-	public void setTranactionType(String tranactionType) {
+	public void setTransactionType(String tranactionType) {
 		this.tranactionType = tranactionType;
 	}
 
-	public String getTransactionStatus() {
+	public String getStatus() {
 		return transactionStatus;
 	}
 
-	public void setTransactionStatus(String transactionStatus) {
+	public void setStatus(String transactionStatus) {
 		this.transactionStatus = transactionStatus;
 	}
 

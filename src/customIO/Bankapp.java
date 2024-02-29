@@ -12,11 +12,12 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 import customLogics.UserFunctions;
+import dbLogics.CustomerOperations;
 import logger.ColoredLogger;
 import utility.InvalidInputException;
 
 public class Bankapp {
-
+//	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
 	public static Logger logger = Logger.getLogger(Bankapp.class.getName());
 
 	public static void main(String[] args) {
@@ -44,9 +45,9 @@ public class Bankapp {
 			while (breakCondition) {
 				logger.info("-" + "-".repeat(40) + "-");
 				logger.info("1.Log in\n2.Exit");
-				int loginOption = scanner.nextInt();
+				String loginOption = scanner.next();
 				switch (loginOption) {
-				case 1: {
+				case "1": {
 					int userId;
 					String password;
 					logger.info("-" + "-".repeat(40) + "-");
@@ -54,7 +55,7 @@ public class Bankapp {
 					logger.info(String.format("%10s", "Enter UserId :  "));
 					userId = scanner.nextInt();
 					scanner.nextLine();
-					if(userFunction.isUser(userId) == -1) {
+					if (userFunction.isUser(userId) == -1) {
 						logger.warning("Invalid userId :( ");
 						continue;
 					}
@@ -107,15 +108,19 @@ public class Bankapp {
 					}
 				}
 					break;
-				case 2: {
+				case "2": {
 					breakCondition = false;
 				}
 					break;
+				default: {
+					logger.warning("Invalid Input");
 				}
+				}
+
 			}
-		} catch (InvalidInputException e) {
-			logger.log(Level.INFO, "An Exception occured ! Sorry for the Inconvenience", e);
 		} catch (IOException e) {
+			logger.log(Level.INFO, "An Exception occured ! Sorry for the Inconvenience", e);
+		} catch (InvalidInputException e) {
 			logger.log(Level.INFO, "An Exception occured ! Sorry for the Inconvenience", e);
 		}
 		scanner.close();

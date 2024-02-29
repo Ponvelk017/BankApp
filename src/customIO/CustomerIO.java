@@ -60,7 +60,7 @@ public class CustomerIO {
 				CustomerDetails customerDet = customerFunctions.getCustomerProfile(customerId);
 				logger.severe("-" + "-".repeat(40) + "-");
 				logger.severe(String.format("%-15s", "Name") + String.format("%-15s", customerDet.getName()));
-				logger.severe(String.format("%-15s", "DOB") + String.format("%-15s", customerDet.getDob()));
+				logger.severe(String.format("%-15s", "DOB") + String.format("%-15s", customerDet.getDOB()));
 				logger.severe(
 						String.format("%-15s", "Mobile Number") + String.format("%-15s", customerDet.getMobile()));
 				logger.severe(String.format("%-15s", "Email") + String.format("%-15s", customerDet.getEmail()));
@@ -78,13 +78,13 @@ public class CustomerIO {
 				for (AccountDetails individualAccount : accounts) {
 					logger.severe("-" + "-".repeat(40) + "-");
 					logger.severe(String.format("%-15s", "Account Number")
-							+ String.format("%-15s", individualAccount.getAccountNo()));
+							+ String.format("%-15s", individualAccount.getAccountNumber()));
 					logger.severe(
 							String.format("%-15s", "Balance") + String.format("%-15s", individualAccount.getBalance()));
 					logger.severe(String.format("%-15s", "Account Type")
 							+ String.format("%-15s", individualAccount.getAccountType()));
 					logger.severe(String.format("%-15s", "Status")
-							+ String.format("%-15s", individualAccount.getAccountStatus()));
+							+ String.format("%-15s", individualAccount.getStatus()));
 					logger.severe(String.format("%-15s", "Branch IFSC code")
 							+ String.format("%-15s", individualAccount.getBranchId()));
 					logger.severe("-" + "-".repeat(40) + "-");
@@ -113,9 +113,9 @@ public class CustomerIO {
 					logger.severe(String.format("%-20s", "Transaction Time")
 							+ String.format("%-20s", new Date(transactionDetails.getTime()).toString()));
 					logger.severe(String.format("%-20s", "Transaction type")
-							+ String.format("%-20s", transactionDetails.getTranactionType()));
+							+ String.format("%-20s", transactionDetails.getTransactionType()));
 					logger.severe(String.format("%-20s", "Transaction Status")
-							+ String.format("%-20s", transactionDetails.getTransactionStatus()));
+							+ String.format("%-20s", transactionDetails.getStatus()));
 					logger.severe(String.format("%-20s", "Transaction Amount")
 							+ String.format("%-20s", transactionDetails.getAmount()));
 					logger.severe(String.format("%-20s", "Closing Balance")
@@ -143,11 +143,11 @@ public class CustomerIO {
 					logger.severe(String.format("%-20s", "Transaction Time")
 							+ String.format("%-20s", new Date(transactionDetails.getTime()).toString()));
 					logger.severe(String.format("%-20s", "Transaction type")
-							+ String.format("%-20s", transactionDetails.getTranactionType()));
+							+ String.format("%-20s", transactionDetails.getTransactionType()));
 					logger.severe(String.format("%-20s", "Description")
 							+ String.format("%-20s", transactionDetails.getDescription()));
 					logger.severe(String.format("%-20s", "Transaction Status")
-							+ String.format("%-20s", transactionDetails.getTransactionStatus()));
+							+ String.format("%-20s", transactionDetails.getStatus()));
 					logger.severe(String.format("%-20s", "Transaction Amount")
 							+ String.format("%-20s", transactionDetails.getAmount()));
 					logger.severe(String.format("%-20s", "Closing Balance")
@@ -185,11 +185,11 @@ public class CustomerIO {
 						logger.severe(String.format("%-20s", "Transaction Time")
 								+ String.format("%-20s", new Date(transactionDetails.getTime()).toString()));
 						logger.severe(String.format("%-20s", "Transaction type")
-								+ String.format("%-20s", transactionDetails.getTranactionType()));
+								+ String.format("%-20s", transactionDetails.getTransactionType()));
 						logger.severe(String.format("%-20s", "Description")
 								+ String.format("%-20s", transactionDetails.getDescription()));
 						logger.severe(String.format("%-20s", "Transaction Status")
-								+ String.format("%-20s", transactionDetails.getTransactionStatus()));
+								+ String.format("%-20s", transactionDetails.getStatus()));
 						logger.severe(String.format("%-20s", "Transaction Amount")
 								+ String.format("%-20s", transactionDetails.getAmount()));
 						logger.severe(String.format("%-20s", "Closing Balance")
@@ -221,11 +221,11 @@ public class CustomerIO {
 						logger.severe(String.format("%-20s", "Transaction Time")
 								+ String.format("%-20s", new Date(transactionDetails.getTime()).toString()));
 						logger.severe(String.format("%-20s", "Transaction type")
-								+ String.format("%-20s", transactionDetails.getTranactionType()));
+								+ String.format("%-20s", transactionDetails.getTransactionType()));
 						logger.severe(String.format("%-20s", "Description")
 								+ String.format("%-20s", transactionDetails.getDescription()));
 						logger.severe(String.format("%-20s", "Transaction Status")
-								+ String.format("%-20s", transactionDetails.getTransactionStatus()));
+								+ String.format("%-20s", transactionDetails.getStatus()));
 						logger.severe(String.format("%-20s", "Transaction Amount")
 								+ String.format("%-20s", transactionDetails.getAmount()));
 						logger.severe(String.format("%-20s", "Closing Balance")
@@ -259,9 +259,9 @@ public class CustomerIO {
 					logger.severe(String.format("%-20s", "Transaction Time")
 							+ String.format("%-20s", new Date(singleTransaction.getTime()).toString()));
 					logger.severe(String.format("%-20s", "Transaction type")
-							+ String.format("%-20s", singleTransaction.getTranactionType()));
+							+ String.format("%-20s", singleTransaction.getTransactionType()));
 					logger.severe(String.format("%-20s", "Transaction Status")
-							+ String.format("%-20s", singleTransaction.getTransactionStatus()));
+							+ String.format("%-20s", singleTransaction.getStatus()));
 					logger.severe(String.format("%-20s", "Transaction Amount")
 							+ String.format("%-20s", singleTransaction.getAmount()));
 					logger.severe(String.format("%-20s", "Closing Balance")

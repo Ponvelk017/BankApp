@@ -4,13 +4,14 @@ public abstract class UserDetails {
 
 	private int Id;
 	private String name;
-	private String dob;
+	private long dob;
 	private String mobile;
 	private String email;
 	private String gender;
 	private String type;
 	private String password;
 	private String status;
+	private String deleteAt;
 
 	public int getId() {
 		return Id;
@@ -20,7 +21,6 @@ public abstract class UserDetails {
 		Id = id;
 	}
 
-	private String deleteAt;
 
 	public String getName() {
 		return name;
@@ -30,11 +30,11 @@ public abstract class UserDetails {
 		this.name = name;
 	}
 
-	public String getDob() {
+	public long getDOB() {
 		return dob;
 	}
 
-	public void setDob(String dob) {
+	public void setDOB(long dob) {
 		this.dob = dob;
 	}
 

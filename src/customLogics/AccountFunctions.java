@@ -1,5 +1,6 @@
 package customLogics;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,8 +31,12 @@ public class AccountFunctions {
 	}
 
 	public List<Long> getAllAccount(int customerId) throws InvalidInputException {
-		List<Long> records = accountOperation.getAvailableAccount(customerId);
-		return records;
+		List<Long> result = new ArrayList<Long>();
+		List<AccountDetails> records = accountOperation.getAvailableAccount(customerId);
+		for (AccountDetails individualRecord : records) {
+			result.add(individualRecord.getAccountNumber());
+		}
+		return result;
 	}
 
 	public long getBalance(long accountNumber) throws InvalidInputException {
@@ -63,7 +68,7 @@ public class AccountFunctions {
 			transactionDetails
 					.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber", accountNumber));
 			transactionDetails.setTime(System.currentTimeMillis());
-			transactionDetails.setTranactionType("Deposite");
+			transactionDetails.setTransactionType("Deposite");
 			transactionDetails.setAmount(depositeAmount);
 			transactionDetails.setClosingBalance(
 					(long) accountOperation.getSingleRecord("Balance", "AccountNumber", accountNumber));
@@ -88,7 +93,7 @@ public class AccountFunctions {
 				transactionDetails
 						.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber", accountNumber));
 				transactionDetails.setTime(System.currentTimeMillis());
-				transactionDetails.setTranactionType("Withdraw");
+				transactionDetails.setTransactionType("Withdraw");
 				transactionDetails.setDescription(description);
 				transactionDetails.setAmount(withdrawAmount);
 				transactionDetails.setClosingBalance(
@@ -124,7 +129,7 @@ public class AccountFunctions {
 					transactionDetails
 							.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber", senderAcc));
 					transactionDetails.setTime(System.currentTimeMillis());
-					transactionDetails.setTranactionType("Withdraw");
+					transactionDetails.setTransactionType("Withdraw");
 					transactionDetails.setDescription(description);
 					transactionDetails.setAmount(amount);
 					transactionDetails.setClosingBalance(senderBalance - amount);
@@ -137,7 +142,7 @@ public class AccountFunctions {
 					transactionDetails
 							.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber", senderAcc));
 					transactionDetails.setTime(System.currentTimeMillis());
-					transactionDetails.setTranactionType("Deposite");
+					transactionDetails.setTransactionType("Deposite");
 					transactionDetails.setAmount(amount);
 					transactionDetails.setClosingBalance(senderBalance - amount);
 					transaction.setTransferTransaction(transactionDetails);
@@ -175,7 +180,7 @@ public class AccountFunctions {
 				transactionDetails
 						.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber", senderAcc));
 				transactionDetails.setTime(System.currentTimeMillis());
-				transactionDetails.setTranactionType("Withdraw");
+				transactionDetails.setTransactionType("Withdraw");
 				transactionDetails.setDescription(description);
 				transactionDetails.setAmount(amount);
 				transactionDetails.setClosingBalance(senderBalance - amount);

@@ -13,5 +13,5 @@ public interface Transaction {
 
 	public List<TransactionDetails> getStatement(int duration, long account) throws InvalidInputException;
 
-	public long getId();
+	public long getId() throws InvalidInputException;
 }

@@ -13,7 +13,7 @@ public interface Account {
 
 	public List<AccountDetails> getAccountDetails(int userId) throws InvalidInputException;
 
-	public List<Long> getAvailableAccount(int userId) throws InvalidInputException;
+	public List<AccountDetails> getAvailableAccount(int userId) throws InvalidInputException;
 
 	public int updateColumn(String column ,Object DepositeAmount , long accountNumber) throws InvalidInputException;
 }

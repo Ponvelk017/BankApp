@@ -1,13 +1,16 @@
 package customDB;
 
+import java.util.List;
+
 import details.CustomerDetails;
 import utility.InvalidInputException;
 
 public interface Customer {
 
-	public int insertCustomer(CustomerDetails customer) throws InvalidInputException;
+	public List<Integer> insertCustomer(List<CustomerDetails> customers) throws InvalidInputException;
 
 	public int updateDetails(int Id, String column, Object value) throws InvalidInputException;
 
-	public CustomerDetails getProfile(int customerId) throws InvalidInputException;
+	public List<CustomerDetails> getProfile(int customerId) throws InvalidInputException;
+	
 }
