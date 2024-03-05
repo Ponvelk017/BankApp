@@ -3,6 +3,7 @@ package customIO;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.ConsoleHandler;
@@ -12,12 +13,12 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 import customLogics.UserFunctions;
-import dbLogics.CustomerOperations;
 import logger.ColoredLogger;
+import utility.Common;
 import utility.InvalidInputException;
 
 public class Bankapp {
-//	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
+
 	public static Logger logger = Logger.getLogger(Bankapp.class.getName());
 
 	public static void main(String[] args) {
@@ -53,14 +54,19 @@ public class Bankapp {
 					logger.info("-" + "-".repeat(40) + "-");
 					logger.info("Enter the login credentials");
 					logger.info(String.format("%10s", "Enter UserId :  "));
-					userId = scanner.nextInt();
+					String tempint = scanner.next();
+					if(!tempint.matches("\\d+")) {
+						logger.warning("Invalid Input");
+						continue;
+					}
 					scanner.nextLine();
+					userId = Integer.parseInt(tempint);
 					if (userFunction.isUser(userId) == -1) {
 						logger.warning("Invalid userId :( ");
 						continue;
 					}
 					logger.info(String.format("%10s", "Enter Password :"));
-					password = scanner.nextLine();
+					password = Common.encryptPassword(scanner.nextLine());
 					logger.info("-" + "-".repeat(40) + "-");
 
 					Map<String, Object> record = userFunction.blockedDetails(userId);
@@ -118,7 +124,10 @@ public class Bankapp {
 				}
 
 			}
-		} catch (IOException e) {
+		} catch ( InputMismatchException e) {
+			logger.log(Level.INFO, "Invalid Input", e);
+		} 
+		catch (IOException e) {
 			logger.log(Level.INFO, "An Exception occured ! Sorry for the Inconvenience", e);
 		} catch (InvalidInputException e) {
 			logger.log(Level.INFO, "An Exception occured ! Sorry for the Inconvenience", e);

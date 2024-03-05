@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,11 +27,10 @@ public class TransactionOperations implements Transaction {
 
 	private final String setTransferTransaction = "insert into Transaction(Id,AccountId,TransactionAccountId,UserId,TransactionTime,TransactionType,Description,Amount,ClosingBalance) "
 			+ "values(?,?,?,?,?,?,?,?,?)";
-	private final String getTransferTransaction = "select * from Transaction where Id = ?";
-	private final String getStatement = "select * from Transaction where  AccountId = ? || TransactionAccountId = ? and TransactionTime between ? and ?";
+
 	private Map<String, String> mappingRecords = new HashMap<String, String>();
 
-	public void getMappingDetails() throws InvalidInputException {
+	private void getMappingDetails() throws InvalidInputException {
 		try (PreparedStatement statement = connection.prepareStatement("select * from Transaction");
 				ResultSet allColumns = statement.executeQuery()) {
 			ResultSetMetaData metadata = allColumns.getMetaData();
@@ -58,9 +58,9 @@ public class TransactionOperations implements Transaction {
 			for (Method temp : userMethods) {
 				transactionMethodsList.add(temp.toString());
 			}
-			TransactionDetails transactionDetails = (TransactionDetails) TransactionDetails.class
-					.getDeclaredConstructor().newInstance();
 			while (record.next()) {
+				TransactionDetails transactionDetails = (TransactionDetails) TransactionDetails.class
+						.getDeclaredConstructor().newInstance();
 				for (int i = 1; i <= columns; i++) {
 					String columnName = metadata.getColumnName(i);
 					String dataType = metadata.getColumnTypeName(i);
@@ -77,7 +77,6 @@ public class TransactionOperations implements Transaction {
 						method.invoke(transactionDetails, record.getLong(i));
 					}
 				}
-				System.out.println("bye "+transactionDetails.getAccountId()+" "+transactionDetails.getAmount());
 				records.add(transactionDetails);
 			}
 		} catch (SQLException | InstantiationException | IllegalAccessException | IllegalArgumentException
@@ -103,7 +102,7 @@ public class TransactionOperations implements Transaction {
 			statement.setLong(2, transactionDetails.getAccountId());
 			statement.setLong(3, transactionDetails.getTransactionAccountId());
 			statement.setInt(4, transactionDetails.getUserId());
-			statement.setLong(5, transactionDetails.getTime());
+			statement.setLong(5, transactionDetails.getTransactionTime());
 			statement.setString(6, transactionDetails.getTransactionType());
 			statement.setString(7, transactionDetails.getDescription() + " ");
 			statement.setLong(8, transactionDetails.getAmount());
@@ -116,10 +115,13 @@ public class TransactionOperations implements Transaction {
 	}
 
 	@Override
-	public List<TransactionDetails> getTransferTransaction(long transactionId) throws InvalidInputException {
+	public List<TransactionDetails> getTransferTransaction(long transactionId, String ConditionColumn)
+			throws InvalidInputException {
 		InputCheck.checkNegativeInteger(transactionId);
+		InputCheck.checkNull(ConditionColumn);
 		List<TransactionDetails> records = new ArrayList<TransactionDetails>();
-		try (PreparedStatement statement = connection.prepareStatement(getTransferTransaction)) {
+		String query = "select * from Transaction where " + ConditionColumn + "= ?";
+		try (PreparedStatement statement = connection.prepareStatement(query)) {
 			statement.setLong(1, transactionId);
 			try (ResultSet record = statement.executeQuery()) {
 				records = setDetails(record);
@@ -131,44 +133,31 @@ public class TransactionOperations implements Transaction {
 	}
 
 	@Override
-	public List<TransactionDetails> getStatement(int duration, long account) throws InvalidInputException {
-		InputCheck.checkNegativeInteger(duration);
-		InputCheck.checkNegativeInteger(account);
-		long from, to;
-		from = Common.berforNDate(duration);
-		to = Common.currentDate();
-		List<TransactionDetails> transactionRecords = new ArrayList<TransactionDetails>();
-		try (PreparedStatement statement = connection.prepareStatement(getStatement)) {
-			statement.setLong(1, account);
-			statement.setLong(2, account);
-			statement.setLong(3, to);
-			statement.setLong(4, from);
-			try (ResultSet record = statement.executeQuery()) {
-				transactionRecords = setDetails(record);
-				for(TransactionDetails temp : transactionRecords) {
-					System.out.println("hello "+temp.getAccountId()+" "+temp.getAmount());
-				}
-			}
-		} catch (SQLException e) {
-			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
-		}
-		return transactionRecords;
-	}
-
-	public void getCustomData(TransactionDetails transactionDetails, List<String> columnToGet)
-			throws InvalidInputException {
+	public List<TransactionDetails> getCustomData(TransactionDetails transactionDetails, List<String> columnToGet,
+			int duration) throws InvalidInputException {
 		InputCheck.checkNull(transactionDetails);
 		InputCheck.checkNull(columnToGet);
+		InputCheck.checkNegativeInteger(duration);
+		List<TransactionDetails> result = new ArrayList<TransactionDetails>();
 		StringBuilder query = new StringBuilder("select ");
+		for (String columns : columnToGet) {
+			query.append(columns + " ,");
+		}
+		long from = 0, to = 0;
 		try {
 			PreparedStatement statement = connection.prepareStatement(query.toString());
-			for (String columns : columnToGet) {
-				query.append(columns + " ");
-			}
+			query = new StringBuilder(query.subSequence(0, query.length() - 1));
 			query.append("from Transaction where ");
 			int count = 1;
 			if (transactionDetails.getAccountId() != 0) {
 				query.append("AccountId = ? ");
+				count++;
+			}
+			if (transactionDetails.getUserId() != 0) {
+				if (count > 1) {
+					query.append("AND ");
+				}
+				query.append("UserId = ? ");
 				count++;
 			}
 			if (transactionDetails.getTransactionAccountId() != 0) {
@@ -178,39 +167,46 @@ public class TransactionOperations implements Transaction {
 				query.append("TransactionAccountId = ? ");
 				count++;
 			}
-			if (transactionDetails.getUserId() != 0) {
-				if (count > 1) {
-					query.append("AND ");
-				}
-				query.append("UserId = ?");
-			}
 			if (transactionDetails.getTransactionType() != null) {
 				if (count > 1) {
 					query.append("AND ");
 				}
 				query.append("TransactionType = ?");
 			}
-
-			statement = connection.prepareStatement(query.toString());
+			if (duration != 0) {
+				if (count > 1) {
+					query.append("AND ");
+				}
+				query.append("TransactionTime between ? and ? ");
+				from = Common.beforeNDate(duration);
+				to = Common.currentDate();
+				count++;
+			}
+			statement = connection.prepareStatement((query.toString()));
 
 			count = 1;
+			if (transactionDetails.getUserId() != 0) {
+				statement.setLong(count++, transactionDetails.getUserId());
+			}
 			if (transactionDetails.getAccountId() != 0) {
 				statement.setLong(count++, transactionDetails.getAccountId());
 			}
 			if (transactionDetails.getTransactionAccountId() != 0) {
 				statement.setLong(count++, transactionDetails.getTransactionAccountId());
 			}
-			if (transactionDetails.getUserId() != 0) {
-				statement.setInt(count++, transactionDetails.getUserId());
-			}
 			if (transactionDetails.getTransactionType() != null) {
 				statement.setString(count++, transactionDetails.getTransactionType());
 			}
-			System.out.println(query.toString());
-//			ResultSet record = statement.executeQuery();
+			if (duration != 0) {
+				statement.setLong(count++, from);
+				statement.setLong(count++, to);
+			}
+			ResultSet record = statement.executeQuery();
+			result = setDetails(record);
 		} catch (SQLException e) {
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 		}
+		return result;
 	}
 
 	@Override

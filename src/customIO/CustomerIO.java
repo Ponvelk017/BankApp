@@ -1,6 +1,7 @@
 package customIO;
 
 import java.sql.Date;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -13,6 +14,7 @@ import customLogics.UserFunctions;
 import details.AccountDetails;
 import details.CustomerDetails;
 import details.TransactionDetails;
+import utility.Common;
 import utility.InvalidInputException;
 
 public class CustomerIO {
@@ -28,14 +30,13 @@ public class CustomerIO {
 		TransactionFunctions transactionFunctions = new TransactionFunctions();
 		UserFunctions userFunctions = new UserFunctions();
 		TransactionDetails transactionDetails = new TransactionDetails();
-		
-		long primaryAccount= customerIo.getPrimaryAccount(customerId,
-				accountFunctions.getAllAccount(customerId));
+
+		long primaryAccount = customerIo.getPrimaryAccount(customerId, accountFunctions.getAllAccount(customerId));
 		logger.info("To change the Account log out and login");
 		boolean condition = true;
 		while (condition) {
 			String status = accountFunctions.getStatus(primaryAccount);
-			if(status.equals("inactive")) {
+			if (status.equals("inactive")) {
 				logger.warning("Your account has been Blocked, you cannot Proceed now :(");
 				break;
 			}
@@ -57,7 +58,10 @@ public class CustomerIO {
 			switch (option) {
 			case 1: {
 				logger.info("Your Details");
-				CustomerDetails customerDet = customerFunctions.getCustomerProfile(customerId);
+				CustomerDetails customerDetails = new CustomerDetails();
+				customerDetails.setId(customerId);
+				Map<Integer,CustomerDetails> customerData = customerFunctions.getCustomerProfile(customerDetails);
+				CustomerDetails customerDet = customerData.get(customerId);
 				logger.severe("-" + "-".repeat(40) + "-");
 				logger.severe(String.format("%-15s", "Name") + String.format("%-15s", customerDet.getName()));
 				logger.severe(String.format("%-15s", "DOB") + String.format("%-15s", customerDet.getDOB()));
@@ -74,7 +78,9 @@ public class CustomerIO {
 				break;
 			case 2: {
 				logger.info("Account Details");
-				List<AccountDetails> accounts = accountFunctions.accountDetails(customerId);
+				AccountDetails accountDet = new AccountDetails();
+				accountDet.setUserId(customerId);
+				List<AccountDetails> accounts = accountFunctions.accountDetails(accountDet);
 				for (AccountDetails individualAccount : accounts) {
 					logger.severe("-" + "-".repeat(40) + "-");
 					logger.severe(String.format("%-15s", "Account Number")
@@ -83,8 +89,8 @@ public class CustomerIO {
 							String.format("%-15s", "Balance") + String.format("%-15s", individualAccount.getBalance()));
 					logger.severe(String.format("%-15s", "Account Type")
 							+ String.format("%-15s", individualAccount.getAccountType()));
-					logger.severe(String.format("%-15s", "Status")
-							+ String.format("%-15s", individualAccount.getStatus()));
+					logger.severe(
+							String.format("%-15s", "Status") + String.format("%-15s", individualAccount.getStatus()));
 					logger.severe(String.format("%-15s", "Branch IFSC code")
 							+ String.format("%-15s", individualAccount.getBranchId()));
 					logger.severe("-" + "-".repeat(40) + "-");
@@ -102,7 +108,7 @@ public class CustomerIO {
 				logger.info("Enter the Amount to Deposite : ");
 				long depositeAmount = scanner.nextLong();
 				long transactionId = accountFunctions.deposite(primaryAccount, depositeAmount);
-				transactionDetails = transactionFunctions.getTransactionDetails(transactionId);
+				transactionDetails = transactionFunctions.getTransactionDetails(transactionId, "Id");
 				if (transactionDetails != null) {
 					logger.info("Successfully deposited :)\nYour Transaction statement is");
 					logger.severe("-" + "-".repeat(40) + "-");
@@ -111,7 +117,7 @@ public class CustomerIO {
 					logger.severe(String.format("%-20s", "To ")
 							+ String.format("%-20s", transactionDetails.getTransactionAccountId()));
 					logger.severe(String.format("%-20s", "Transaction Time")
-							+ String.format("%-20s", new Date(transactionDetails.getTime()).toString()));
+							+ String.format("%-20s", new Date(transactionDetails.getTransactionTime()).toString()));
 					logger.severe(String.format("%-20s", "Transaction type")
 							+ String.format("%-20s", transactionDetails.getTransactionType()));
 					logger.severe(String.format("%-20s", "Transaction Status")
@@ -130,9 +136,9 @@ public class CustomerIO {
 				long withdrawAmount = scanner.nextLong();
 				logger.info("Enter Description");
 				scanner.nextLine();
-				String description =  scanner.nextLine();
-				long transactionId = accountFunctions.withdraw(primaryAccount, withdrawAmount , description);
-				transactionDetails  = transactionFunctions.getTransactionDetails(transactionId);
+				String description = scanner.nextLine();
+				long transactionId = accountFunctions.withdraw(primaryAccount, withdrawAmount, description);
+				transactionDetails = transactionFunctions.getTransactionDetails(transactionId, "Id");
 				if (transactionDetails != null) {
 					logger.info("Successfully Withdrawed :)\nYour Transaction statement is");
 					logger.severe("-" + "-".repeat(40) + "-");
@@ -141,7 +147,7 @@ public class CustomerIO {
 					logger.severe(String.format("%-20s", "From ")
 							+ String.format("%-20s", transactionDetails.getAccountId()));
 					logger.severe(String.format("%-20s", "Transaction Time")
-							+ String.format("%-20s", new Date(transactionDetails.getTime()).toString()));
+							+ String.format("%-20s", new Date(transactionDetails.getTransactionTime()).toString()));
 					logger.severe(String.format("%-20s", "Transaction type")
 							+ String.format("%-20s", transactionDetails.getTransactionType()));
 					logger.severe(String.format("%-20s", "Description")
@@ -164,16 +170,17 @@ public class CustomerIO {
 				long amount = scanner.nextLong();
 				logger.info("Enter Description");
 				scanner.nextLine();
-				String description =  scanner.nextLine();
+				String description = scanner.nextLine();
 				Map<String, Integer> result = accountFunctions.transferWithinBank(primaryAccount, receiverAccountNumber,
-						amount , description);
+						amount, description);
 				if (result.get("SuffientBalance") == 0) {
 					logger.warning("Insuffient Balance");
 				} else if (result.get("UpdateSenderBalance") == 0 || result.get("UpdateReceiverBalance") == 0) {
 					logger.warning("Your Transaction is't completed .\nSorry for the inconvenience :(");
 				} else {
 					logger.info("Your Transaction Details");
-					transactionDetails = transactionFunctions.getTransactionDetails(result.get("SenderTransactionid"));
+					transactionDetails = transactionFunctions.getTransactionDetails(result.get("SenderTransactionid"),
+							"AccountId");
 					if (transactionDetails != null) {
 						logger.severe("-" + "-".repeat(40) + "-");
 						logger.severe(String.format("%-20s", "Transaction Id")
@@ -183,7 +190,7 @@ public class CustomerIO {
 						logger.severe(String.format("%-20s", "To ")
 								+ String.format("%-20s", transactionDetails.getTransactionAccountId()));
 						logger.severe(String.format("%-20s", "Transaction Time")
-								+ String.format("%-20s", new Date(transactionDetails.getTime()).toString()));
+								+ String.format("%-20s", new Date(transactionDetails.getTransactionTime()).toString()));
 						logger.severe(String.format("%-20s", "Transaction type")
 								+ String.format("%-20s", transactionDetails.getTransactionType()));
 						logger.severe(String.format("%-20s", "Description")
@@ -205,11 +212,12 @@ public class CustomerIO {
 				long amount = scanner.nextLong();
 				logger.info("Enter Description");
 				scanner.nextLine();
-				String description =  scanner.nextLine();
-				long transactionId = accountFunctions.transferOtherBank(primaryAccount, receiverAccountNumber, amount , description);
+				String description = scanner.nextLine();
+				long transactionId = accountFunctions.transferOtherBank(primaryAccount, receiverAccountNumber, amount,
+						description);
 				if (transactionId > 0) {
 					logger.info("Your Transaction Details");
-					transactionDetails = transactionFunctions.getTransactionDetails(transactionId);
+					transactionDetails = transactionFunctions.getTransactionDetails(transactionId, "Id");
 					if (transactionDetails != null) {
 						logger.severe("-" + "-".repeat(40) + "-");
 						logger.severe(String.format("%-20s", "Transaction Id")
@@ -219,7 +227,7 @@ public class CustomerIO {
 						logger.severe(String.format("%-20s", "To ")
 								+ String.format("%-20s", transactionDetails.getTransactionAccountId()));
 						logger.severe(String.format("%-20s", "Transaction Time")
-								+ String.format("%-20s", new Date(transactionDetails.getTime()).toString()));
+								+ String.format("%-20s", new Date(transactionDetails.getTransactionTime()).toString()));
 						logger.severe(String.format("%-20s", "Transaction type")
 								+ String.format("%-20s", transactionDetails.getTransactionType()));
 						logger.severe(String.format("%-20s", "Description")
@@ -240,7 +248,7 @@ public class CustomerIO {
 				logger.info("Take Statement for \n1. 1 Month\n2. 2 Months\n3. 3 Months");
 				int statementoption = scanner.nextInt();
 				statementoption = (statementoption == 1 ? 30 : (statementoption == 2) ? 60 : 90);
-				List<TransactionDetails> records = transactionFunctions.accountStatement(statementoption,
+				List<TransactionDetails> records = transactionFunctions.accountStatement(statementoption, 0,
 						primaryAccount);
 				for (TransactionDetails singleTransaction : records) {
 					logger.severe("-" + "-".repeat(40) + "-");
@@ -257,7 +265,8 @@ public class CustomerIO {
 								+ String.format("%-20s", singleTransaction.getTransactionAccountId()));
 					}
 					logger.severe(String.format("%-20s", "Transaction Time")
-							+ String.format("%-20s", new Date(singleTransaction.getTime()).toString()));
+							+ String.format("%-20s", Common.milliToDate(singleTransaction.getTransactionTime())
+									.format(DateTimeFormatter.ISO_LOCAL_DATE)));
 					logger.severe(String.format("%-20s", "Transaction type")
 							+ String.format("%-20s", singleTransaction.getTransactionType()));
 					logger.severe(String.format("%-20s", "Transaction Status")

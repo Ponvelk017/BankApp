@@ -14,6 +14,7 @@ import java.util.Map;
 
 import customDB.Customer;
 import details.CustomerDetails;
+import utility.Common;
 import utility.DBConnection;
 import utility.InputCheck;
 import utility.InvalidInputException;
@@ -24,9 +25,7 @@ public class CustomerOperations implements Customer {
 
 	private String insertUser = "insert into User (Name,DOB,Mobile,Email,Gender,Password) values (?,?,?,?,?,?)";
 	private String insertCustomer = "insert into Customer values (?,?,?,?)";
-	private final String getProfile = "select User.*,Customer.Address,Customer.Aadhar,Customer.Pan from User "
-			+ "left join Customer on User.Id = Customer.Id where User.Id = ?";
-	private String mappingDetails = "select * from User left join Customer on User.Id = Customer.Id";
+	private String mappingDetails = "select * from User left join Customer on User.Id = Customer.Id where User.Id = -1;";
 
 	private Map<String, String> mappingRecords = new HashMap<String, String>();
 
@@ -60,7 +59,7 @@ public class CustomerOperations implements Customer {
 				statement.setString(3, customer.getMobile());
 				statement.setString(4, customer.getEmail());
 				statement.setString(5, customer.getGender());
-				statement.setString(6, customer.getPassword());
+				statement.setString(6, Common.encryptPassword(customer.getPassword()));
 				statement.executeUpdate();
 				try (ResultSet record = statement.getGeneratedKeys()) {
 					if (record.next()) {
@@ -110,12 +109,46 @@ public class CustomerOperations implements Customer {
 	}
 
 	@Override
-	public List<CustomerDetails> getProfile(int customerId) throws InvalidInputException {
-		InputCheck.checkNegativeInteger(customerId);
+	public List<CustomerDetails> getCustomCustomer(CustomerDetails customerDetails, List<String> columnToGet)
+			throws InvalidInputException {
+		InputCheck.checkNull(customerDetails);
+		InputCheck.checkNull(columnToGet);
 		getMappingDetails();
 		List<CustomerDetails> records = new ArrayList<CustomerDetails>();
-		try (PreparedStatement statement = connection.prepareStatement(getProfile)) {
-			statement.setInt(1, customerId);
+		StringBuilder query = new StringBuilder("select ");
+//		from User left join Customer on User.Id = Customer.Id where User.Id = ?
+		for (String individualColumn : columnToGet) {
+			query.append(individualColumn + " ,");
+		}
+		try {
+			query = new StringBuilder(query.subSequence(0, query.length() - 1));
+			query.append("from User left join Customer on User.Id = Customer.Id  where ");
+			PreparedStatement statement = connection.prepareStatement(query.toString());
+			query = new StringBuilder(query.subSequence(0, query.length() - 1));
+			int count = 1;
+			if (customerDetails.getId() != 0) {
+				query.append(" User.Id = ? ");
+				count++;
+			}
+			if (customerDetails.getStatus() != null) {
+					if (count > 1) {
+						query.append("AND ");
+					}
+					query.append(" User.Status = ? ");
+					count++;
+			}
+			statement = connection.prepareStatement((query.toString()));
+			count = 1;
+			if (customerDetails.getId() != 0) {
+				statement.setInt(count++, customerDetails.getId());
+			}
+			if (customerDetails.getStatus() != null) {
+				if (customerDetails.getStatus().equals("Active")) {
+					statement.setString(count++, "Active");
+				} else {
+					statement.setString(count++, "Inactive");
+				}
+			}
 			try (ResultSet record = statement.executeQuery()) {
 				ResultSetMetaData metadata = record.getMetaData();
 				int columns = metadata.getColumnCount();
@@ -124,25 +157,26 @@ public class CustomerOperations implements Customer {
 				for (Method temp : userMethods) {
 					customerMethodsList.add(temp.toString());
 				}
-				CustomerDetails customerDetails = (CustomerDetails) CustomerDetails.class.getDeclaredConstructor()
-						.newInstance();
 				while (record.next()) {
+					CustomerDetails tempcustomerDetails = (CustomerDetails) CustomerDetails.class
+							.getDeclaredConstructor().newInstance();
 					for (int i = 1; i <= columns; i++) {
 						String columnName = metadata.getColumnName(i);
 						String dataType = metadata.getColumnTypeName(i);
 						Method method;
 						if (dataType.equals("INT")) {
 							method = CustomerDetails.class.getMethod(mappingRecords.get(columnName), int.class);
-							method.invoke(customerDetails, record.getInt(i));
+							method.invoke(tempcustomerDetails, record.getInt(i));
 						} else if (dataType.equals("VARCHAR") || dataType.equals("ENUM") || dataType.equals("CHAR")) {
 							method = CustomerDetails.class.getMethod(mappingRecords.get(columnName), String.class);
-							method.invoke(customerDetails, record.getString(i));
-						} else if (!columnName.equals("DeleteAt") && dataType.equals("MEDIUMTEXT") || dataType.equals("BIGINT")) {
+							method.invoke(tempcustomerDetails, record.getString(i));
+						} else if (!columnName.equals("DeleteAt") && dataType.equals("MEDIUMTEXT")
+								|| dataType.equals("BIGINT")) {
 							method = CustomerDetails.class.getMethod(mappingRecords.get(columnName), long.class);
-							method.invoke(customerDetails, record.getLong(i));
+							method.invoke(tempcustomerDetails, record.getLong(i));
 						}
 					}
-					records.add(customerDetails);
+					records.add(tempcustomerDetails);
 				}
 			} catch (SecurityException | IllegalArgumentException | SQLException | InstantiationException
 					| IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {

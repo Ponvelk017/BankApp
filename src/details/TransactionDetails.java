@@ -85,11 +85,11 @@ public class TransactionDetails {
 		this.closingBalance = closingBalance;
 	}
 
-	public long getTime() {
+	public long getTransactionTime() {
 		return time;
 	}
 
-	public void setTime(long time) {
+	public void setTransactionTime(long time) {
 		this.time = time;
 	}
 

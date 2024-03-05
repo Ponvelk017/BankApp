@@ -8,6 +8,7 @@ import java.util.Map;
 import dbLogics.AccountOperations;
 import dbLogics.TransactionOperations;
 import details.AccountDetails;
+import details.CustomerDetails;
 import details.TransactionDetails;
 import utility.InputCheck;
 import utility.InvalidInputException;
@@ -24,9 +25,9 @@ public class AccountFunctions {
 		return accountOperation.createAccount(account);
 	}
 
-	public List<AccountDetails> accountDetails(int customerId) throws InvalidInputException {
-		InputCheck.checkNegativeInteger(customerId);
-		List<AccountDetails> records = accountOperation.getAccountDetails(customerId);
+	public List<AccountDetails> accountDetails(AccountDetails accountDet) throws InvalidInputException {
+		InputCheck.checkNull(accountDet);
+		List<AccountDetails> records = accountOperation.getCustomAccountDetails(accountDet);
 		return records;
 	}
 
@@ -38,8 +39,9 @@ public class AccountFunctions {
 		}
 		return result;
 	}
-
+	
 	public long getBalance(long accountNumber) throws InvalidInputException {
+		InputCheck.checkNegativeInteger(accountNumber);
 		return (long) accountOperation.getSingleRecord("Balance", "AccountNumber", accountNumber);
 	}
 
@@ -67,7 +69,7 @@ public class AccountFunctions {
 			transactionDetails.setAccountId(accountNumber);
 			transactionDetails
 					.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber", accountNumber));
-			transactionDetails.setTime(System.currentTimeMillis());
+			transactionDetails.setTransactionTime(System.currentTimeMillis());
 			transactionDetails.setTransactionType("Deposite");
 			transactionDetails.setAmount(depositeAmount);
 			transactionDetails.setClosingBalance(
@@ -92,7 +94,7 @@ public class AccountFunctions {
 				transactionDetails.setAccountId(accountNumber);
 				transactionDetails
 						.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber", accountNumber));
-				transactionDetails.setTime(System.currentTimeMillis());
+				transactionDetails.setTransactionTime(System.currentTimeMillis());
 				transactionDetails.setTransactionType("Withdraw");
 				transactionDetails.setDescription(description);
 				transactionDetails.setAmount(withdrawAmount);
@@ -128,7 +130,7 @@ public class AccountFunctions {
 					transactionDetails.setTransactionAccountId(receiverAcc);
 					transactionDetails
 							.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber", senderAcc));
-					transactionDetails.setTime(System.currentTimeMillis());
+					transactionDetails.setTransactionTime(System.currentTimeMillis());
 					transactionDetails.setTransactionType("Withdraw");
 					transactionDetails.setDescription(description);
 					transactionDetails.setAmount(amount);
@@ -141,7 +143,7 @@ public class AccountFunctions {
 					transactionDetails.setTransactionAccountId(senderAcc);
 					transactionDetails
 							.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber", senderAcc));
-					transactionDetails.setTime(System.currentTimeMillis());
+					transactionDetails.setTransactionTime(System.currentTimeMillis());
 					transactionDetails.setTransactionType("Deposite");
 					transactionDetails.setAmount(amount);
 					transactionDetails.setClosingBalance(senderBalance - amount);
@@ -179,7 +181,7 @@ public class AccountFunctions {
 				transactionDetails.setTransactionAccountId(receiverAcc);
 				transactionDetails
 						.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber", senderAcc));
-				transactionDetails.setTime(System.currentTimeMillis());
+				transactionDetails.setTransactionTime(System.currentTimeMillis());
 				transactionDetails.setTransactionType("Withdraw");
 				transactionDetails.setDescription(description);
 				transactionDetails.setAmount(amount);

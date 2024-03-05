@@ -1,9 +1,10 @@
-package customLogics;
+ package customLogics;
 
 import java.util.Map;
 
 import dbLogics.EmployeeOperations;
 import dbLogics.UserOperations;
+import details.CustomerDetails;
 import utility.InputCheck;
 import utility.InvalidInputException;
 
@@ -65,8 +66,13 @@ public class UserFunctions {
 		InputCheck.checkNegativeInteger(userId);
 		return userOpertaion.deleteUser(userId);
 	}
-
-	// BlockedUser Table
+	//
+	//
+	//
+	//BlockedUser Table
+	//
+	// 
+	//
 
 	public int addBlockedUser(int userId, int InvalidAttempts, long timeOfBlocked) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(userId);

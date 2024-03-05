@@ -23,13 +23,13 @@ public class AccountOperations implements Account {
 	private Connection connection = DBConnection.getConnection();
 
 	private final String createAccount = "insert into Account(UserId , BranchId , AccountType) values (?,?,?)";
-	private final String getAccountDetails = "select * from Account where UserId = ? ";
 	private final String getAvailableAccount = "select AccountNumber from Account where UserId = ? ";
 
 	private Map<String, String> mappingRecords = new HashMap<String, String>();
 
 	public void getMappingDetails() throws InvalidInputException {
-		try (PreparedStatement statement = connection.prepareStatement("select * from Account");
+		try (PreparedStatement statement = connection
+				.prepareStatement("select * from Account where AccountNumber = -1");
 				ResultSet allColumns = statement.executeQuery()) {
 			ResultSetMetaData metadata = allColumns.getMetaData();
 			int columns = ((ResultSetMetaData) metadata).getColumnCount();
@@ -56,9 +56,9 @@ public class AccountOperations implements Account {
 			for (Method temp : userMethods) {
 				customerMethodsList.add(temp.toString());
 			}
-			AccountDetails accountDetails = (AccountDetails) AccountDetails.class.getDeclaredConstructor()
-					.newInstance();
 			while (record.next()) {
+				AccountDetails accountDetails = (AccountDetails) AccountDetails.class.getDeclaredConstructor()
+						.newInstance();
 				for (int i = 1; i <= columns; i++) {
 					String columnName = metadata.getColumnName(i);
 					String dataType = metadata.getColumnTypeName(i);
@@ -126,11 +126,38 @@ public class AccountOperations implements Account {
 	}
 
 	@Override
-	public List<AccountDetails> getAccountDetails(int userId) throws InvalidInputException {
-		InputCheck.checkNegativeInteger(userId);
+	public List<AccountDetails> getCustomAccountDetails(AccountDetails accountDetails) throws InvalidInputException {
+		InputCheck.checkNull(accountDetails);
 		List<AccountDetails> userAccount = new ArrayList<AccountDetails>();
-		try (PreparedStatement statement = connection.prepareStatement(getAccountDetails)) {
-			statement.setInt(1, userId);
+		StringBuilder query = new StringBuilder("select * from Account where ");
+		int count = 1;
+		if (accountDetails.getAccountNumber() != 0) {
+			query.append("AccountNumber = ? ");
+			count++;
+		}
+		if (accountDetails.getUserId() != 0) {
+			query.append("UserId = ? ");
+			count++;
+		}
+		if (accountDetails.getStatus() != null) {
+			query.append("Status = ? ");
+			count++;
+		}
+		try (PreparedStatement statement = connection.prepareStatement(query.toString())) {
+			count = 1;
+			if (accountDetails.getAccountNumber() != 0) {
+				statement.setLong(count++, accountDetails.getAccountNumber());
+			}
+			if (accountDetails.getUserId() != 0) {
+				statement.setInt(count++, accountDetails.getUserId());
+			}
+			if (accountDetails.getStatus() != null) {
+				if (accountDetails.getStatus().endsWith("Active")) {
+					statement.setString(count++,"Active");
+				}else {
+					statement.setString(count++,"Inactive");
+				}
+			}
 			try (ResultSet record = statement.executeQuery()) {
 				userAccount = setDetails(record);
 			}

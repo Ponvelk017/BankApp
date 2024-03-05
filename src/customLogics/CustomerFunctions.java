@@ -1,10 +1,14 @@
 package customLogics;
 
 import java.sql.Date;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import dbLogics.CustomerOperations;
 import details.CustomerDetails;
@@ -23,12 +27,11 @@ public class CustomerFunctions {
 				&& customer.getEmail().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
 			LocalDate currentDate = LocalDate.now();
-			LocalDate dob =(new Date(customer.getDOB())).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+			LocalDate dob = LocalDate.ofInstant(Instant.ofEpochMilli(customer.getDOB()), ZoneId.systemDefault());
 			Period period = Period.between(dob, currentDate);
 			if (period.getYears() >= 18 && "MaleFemale".contains(customer.getGender()) && customer.getPassword()
 					.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-Z0-9@#$%^&+=!]).{8,}$")) {
-				if (customer.getAadhar().length() == 12 && customer.getPan().length() == 10
-						&& customer.getPan().matches("^[A_Z0-9]$")) {
+				if (customer.getAadhar().length() == 12 && customer.getPan().length() == 10) {
 					return 1;
 				}
 			}
@@ -62,11 +65,20 @@ public class CustomerFunctions {
 		return customerOpertaion.updateDetails(Id, column, value);
 	}
 
-	public CustomerDetails getCustomerProfile(int customerId) throws InvalidInputException {
-		InputCheck.checkNegativeInteger(customerId);
+	public Map<Integer,CustomerDetails> getCustomerProfile(CustomerDetails customerDetails) throws InvalidInputException {
+		InputCheck.checkNull(customerDetails);
 		customerDet = new CustomerDetails();
-		List<CustomerDetails> customerDet = customerOpertaion.getProfile(customerId);
-		return customerDet.get(0);
+		List<String> columnToGet = new ArrayList<String>();
+		columnToGet.add("User.*");
+		columnToGet.add("Customer.Address");
+		columnToGet.add("Customer.Aadhar");
+		columnToGet.add("Customer.Pan");
+		List<CustomerDetails> customerDet = customerOpertaion.getCustomCustomer(customerDetails , columnToGet);
+		Map<Integer,CustomerDetails> result = new HashMap<Integer,CustomerDetails>();
+		for(CustomerDetails singleRecord : customerDet) {
+			result.put(singleRecord.getId(), singleRecord);
+		}
+		return result;
 	}
 
 }

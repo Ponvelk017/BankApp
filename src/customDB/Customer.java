@@ -11,6 +11,7 @@ public interface Customer {
 
 	public int updateDetails(int Id, String column, Object value) throws InvalidInputException;
 
-	public List<CustomerDetails> getProfile(int customerId) throws InvalidInputException;
-	
+	public List<CustomerDetails> getCustomCustomer(CustomerDetails customer, List<String> columnToGet)
+			throws InvalidInputException;
+
 }
