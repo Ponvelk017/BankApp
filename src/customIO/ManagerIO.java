@@ -2,18 +2,21 @@ package customIO;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.Map.Entry;
+import java.util.Scanner;
 import java.util.logging.Logger;
 
 import customLogics.AccountFunctions;
+import customLogics.BranchFunction;
 import customLogics.CustomerFunctions;
 import customLogics.EmployeeFunctions;
 import customLogics.TransactionFunctions;
 import customLogics.UserFunctions;
 import details.AccountDetails;
+import details.BranchDetails;
 import details.CustomerDetails;
 import details.EmployeeDetails;
 import details.TransactionDetails;
@@ -31,11 +34,13 @@ public class ManagerIO {
 		EmployeeDetails employeeDet = new EmployeeDetails();
 		AccountDetails accountDet = new AccountDetails();
 		TransactionDetails transactionDetails = new TransactionDetails();
+		BranchDetails branchDetails = new BranchDetails();
 		CustomerFunctions customerFunctions = new CustomerFunctions();
 		EmployeeFunctions employeeFunctions = new EmployeeFunctions();
 		AccountFunctions accountFunction = new AccountFunctions();
 		UserFunctions userFunction = new UserFunctions();
 		TransactionFunctions transactionFunctions = new TransactionFunctions();
+		BranchFunction branchFunction = new BranchFunction();
 
 		boolean breakCondition = true;
 		while (breakCondition) {
@@ -52,7 +57,10 @@ public class ManagerIO {
 			logger.info(String.format("%10s", "9.Block/Unblock a Account"));
 			logger.info(String.format("%10s", "10.View all (Active/Inactive) User"));
 			logger.info(String.format("%10s", "11.View all (Block/Unblock) Account"));
-			logger.info(String.format("%10s", "12.Log Out"));
+			logger.info(String.format("%10s", "12.Add a new Branch"));
+			logger.info(String.format("%10s", "13.Update a Branch"));
+			logger.info(String.format("%10s", "14.View details of a Branch"));
+			logger.info(String.format("%10s", "15.Log Out"));
 			logger.info("-" + "-".repeat(40) + "-");
 			int option = scanner.nextInt();
 			switch (option) {
@@ -136,10 +144,8 @@ public class ManagerIO {
 					employeeDet.setPassword(Common.encryptPassword(scanner.next()));
 					logger.info("BranchID");
 					employeeDet.setBranch(scanner.next());
-					logger.info("Join Date");
-					employeeDet.setJoinDate(scanner.next());
 					logger.info("Admin");
-					employeeDet.setIsAdmin(scanner.nextBoolean());
+					employeeDet.setAdmin(scanner.nextBoolean());
 					employeeDet.setType("Employee");
 					employee.add(employeeDet);
 				}
@@ -308,8 +314,12 @@ public class ManagerIO {
 					columnToGet.add("ClosingBalance");
 					transactionDetails.setAccountId(accountNumber);
 					transactionDetails.setTransactionType((transactionChoice == 1) ? "Deposite" : "Withdraw");
+					Map<String, Object> conditions = new HashMap<String, Object>();
+					conditions.put("From", Common.beforeNDate(duration));
+					conditions.put("To", System.currentTimeMillis());
+					conditions.put("Sort", "desc");
 					List<TransactionDetails> record = transactionFunctions.getCustomDetails(transactionDetails,
-							columnToGet, duration);
+							columnToGet, conditions);
 					for (TransactionDetails records : record) {
 						logger.severe("-" + "-".repeat(40) + "-");
 						logger.severe(
@@ -340,7 +350,7 @@ public class ManagerIO {
 				int userId = scanner.nextInt();
 				switch (activeOption) {
 				case 1: {
-					int affectedRows = userFunction.coloumnUpdation("Status", "Active", userId);
+					int affectedRows = userFunction.coloumnUpdation("Status", "1", userId);
 					if (affectedRows > 0) {
 						logger.info("User Activated");
 					} else {
@@ -349,7 +359,7 @@ public class ManagerIO {
 				}
 					break;
 				case 2: {
-					int affectedRows = userFunction.coloumnUpdation("Status", "Inactive", userId);
+					int affectedRows = userFunction.coloumnUpdation("Status", "0", userId);
 					if (affectedRows > 0) {
 						logger.info("User Inactivated");
 					} else {
@@ -368,7 +378,7 @@ public class ManagerIO {
 				long account = scanner.nextLong();
 				switch (activeOption) {
 				case 1: {
-					int affectedRows = accountFunction.updateColoumn("Status", "Active", account);
+					int affectedRows = accountFunction.updateColoumn("Status", "1", account);
 					if (affectedRows > 0) {
 						logger.info("Account Activated");
 					} else {
@@ -377,7 +387,7 @@ public class ManagerIO {
 				}
 					break;
 				case 2: {
-					int affectedRows = accountFunction.updateColoumn("Status", "Inactive", account);
+					int affectedRows = accountFunction.updateColoumn("Status", "0", account);
 					if (affectedRows > 0) {
 						logger.info("Account Inactivated");
 					} else {
@@ -394,10 +404,10 @@ public class ManagerIO {
 				CustomerDetails customerStatus = new CustomerDetails();
 				Map<Integer, CustomerDetails> activeUsers;
 				if (statusOption.equals("1")) {
-					customerStatus.setStatus("Active");
+					customerStatus.setStatus("1");
 					activeUsers = customerFunctions.getCustomerProfile(customerStatus);
 				} else if (statusOption.equals("2")) {
-					customerStatus.setStatus("Inactive");
+					customerStatus.setStatus("0");
 					activeUsers = customerFunctions.getCustomerProfile(customerStatus);
 				} else {
 					logger.warning("Invalid Option");
@@ -424,18 +434,19 @@ public class ManagerIO {
 				logger.info("Which Account Details do you need ?\n1.Active\n2.Inactive");
 				String statusOption = scanner.next();
 				AccountDetails accountDetail = new AccountDetails();
-				List<AccountDetails> accountData;
+				Map<Long, AccountDetails> accountData;
 				if (statusOption.equals("1")) {
-					accountDetail.setStatus("Active");
+					accountDetail.setStatus("1");
 					accountData = accountFunction.accountDetails(accountDetail);
 				} else if (statusOption.equals("2")) {
-					accountDetail.setStatus("Inactive");
+					accountDetail.setStatus("0");
 					accountData = accountFunction.accountDetails(accountDetail);
 				} else {
 					logger.warning("Invalid Option");
 					continue;
 				}
-				for (AccountDetails individualAccount : accountData) {
+				for (Entry tempIndividualRecord : accountData.entrySet()) {
+					AccountDetails individualAccount = (AccountDetails) tempIndividualRecord.getValue();
 					logger.severe("-" + "-".repeat(40) + "-");
 					logger.severe(String.format("%-15s", "Account Number")
 							+ String.format("%-15s", individualAccount.getAccountNumber()));
@@ -452,6 +463,54 @@ public class ManagerIO {
 			}
 				break;
 			case 12: {
+				logger.info("Enter the IFSC code of the new branch");
+				branchDetails.setIfscCode(scanner.next());
+				logger.info("Enter the Address");
+				branchDetails.setAddress(scanner.nextLine());
+				scanner.nextLine();
+				logger.info("Enter the Manager Id ");
+				branchDetails.setManagerId(scanner.nextInt());
+				logger.info("Enter the contact number");
+				branchDetails.setPhoneNumber(scanner.nextLong());
+				int affectedRows = branchFunction.addBranch(branchDetails);
+				if (affectedRows > 0) {
+					logger.info("Successfully Added");
+				} else {
+					logger.info("Insertion was Unsuccessful");
+				}
+			}
+				break;
+			case 13: {
+				logger.info("Enter the column to update");
+				String column = scanner.next();
+				logger.info("Enter the Id");
+				int id = scanner.nextInt();
+				logger.info("Enter the value to update");
+				Object value = scanner.next();
+				int affectedRows = branchFunction.updateRecord(column, value, id);
+				if (affectedRows > 0) {
+					logger.info("Updated Successfully");
+				} else {
+					logger.info("Update was not successfull");
+				}
+			}
+				break;
+			case 14: {
+				logger.info("Enter the Id or IFSC code to get the Details ");
+				Object value = scanner.next();
+				BranchDetails branchDetail = branchFunction.getBranchDetails(value);
+				logger.severe("-" + "-".repeat(40) + "-");
+				logger.severe(String.format("%-15s", "Id") + String.format("%-15s", branchDetail.getId()));
+				logger.severe(String.format("%-15s", "IFSC Code") + String.format("%-15s", branchDetail.getIfscCode()));
+				logger.severe(String.format("%-15s", "Address") + String.format("%-15s", branchDetail.getAddress()));
+				logger.severe(
+						String.format("%-15s", "ManagerId") + String.format("%-15s", branchDetail.getManagerId()));
+				logger.severe(
+						String.format("%-15s", "Phone Number") + String.format("%-15s", branchDetail.getPhoneNumber()));
+				logger.severe("-" + "-".repeat(40) + "-");
+			}
+				break;
+			case 15: {
 				breakCondition = false;
 			}
 				break;

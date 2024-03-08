@@ -1,14 +1,7 @@
 package utility;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,18 +9,12 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import details.AccountDetails;
 
 public class Common {
 
 	public static long dateToMilli(String date) {
-		DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyyy");
+		DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
 		long milliSecond = 0l;
 		try {
 			Date dateMilli = dateFormat.parse(date);
@@ -63,8 +50,9 @@ public class Common {
 			byte[] encryptedBytes = passwordEncyptor.digest(password.getBytes());
 			for (byte individualByte : encryptedBytes) {
 				String singleByte = Integer.toHexString(0xff & individualByte);
-				if (singleByte.length() == 1)
+				if (singleByte.length() == 1) {
 					encryptedPassword.append('0');
+				}
 				encryptedPassword.append(singleByte);
 			}
 		} catch (NoSuchAlgorithmException e) {

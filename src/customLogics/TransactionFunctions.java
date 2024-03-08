@@ -7,6 +7,7 @@ import java.util.Map;
 
 import dbLogics.TransactionOperations;
 import details.TransactionDetails;
+import utility.Common;
 import utility.InputCheck;
 import utility.InvalidInputException;
 
@@ -17,6 +18,7 @@ public class TransactionFunctions {
 	public TransactionDetails getTransactionDetails(long transactionId, String conditionColumn)
 			throws InvalidInputException {
 		InputCheck.checkNegativeInteger(transactionId);
+		System.out.println(transactionId + " " + conditionColumn);
 		List<TransactionDetails> record = transactionOpertaion.getTransferTransaction(transactionId, conditionColumn);
 		return record.get(0);
 	}
@@ -34,14 +36,18 @@ public class TransactionFunctions {
 		} else if (accountId > 0) {
 			transactionDetails.setAccountId(accountId);
 		}
+		Map<String, Object> conditions = new HashMap<String, Object>();
+		conditions.put("From", Common.beforeNDate(duration));
+		conditions.put("To", System.currentTimeMillis());
+		conditions.put("Sort", "desc");
 		List<TransactionDetails> records = transactionOpertaion.getCustomData(transactionDetails, columnToGet,
-				duration);
+				conditions);
 		Map<Integer, TransactionDetails> result = new HashMap<Integer, TransactionDetails>();
-		long temp=0,accountNumber = 0;
+		long temp = 0, accountNumber = 0;
 		for (TransactionDetails record : records) {
 			temp = record.getAccountId();
-			if(temp != accountNumber) {
-				
+			if (temp != accountNumber) {
+
 			}
 		}
 		return records;
@@ -61,11 +67,54 @@ public class TransactionFunctions {
 	}
 
 	public List<TransactionDetails> getCustomDetails(TransactionDetails transaction, List<String> columnToGet,
-			int duration) throws InvalidInputException {
+			Map<String, Object> condition) throws InvalidInputException {
 		InputCheck.checkNull(transaction);
 		InputCheck.checkNull(columnToGet);
-		InputCheck.checkNegativeInteger(duration);
-		List<TransactionDetails> record = transactionOpertaion.getCustomData(transaction, columnToGet, duration);
+		InputCheck.checkNull(condition);
+		List<TransactionDetails> record = transactionOpertaion.getCustomData(transaction, columnToGet, condition);
 		return record;
+	}
+
+	public long newDeposite(long accountNumber, long depositeAmount) throws InvalidInputException {
+		InputCheck.checkNegativeInteger(accountNumber);
+		InputCheck.checkNegativeInteger(depositeAmount);
+		TransactionDetails transactionDetails = new TransactionDetails();
+		transactionDetails.setAccountId(accountNumber);
+		transactionDetails.setAmount(depositeAmount);
+		return transactionOpertaion.deposite(transactionDetails, true);
+	}
+
+	public long newWithdraw(long accountNumber, long withdrawAmount, String description) throws InvalidInputException {
+		InputCheck.checkNegativeInteger(accountNumber);
+		InputCheck.checkNegativeInteger(withdrawAmount);
+		InputCheck.checkNull(description);
+		TransactionDetails transactionDetails = new TransactionDetails();
+		transactionDetails.setAccountId(accountNumber);
+		transactionDetails.setAmount(withdrawAmount);
+		transactionDetails.setDescription(description);
+		return transactionOpertaion.withdraw(transactionDetails, true);
+	}
+
+	public Map<String, Integer> newTransferWithinBank(long senderAcc, long receiverAcc, long amount, String description)
+			throws InvalidInputException {
+		InputCheck.checkNegativeInteger(senderAcc);
+		InputCheck.checkNegativeInteger(receiverAcc);
+		InputCheck.checkNegativeInteger(amount);
+		InputCheck.checkNull(description);
+		TransactionDetails transactionDetails = new TransactionDetails();
+		transactionDetails.setAccountId(senderAcc);
+		transactionDetails.setTransactionAccountId(receiverAcc);
+		transactionDetails.setAmount(amount);
+		transactionDetails.setDescription(description);
+		return transactionOpertaion.transferWithinBank(transactionDetails);
+	}
+
+	public long newTransferOtherBank(long senderAcc, long receiverAcc, long amount, String description)
+			throws InvalidInputException {
+		InputCheck.checkNegativeInteger(senderAcc);
+		InputCheck.checkNegativeInteger(receiverAcc);
+		InputCheck.checkNegativeInteger(amount);
+		InputCheck.checkNull(description);
+		return transactionOpertaion.transferOtherBank(senderAcc, receiverAcc, amount, description);
 	}
 }

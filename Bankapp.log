@@ -1,126 +1,1988 @@
-Mar 05, 2024 3:07:04 PM customIO.Bankapp main
+Mar 08, 2024 9:55:45 AM customIO.Bankapp main
 INFO:                            Welcome to Bank of CBE 
-Mar 05, 2024 3:07:04 PM customIO.Bankapp main
+Mar 08, 2024 9:55:45 AM customIO.Bankapp main
 INFO: ------------------------------------------
-Mar 05, 2024 3:07:04 PM customIO.Bankapp main
+Mar 08, 2024 9:55:45 AM customIO.Bankapp main
 INFO: 1.Log in
 2.Exit
-Mar 05, 2024 3:07:05 PM customIO.Bankapp main
+Mar 08, 2024 9:55:49 AM customIO.Bankapp main
 INFO: ------------------------------------------
-Mar 05, 2024 3:07:05 PM customIO.Bankapp main
+Mar 08, 2024 9:55:49 AM customIO.Bankapp main
 INFO: Enter the login credentials
-Mar 05, 2024 3:07:05 PM customIO.Bankapp main
+Mar 08, 2024 9:55:49 AM customIO.Bankapp main
 INFO: Enter UserId :  
-Mar 05, 2024 3:07:06 PM customIO.Bankapp main
+Mar 08, 2024 9:55:52 AM customIO.Bankapp main
 INFO: Enter Password :
-Mar 05, 2024 3:07:08 PM customIO.Bankapp main
+Mar 08, 2024 9:55:53 AM customIO.Bankapp main
 INFO: ------------------------------------------
-Mar 05, 2024 3:07:08 PM customIO.Bankapp main
+Mar 08, 2024 9:55:53 AM customIO.Bankapp main
 INFO: Logged in successfully
-Mar 05, 2024 3:07:08 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
+INFO: To change the Account log out and login
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
 INFO: ------------------------------------------
-Mar 05, 2024 3:07:08 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
 INFO: Select a Option to Proceed : 
-Mar 05, 2024 3:07:08 PM customIO.EmployeeIO employeeActions
-INFO: 1.Add a Customer
-Mar 05, 2024 3:07:08 PM customIO.EmployeeIO employeeActions
-INFO: 3.Update the Details of a Customer
-Mar 05, 2024 3:07:08 PM customIO.EmployeeIO employeeActions
-INFO: 4.Delete a Customer
-Mar 05, 2024 3:07:08 PM customIO.EmployeeIO employeeActions
-INFO: 5.view Transactions of a User
-Mar 05, 2024 3:07:08 PM customIO.EmployeeIO employeeActions
-INFO: 6.Make a User Active/Inactive
-Mar 05, 2024 3:07:08 PM customIO.EmployeeIO employeeActions
-INFO: 7.Block/Unblock a Account
-Mar 05, 2024 3:07:08 PM customIO.EmployeeIO employeeActions
-INFO: 8.View all (Active/Inactive) User
-Mar 05, 2024 3:07:08 PM customIO.EmployeeIO employeeActions
-INFO: 9.View all (Block/Unblock) Account
-Mar 05, 2024 3:07:08 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
+INFO: 4.Deposit 
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
 INFO: 10.Log Out
-Mar 05, 2024 3:07:08 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 9:55:53 AM customIO.CustomerIO customerAction
 INFO: ------------------------------------------
-Mar 05, 2024 3:07:09 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 9:55:54 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 9:55:54 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Mar 08, 2024 9:56:15 AM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Mar 08, 2024 9:56:15 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 9:56:15 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Mar 08, 2024 9:56:16 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 9:56:16 AM customIO.Bankapp main
+INFO: Enter the login credentials
+Mar 08, 2024 9:56:16 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Mar 08, 2024 9:56:17 AM customIO.Bankapp main
+INFO: Enter Password :
+Mar 08, 2024 9:56:18 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 9:56:18 AM customIO.Bankapp main
+INFO: Logged in successfully
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: 2.Add a Account to a User
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: 3.Update the Details of a Customer
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: 4.Delete a Customer
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: 5.view Transactions of a User
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: 6.Make a User Active/Inactive
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: 7.Block/Unblock a Account
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: 8.View all (Active/Inactive) User
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: 9.View all (Block/Unblock) Account
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: 10.Viwe a Branch Details
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: 11.Log Out
+Mar 08, 2024 9:56:18 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 9:56:19 AM customIO.EmployeeIO employeeActions
 INFO: 1. View all Transacions Of the User
-Mar 05, 2024 3:07:09 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 9:56:19 AM customIO.EmployeeIO employeeActions
 INFO: 2. View Single Transacions
-Mar 05, 2024 3:07:09 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 9:56:19 AM customIO.EmployeeIO employeeActions
 INFO: 3. View transaction of a Account
-Mar 05, 2024 3:07:09 PM customIO.EmployeeIO employeeActions
-INFO: 4. View (Deposite/Withdraw/Both)transaction of a Account over a Period
-Mar 05, 2024 3:07:13 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 9:56:19 AM customIO.EmployeeIO employeeActions
+INFO: 4. View (Deposit/Withdraw/Both)transaction of a Account over a Period
+Mar 08, 2024 9:56:20 AM customIO.EmployeeIO employeeActions
 INFO: Enter the Account Number
-Mar 05, 2024 3:07:14 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 9:56:26 AM customIO.EmployeeIO employeeActions
 INFO: Enter the Time Period
-1.1 month
-2.3 months
-3.6 months
-4.12 months
-Mar 05, 2024 3:07:16 PM customIO.EmployeeIO employeeActions
+From
+Mar 08, 2024 9:56:30 AM customIO.EmployeeIO employeeActions
+INFO: To
+Mar 08, 2024 9:56:45 AM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Mar 08, 2024 9:56:45 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 9:56:45 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Mar 08, 2024 9:56:47 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 9:56:47 AM customIO.Bankapp main
+INFO: Enter the login credentials
+Mar 08, 2024 9:56:47 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Mar 08, 2024 9:56:49 AM customIO.Bankapp main
+INFO: Enter Password :
+Mar 08, 2024 9:56:49 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 9:56:49 AM customIO.Bankapp main
+INFO: Logged in successfully
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: 2.Add a Account to a User
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: 3.Update the Details of a Customer
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: 4.Delete a Customer
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: 5.view Transactions of a User
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: 6.Make a User Active/Inactive
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: 7.Block/Unblock a Account
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: 8.View all (Active/Inactive) User
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: 9.View all (Block/Unblock) Account
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: 10.Viwe a Branch Details
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: 11.Log Out
+Mar 08, 2024 9:56:49 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 9:56:51 AM customIO.EmployeeIO employeeActions
+INFO: 1. View all Transacions Of the User
+Mar 08, 2024 9:56:51 AM customIO.EmployeeIO employeeActions
+INFO: 2. View Single Transacions
+Mar 08, 2024 9:56:51 AM customIO.EmployeeIO employeeActions
+INFO: 3. View transaction of a Account
+Mar 08, 2024 9:56:51 AM customIO.EmployeeIO employeeActions
+INFO: 4. View (Deposit/Withdraw/Both)transaction of a Account over a Period
+Mar 08, 2024 9:56:51 AM customIO.EmployeeIO employeeActions
+INFO: Enter the Account Number
+Mar 08, 2024 9:56:52 AM customIO.EmployeeIO employeeActions
+INFO: Enter the Time Period
+From
+Mar 08, 2024 9:56:56 AM customIO.EmployeeIO employeeActions
+INFO: To
+Mar 08, 2024 9:57:03 AM customIO.EmployeeIO employeeActions
 INFO: Enter the transaction type : 
-1.Deposite
+1.Deposit
 2.Withdraw
 3.Both
-Mar 05, 2024 3:07:17 PM customIO.Bankapp main
-INFO: An Exception occured ! Sorry for the Inconvenience
-utility.InvalidInputException: An Error Occured , Sorry for the Inconvenience
-	at Bankapp/utility.Common.setDetails(Common.java:134)
-	at Bankapp/dbLogics.TransactionOperations.getCustomData(TransactionOperations.java:206)
-	at Bankapp/customLogics.TransactionFunctions.getCustomDetails(TransactionFunctions.java:68)
-	at Bankapp/customIO.EmployeeIO.employeeActions(EmployeeIO.java:266)
-	at Bankapp/customIO.Bankapp.main(Bankapp.java:96)
-Caused by: java.lang.NoSuchMethodException: customDB.Transaction.<init>()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3585)
-	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2754)
-	at Bankapp/utility.Common.setDetails(Common.java:112)
-	... 4 more
-
-Mar 05, 2024 3:07:28 PM customIO.Bankapp main
-INFO:                            Welcome to Bank of CBE 
-Mar 05, 2024 3:07:28 PM customIO.Bankapp main
+Mar 08, 2024 9:57:04 AM customIO.EmployeeIO employeeActions
+INFO: 1.Give Latest
+2.Give Earilest
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      49                  
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000013     
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  0                   
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-29          
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     11323               
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
 INFO: ------------------------------------------
-Mar 05, 2024 3:07:28 PM customIO.Bankapp main
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: 2.Add a Account to a User
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: 3.Update the Details of a Customer
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: 4.Delete a Customer
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: 5.view Transactions of a User
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: 6.Make a User Active/Inactive
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: 7.Block/Unblock a Account
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: 8.View all (Active/Inactive) User
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: 9.View all (Block/Unblock) Account
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: 10.Viwe a Branch Details
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: 11.Log Out
+Mar 08, 2024 9:57:05 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 9:57:27 AM customIO.EmployeeIO employeeActions
+INFO: 1. View all Transacions Of the User
+Mar 08, 2024 9:57:27 AM customIO.EmployeeIO employeeActions
+INFO: 2. View Single Transacions
+Mar 08, 2024 9:57:27 AM customIO.EmployeeIO employeeActions
+INFO: 3. View transaction of a Account
+Mar 08, 2024 9:57:27 AM customIO.EmployeeIO employeeActions
+INFO: 4. View (Deposit/Withdraw/Both)transaction of a Account over a Period
+Mar 08, 2024 9:57:27 AM customIO.EmployeeIO employeeActions
+INFO: Enter the Account Number
+Mar 08, 2024 9:57:28 AM customIO.EmployeeIO employeeActions
+INFO: Enter the Time Period
+From
+Mar 08, 2024 9:57:32 AM customIO.EmployeeIO employeeActions
+INFO: To
+Mar 08, 2024 9:57:38 AM customIO.EmployeeIO employeeActions
+INFO: Enter the transaction type : 
+1.Deposit
+2.Withdraw
+3.Both
+Mar 08, 2024 9:57:40 AM customIO.EmployeeIO employeeActions
+INFO: 1.Give Latest
+2.Give Earilest
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      48                  
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000013     
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  0                   
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-29          
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  1000                
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     11423               
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      44                  
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000013     
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000011     
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10057               
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      43                  
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000013     
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000011     
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10157               
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      41                  
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000013     
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000011     
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  10000               
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10357               
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      37                  
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000013     
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000011     
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     20477               
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      30                  
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000013     
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000011     
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  123                 
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     20377               
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: 2.Add a Account to a User
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: 3.Update the Details of a Customer
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: 4.Delete a Customer
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: 5.view Transactions of a User
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: 6.Make a User Active/Inactive
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: 7.Block/Unblock a Account
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: 8.View all (Active/Inactive) User
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: 9.View all (Block/Unblock) Account
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: 10.Viwe a Branch Details
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: 11.Log Out
+Mar 08, 2024 9:57:41 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 9:58:15 AM customIO.EmployeeIO employeeActions
+INFO: 1. View all Transacions Of the User
+Mar 08, 2024 9:58:15 AM customIO.EmployeeIO employeeActions
+INFO: 2. View Single Transacions
+Mar 08, 2024 9:58:15 AM customIO.EmployeeIO employeeActions
+INFO: 3. View transaction of a Account
+Mar 08, 2024 9:58:15 AM customIO.EmployeeIO employeeActions
+INFO: 4. View (Deposit/Withdraw/Both)transaction of a Account over a Period
+Mar 08, 2024 9:58:15 AM customIO.EmployeeIO employeeActions
+INFO: Enter the Account Number
+Mar 08, 2024 9:58:28 AM customIO.EmployeeIO employeeActions
+INFO: Enter the Time Period
+From
+Mar 08, 2024 9:58:32 AM customIO.EmployeeIO employeeActions
+INFO: To
+Mar 08, 2024 9:58:39 AM customIO.EmployeeIO employeeActions
+INFO: Enter the transaction type : 
+1.Deposit
+2.Withdraw
+3.Both
+Mar 08, 2024 9:58:41 AM customIO.EmployeeIO employeeActions
+INFO: 1.Give Latest
+2.Give Earilest
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      53                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  0                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-03-03          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  1000                
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     7757                
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      51                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  0                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-03-03          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  1000                
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     7757                
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      50                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  0                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-03-01          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  1000                
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     8757                
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      47                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000012000012     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     9757                
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      46                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000012013     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     9857                
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      45                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000001213     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     9957                
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      44                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000013     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10057               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      43                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000013     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10157               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      42                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100012300000013     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10257               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      41                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000013     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  10000               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10357               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      40                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  0                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  120                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     20357               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      39                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  0                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     20477               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      37                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000013     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     20477               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      35                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     20277               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      34                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  0                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     20377               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      29                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  0                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  1000                
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     20500               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      27                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  0                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-26          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     20300               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Id      22                  
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: From                100000000000011     
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: To                  0                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Time    2024-02-26          
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+SEVERE: Closing Balance     10700               
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: 2.Add a Account to a User
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: 3.Update the Details of a Customer
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: 4.Delete a Customer
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: 5.view Transactions of a User
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: 6.Make a User Active/Inactive
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: 7.Block/Unblock a Account
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: 8.View all (Active/Inactive) User
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: 9.View all (Block/Unblock) Account
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: 10.Viwe a Branch Details
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: 11.Log Out
+Mar 08, 2024 9:58:42 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 9:58:48 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 9:58:48 AM customIO.Bankapp main
 INFO: 1.Log in
 2.Exit
-Mar 05, 2024 3:09:47 PM customIO.Bankapp main
+Mar 08, 2024 10:11:09 AM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Mar 08, 2024 10:11:09 AM customIO.Bankapp main
 INFO: ------------------------------------------
-Mar 05, 2024 3:09:47 PM customIO.Bankapp main
+Mar 08, 2024 10:11:09 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Mar 08, 2024 10:11:12 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 10:11:12 AM customIO.Bankapp main
 INFO: Enter the login credentials
-Mar 05, 2024 3:09:47 PM customIO.Bankapp main
+Mar 08, 2024 10:11:12 AM customIO.Bankapp main
 INFO: Enter UserId :  
-Mar 05, 2024 3:09:53 PM customIO.Bankapp main
+Mar 08, 2024 10:11:12 AM customIO.Bankapp main
 INFO: Enter Password :
-Mar 05, 2024 3:09:53 PM customIO.Bankapp main
+Mar 08, 2024 10:11:13 AM customIO.Bankapp main
 INFO: ------------------------------------------
-Mar 05, 2024 3:09:53 PM customIO.Bankapp main
+Mar 08, 2024 10:11:13 AM customIO.Bankapp main
 INFO: Logged in successfully
-Mar 05, 2024 3:09:53 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
+INFO: To change the Account log out and login
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
 INFO: ------------------------------------------
-Mar 05, 2024 3:09:53 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
 INFO: Select a Option to Proceed : 
-Mar 05, 2024 3:09:53 PM customIO.EmployeeIO employeeActions
-INFO: 1.Add a Customer
-Mar 05, 2024 3:09:53 PM customIO.EmployeeIO employeeActions
-INFO: 3.Update the Details of a Customer
-Mar 05, 2024 3:09:53 PM customIO.EmployeeIO employeeActions
-INFO: 4.Delete a Customer
-Mar 05, 2024 3:09:53 PM customIO.EmployeeIO employeeActions
-INFO: 5.view Transactions of a User
-Mar 05, 2024 3:09:53 PM customIO.EmployeeIO employeeActions
-INFO: 6.Make a User Active/Inactive
-Mar 05, 2024 3:09:53 PM customIO.EmployeeIO employeeActions
-INFO: 7.Block/Unblock a Account
-Mar 05, 2024 3:09:53 PM customIO.EmployeeIO employeeActions
-INFO: 8.View all (Active/Inactive) User
-Mar 05, 2024 3:09:53 PM customIO.EmployeeIO employeeActions
-INFO: 9.View all (Block/Unblock) Account
-Mar 05, 2024 3:09:53 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
+INFO: 4.Deposit 
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
 INFO: 10.Log Out
-Mar 05, 2024 3:09:53 PM customIO.EmployeeIO employeeActions
+Mar 08, 2024 10:11:13 AM customIO.CustomerIO customerAction
 INFO: ------------------------------------------
-Mar 05, 2024 3:09:54 PM customIO.Bankapp main
+Mar 08, 2024 10:11:14 AM customIO.CustomerIO customerAction
+INFO: Your Details
+Mar 08, 2024 10:11:15 AM customIO.Bankapp main
+INFO: An Exception occured ! Sorry for the Inconvenience
+utility.InvalidInputException: An Error Occured , Sorry for the Inconvenience
+	at Bankapp/dbLogics.CustomerOperations.getCustomCustomer(CustomerOperations.java:183)
+	at Bankapp/customLogics.CustomerFunctions.getCustomerProfile(CustomerFunctions.java:76)
+	at Bankapp/customIO.CustomerIO.customerAction(CustomerIO.java:65)
+	at Bankapp/customIO.Bankapp.main(Bankapp.java:100)
+Caused by: java.lang.NoSuchMethodException: details.CustomerDetails.setMobile(java.lang.String)
+	at java.base/java.lang.Class.getMethod(Class.java:2227)
+	at Bankapp/dbLogics.CustomerOperations.getCustomCustomer(CustomerOperations.java:171)
+	... 3 more
+
+Mar 08, 2024 10:13:35 AM customIO.Bankapp main
+INFO:                            Welcome to Bank of CBE 
+Mar 08, 2024 10:13:35 AM customIO.Bankapp main
 INFO: ------------------------------------------
-Mar 05, 2024 3:09:54 PM customIO.Bankapp main
+Mar 08, 2024 10:13:35 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Mar 08, 2024 10:13:36 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:36 AM customIO.Bankapp main
+INFO: Enter the login credentials
+Mar 08, 2024 10:13:36 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Mar 08, 2024 10:13:38 AM customIO.Bankapp main
+INFO: Enter Password :
+Mar 08, 2024 10:13:38 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:38 AM customIO.Bankapp main
+INFO: Logged in successfully
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: To change the Account log out and login
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: 4.Deposit 
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Mar 08, 2024 10:13:38 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: Your Details
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+SEVERE: Name           Leo            
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+SEVERE: DOB            568838340000   
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+SEVERE: Mobile Number  9212234510     
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+SEVERE: Email          leo@gmail.com  
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+SEVERE: Gender         Male           
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+SEVERE: Status         1              
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+SEVERE: Aadhar         1234098765123456
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+SEVERE: PAN Number     123DCVB290Q    
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+SEVERE: Address        12,Das & Co ,chennai-678901
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: 4.Deposit 
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Mar 08, 2024 10:13:39 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: Account Details
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+SEVERE: Account Number 100000000000011
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+SEVERE: Balance        8903           
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+SEVERE: Account Type   Saving         
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+SEVERE: Status         1              
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+SEVERE: Branch IFSC codeABCD1234567    
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: 4.Deposit 
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Mar 08, 2024 10:13:40 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: You have Rs :
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: 8903
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: 4.Deposit 
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Mar 08, 2024 10:13:43 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:45 AM customIO.CustomerIO customerAction
+INFO: Enter the Amount to Deposit : 
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: Successfully deposited :)
+Your Transaction statement is
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Id      66                  
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+SEVERE: To                  0                   
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-08          
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     9003                
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: 4.Deposit 
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Mar 08, 2024 10:13:47 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:49 AM customIO.CustomerIO customerAction
+INFO: Enter the Amount to withdraw :
+Mar 08, 2024 10:13:51 AM customIO.CustomerIO customerAction
+INFO: Enter Description
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: Successfully Withdrawed :)
+Your Transaction statement is
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Id      67                  
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-08          
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+SEVERE: Description         test                
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8903                
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: 4.Deposit 
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Mar 08, 2024 10:13:53 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:13:57 AM customIO.CustomerIO customerAction
+INFO: Enter the Reciver Account Number : 
+Mar 08, 2024 10:14:10 AM customIO.CustomerIO customerAction
+INFO: Enter the Amount to send : 
+Mar 08, 2024 10:14:12 AM customIO.CustomerIO customerAction
+INFO: Enter Description
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: Your Transaction Details
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Id      68                  
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000007     
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+SEVERE: To                  100000000000011     
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-08          
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+SEVERE: Description         null                
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     1323                
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: 4.Deposit 
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Mar 08, 2024 10:14:15 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:14:18 AM customIO.CustomerIO customerAction
+INFO: Enter the Reciver Account Number : 
+Mar 08, 2024 10:14:20 AM customIO.CustomerIO customerAction
+INFO: Enter the Amount to send : 
+Mar 08, 2024 10:14:25 AM customIO.CustomerIO customerAction
+INFO: Enter Description
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: Your Transaction Details
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Id      69                  
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+SEVERE: To                  100000000000007     
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-08          
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+SEVERE: Description         test                
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8703                
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: 4.Deposit 
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Mar 08, 2024 10:14:27 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:14:31 AM customIO.CustomerIO customerAction
+INFO: Take Statement for 
+1. 1 Month
+2. 2 Months
+3. 3 Months
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-08          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8703                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-08          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8803                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-08          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8903                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-08          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     9003                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-07          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8903                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-07          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8904                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-07          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8905                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-07          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8906                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-07          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8907                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-07          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     9007                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-07          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8907                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-07          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8807                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-07          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8707                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-07          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8307                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-07          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     7857                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-07          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     5000                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-03          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  1000                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     7757                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-03          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  1000                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8757                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-03          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  1000                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     7757                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-03-01          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  1000                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     8757                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     9757                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     9857                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     9957                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     10057               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     10157               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     10257               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  10000               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     10357               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  120                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20357               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20477               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20577               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20477               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20577               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20277               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20377               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20477               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20377               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20277               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  123                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20377               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  1000                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20500               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     21500               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-27          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  1000                
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     21300               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-26          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20300               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-26          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  10000               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     20400               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-26          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     10400               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-26          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     10500               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-26          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Withdraw            
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     10700               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: From                100000000000011     
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Time    2024-02-26          
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction type    Deposit             
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Status  1                   
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Transaction Amount  100                 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+SEVERE: Closing Balance     10800               
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: 1.My Profile
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: 2.Account Details
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: 3.View Balance
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: 4.Deposit 
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: 5.Withdraw
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: 6.Transfer within Bank
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: 7.Transfer with other Bank
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: 8.Take Statement
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: 9.Change Password
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: 10.Log Out
+Mar 08, 2024 10:14:32 AM customIO.CustomerIO customerAction
+INFO: ------------------------------------------
+Mar 08, 2024 10:14:36 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 10:14:36 AM customIO.Bankapp main
+INFO: 1.Log in
+2.Exit
+Mar 08, 2024 10:14:37 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 10:14:37 AM customIO.Bankapp main
+INFO: Enter the login credentials
+Mar 08, 2024 10:14:37 AM customIO.Bankapp main
+INFO: Enter UserId :  
+Mar 08, 2024 10:14:37 AM customIO.Bankapp main
+INFO: Enter Password :
+Mar 08, 2024 10:14:38 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 10:14:38 AM customIO.Bankapp main
+INFO: Logged in successfully
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: 2.Add a Account to a User
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: 3.Update the Details of a Customer
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: 4.Delete a Customer
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: 5.view Transactions of a User
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: 6.Make a User Active/Inactive
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: 7.Block/Unblock a Account
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: 8.View all (Active/Inactive) User
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: 9.View all (Block/Unblock) Account
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: 10.Viwe a Branch Details
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: 11.Log Out
+Mar 08, 2024 10:14:38 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 10:14:46 AM customIO.EmployeeIO employeeActions
+INFO: Enter the Id or IFSC code to get the Details 
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Id             1              
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+SEVERE: IFSC Code      ABCD1234567    
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Address        111,ThalavettiPuram,Theni - 678091
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+SEVERE: ManagerId      3              
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+SEVERE: Phone Number   420420012      
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+SEVERE: ------------------------------------------
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: Select a Option to Proceed : 
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: 1.Add a Customer
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: 2.Add a Account to a User
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: 3.Update the Details of a Customer
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: 4.Delete a Customer
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: 5.view Transactions of a User
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: 6.Make a User Active/Inactive
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: 7.Block/Unblock a Account
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: 8.View all (Active/Inactive) User
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: 9.View all (Block/Unblock) Account
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: 10.Viwe a Branch Details
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: 11.Log Out
+Mar 08, 2024 10:14:52 AM customIO.EmployeeIO employeeActions
+INFO: ------------------------------------------
+Mar 08, 2024 10:15:04 AM customIO.Bankapp main
+INFO: ------------------------------------------
+Mar 08, 2024 10:15:04 AM customIO.Bankapp main
 INFO: 1.Log in
 2.Exit

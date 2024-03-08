@@ -18,7 +18,7 @@ public class EmployeeFunctions {
 
 	public static int validateDetails(EmployeeDetails employee) throws InvalidInputException {
 		InputCheck.checkNull(employee);
-		if (employee.getName().matches("^[A-Za-z.]+") && employee.getMobile().matches("^[0-9]{10}$")
+		if (employee.getName().matches("^[A-Za-z.]+") && (employee.getMobile()+"").matches("^[0-9]{10}$")
 				&& employee.getEmail().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
 			LocalDate currentDate = LocalDate.now();

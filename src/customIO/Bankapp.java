@@ -18,8 +18,11 @@ import utility.Common;
 import utility.InvalidInputException;
 
 public class Bankapp {
+//	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
 
 	public static Logger logger = Logger.getLogger(Bankapp.class.getName());
+	
+	public static ThreadLocal<Integer> userIdThread = new ThreadLocal<Integer>();
 
 	public static void main(String[] args) {
 
@@ -55,7 +58,7 @@ public class Bankapp {
 					logger.info("Enter the login credentials");
 					logger.info(String.format("%10s", "Enter UserId :  "));
 					String tempint = scanner.next();
-					if(!tempint.matches("\\d+")) {
+					if (!tempint.matches("\\d+")) {
 						logger.warning("Invalid Input");
 						continue;
 					}
@@ -65,12 +68,17 @@ public class Bankapp {
 						logger.warning("Invalid userId :( ");
 						continue;
 					}
+					Map<String, Object> record = userFunction.blockedDetails(userId);
+					int invaildAttempts = (int) record.get("InvalidAttempts");
+					if (invaildAttempts == 3 || userFunction.getStatus(userId).equals("0")) {
+						logger.warning("Your Account has been locked.You cannot login now :(");
+						continue;
+					}
+					userIdThread.set(userId);
 					logger.info(String.format("%10s", "Enter Password :"));
 					password = Common.encryptPassword(scanner.nextLine());
 					logger.info("-" + "-".repeat(40) + "-");
 
-					Map<String, Object> record = userFunction.blockedDetails(userId);
-					int invaildAttempts = (int) record.get("InvalidAttempts");
 					if ((int) record.get("InvalidAttempts") > 2) {
 						Instant currentTime = Instant.now();
 						Instant blockedTime = Instant.ofEpochMilli((long) record.get("BlockedTime"));
@@ -89,11 +97,11 @@ public class Bankapp {
 						String isUser = userFunction.getDesignation(userId);
 						switch (isUser) {
 						case "Customer": {
-							customerIo.customerAction(userId);
+							customerIo.customerAction();
 						}
 							break;
 						case "Employee": {
-							employeeIo.employeeActions(userId);
+							employeeIo.employeeActions();
 						}
 							break;
 						case "Manager": {
@@ -107,7 +115,8 @@ public class Bankapp {
 						}
 						if (invaildAttempts >= 2) {
 							logger.warning("Your Account has been locked.You cannot login now :(");
-						} else {
+						}
+						if (invaildAttempts < 3) {
 							userFunction.addBlockedUser(userId, invaildAttempts + 1, Instant.now().toEpochMilli());
 							logger.info("You Entered a invalid credentials");
 						}
@@ -124,10 +133,9 @@ public class Bankapp {
 				}
 
 			}
-		} catch ( InputMismatchException e) {
+		} catch (InputMismatchException e) {
 			logger.log(Level.INFO, "Invalid Input", e);
-		} 
-		catch (IOException e) {
+		} catch (IOException e) {
 			logger.log(Level.INFO, "An Exception occured ! Sorry for the Inconvenience", e);
 		} catch (InvalidInputException e) {
 			logger.log(Level.INFO, "An Exception occured ! Sorry for the Inconvenience", e);

@@ -23,7 +23,7 @@ public class CustomerFunctions {
 
 	public static int validateDetails(CustomerDetails customer) throws InvalidInputException {
 		InputCheck.checkNull(customer);
-		if (customer.getName().matches("^[A-Za-z.]+") && customer.getMobile().matches("^[0-9]{10}$")
+		if (customer.getName().matches("^[A-Za-z.]+") && (customer.getMobile()+"").matches("^[0-9]{10}$")
 				&& customer.getEmail().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
 			LocalDate currentDate = LocalDate.now();

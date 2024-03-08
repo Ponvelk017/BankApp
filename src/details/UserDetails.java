@@ -2,7 +2,7 @@ package details;
 
 public abstract class UserDetails {
 
-	private int Id;
+	private int id;
 	private String name;
 	private long dob;
 	private String mobile;
@@ -14,13 +14,12 @@ public abstract class UserDetails {
 	private String deleteAt;
 
 	public int getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
-
 
 	public String getName() {
 		return name;

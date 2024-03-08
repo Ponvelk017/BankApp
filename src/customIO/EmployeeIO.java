@@ -1,7 +1,11 @@
 package customIO;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -9,10 +13,12 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 import customLogics.AccountFunctions;
+import customLogics.BranchFunction;
 import customLogics.CustomerFunctions;
 import customLogics.TransactionFunctions;
 import customLogics.UserFunctions;
 import details.AccountDetails;
+import details.BranchDetails;
 import details.CustomerDetails;
 import details.TransactionDetails;
 import utility.Common;
@@ -22,7 +28,7 @@ public class EmployeeIO {
 
 	private static Logger logger = Bankapp.logger;
 
-	public void employeeActions(int employeeId) throws InvalidInputException {
+	public void employeeActions() throws InvalidInputException {
 
 		AccountDetails accountDetails = new AccountDetails();
 		CustomerDetails customerDet = new CustomerDetails();
@@ -31,14 +37,17 @@ public class EmployeeIO {
 		AccountFunctions accountFunctions = new AccountFunctions();
 		CustomerFunctions customerFunction = new CustomerFunctions();
 		TransactionFunctions transactionFunctions = new TransactionFunctions();
+		BranchFunction branchFunction = new BranchFunction();
 
 		Scanner scanner = new Scanner(System.in);
 
+		int employeeId = Bankapp.userIdThread.get();
 		boolean breakCondition = true;
 		while (breakCondition) {
 			logger.info("-" + "-".repeat(40) + "-");
 			logger.info("Select a Option to Proceed : ");
 			logger.info(String.format("%10s", "1.Add a Customer"));
+			logger.info(String.format("%10s", "2.Add a Account to a User"));
 			logger.info(String.format("%10s", "3.Update the Details of a Customer"));
 			logger.info(String.format("%10s", "4.Delete a Customer"));
 			logger.info(String.format("%10s", "5.view Transactions of a User"));
@@ -46,10 +55,11 @@ public class EmployeeIO {
 			logger.info(String.format("%10s", "7.Block/Unblock a Account"));
 			logger.info(String.format("%10s", "8.View all (Active/Inactive) User"));
 			logger.info(String.format("%10s", "9.View all (Block/Unblock) Account"));
-			logger.info(String.format("%8s", "10.Log Out"));
+			logger.info(String.format("%10s", "10.Viwe a Branch Details"));
+			logger.info(String.format("%8s", "11.Log Out"));
 			logger.info("-" + "-".repeat(40) + "-");
 			String tempint = scanner.next();
-			if(!tempint.matches("\\d+")) {
+			if (!tempint.matches("\\d+")) {
 				logger.warning("Invalid Input");
 				continue;
 			}
@@ -156,7 +166,7 @@ public class EmployeeIO {
 				logger.info("1. View all Transacions Of the User");
 				logger.info("2. View Single Transacions");
 				logger.info("3. View transaction of a Account");
-				logger.info("4. View (Deposite/Withdraw/Both)transaction of a Account over a Period");
+				logger.info("4. View (Deposit/Withdraw/Both)transaction of a Account over a Period");
 				int transactionOption = scanner.nextInt();
 				switch (transactionOption) {
 				case 1: {
@@ -240,16 +250,27 @@ public class EmployeeIO {
 				case 4: {
 					logger.info("Enter the Account Number");
 					long accountNumber = scanner.nextLong();
-					logger.info("Enter the Time Period\n1.1 month\n2.3 months\n3.6 months\n4.12 months");
-					String durationOption = scanner.next();
-					int duration = ((durationOption.equals("1")) ? 1
-							: (durationOption.equals("2")) ? 3
-									: (durationOption.equals("3")) ? 6 : (durationOption.equals("4")) ? 12 : -1);
-					if (duration == -1) {
-						logger.warning("Invalid Choice");
-					}
-					logger.info("Enter the transaction type : \n1.Deposite\n2.Withdraw\n3.Both");
+					logger.info("Enter the Time Period\nFrom");
+					long from = Common.dateToMilli(scanner.next());
+					logger.info("To");
+					String tempTo = scanner.next();
+					  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+				        LocalDate inputDate = LocalDate.parse(tempTo, formatter);
+				        LocalDate currentDate = LocalDate.now();
+				        int daysDifference =(int) ChronoUnit.DAYS.between(inputDate, currentDate);
+					long to = Common.beforeNDate(daysDifference);
+					logger.info("Enter the transaction type : \n1.Deposit\n2.Withdraw\n3.Both");
 					int transactionChoice = scanner.nextInt();
+					logger.info("1.Give Latest\n2.Give Earilest");
+					String sortOption = scanner.next();
+					if (!sortOption.matches("\\d+") && sortOption.contains("1 2")) {
+						logger.warning("Invalid Input");
+						continue;
+					}
+					Map<String, Object> conditions = new HashMap<String, Object>();
+					conditions.put("From", from);
+					conditions.put("To", to);
+					conditions.put("Sort", (sortOption.equals("1")) ? "desc" : "asce");
 					List<String> columnToGet = new ArrayList<>();
 					columnToGet.add("Id");
 					columnToGet.add("AccountId");
@@ -262,9 +283,9 @@ public class EmployeeIO {
 					columnToGet.add("Amount");
 					columnToGet.add("ClosingBalance");
 					transactionDetails.setAccountId(accountNumber);
-					transactionDetails.setTransactionType((transactionChoice == 1) ? "Deposite" : "Withdraw");
+					transactionDetails.setTransactionType((transactionChoice == 1) ? "Deposit" : "Withdraw");
 					List<TransactionDetails> record = transactionFunctions.getCustomDetails(transactionDetails,
-							columnToGet, duration);
+							columnToGet, conditions);
 					for (TransactionDetails records : record) {
 						logger.severe("-" + "-".repeat(40) + "-");
 						logger.severe(
@@ -295,7 +316,7 @@ public class EmployeeIO {
 				int userId = scanner.nextInt();
 				switch (activeOption) {
 				case 1: {
-					int affectedRows = userFunctions.coloumnUpdation("Status", "Active", userId);
+					int affectedRows = userFunctions.coloumnUpdation("Status", "1", userId);
 					if (affectedRows > 0) {
 						logger.info("User Activated");
 					} else {
@@ -304,7 +325,7 @@ public class EmployeeIO {
 				}
 					break;
 				case 2: {
-					int affectedRows = userFunctions.coloumnUpdation("Status", "Inactive", userId);
+					int affectedRows = userFunctions.coloumnUpdation("Status", "0", userId);
 					if (affectedRows > 0) {
 						logger.info("User Inactivated");
 					} else {
@@ -323,7 +344,7 @@ public class EmployeeIO {
 				long account = scanner.nextLong();
 				switch (activeOption) {
 				case 1: {
-					int affectedRows = accountFunctions.updateColoumn("Status", "Active", account);
+					int affectedRows = accountFunctions.updateColoumn("Status", "1", account);
 					if (affectedRows > 0) {
 						logger.info("Account Activated");
 					} else {
@@ -332,7 +353,7 @@ public class EmployeeIO {
 				}
 					break;
 				case 2: {
-					int affectedRows = accountFunctions.updateColoumn("Status", "Inactive", account);
+					int affectedRows = accountFunctions.updateColoumn("Status", "0", account);
 					if (affectedRows > 0) {
 						logger.info("Account Inactivated");
 					} else {
@@ -349,10 +370,10 @@ public class EmployeeIO {
 				CustomerDetails customerStatus = new CustomerDetails();
 				Map<Integer, CustomerDetails> activeUsers;
 				if (statusOption.equals("1")) {
-					customerStatus.setStatus("Active");
+					customerStatus.setStatus("1");
 					activeUsers = customerFunction.getCustomerProfile(customerStatus);
 				} else if (statusOption.equals("2")) {
-					customerStatus.setStatus("Inactive");
+					customerStatus.setStatus("0");
 					activeUsers = customerFunction.getCustomerProfile(customerStatus);
 				} else {
 					logger.warning("Invalid Option");
@@ -379,18 +400,19 @@ public class EmployeeIO {
 				logger.info("Which Account Details do you need ?\n1.Active\n2.Inactive");
 				String statusOption = scanner.next();
 				AccountDetails accountDet = new AccountDetails();
-				List<AccountDetails> accountData;
+				Map<Long, AccountDetails> accountData;
 				if (statusOption.equals("1")) {
-					accountDet.setStatus("Active");
+					accountDet.setStatus("1");
 					accountData = accountFunctions.accountDetails(accountDet);
 				} else if (statusOption.equals("2")) {
-					accountDet.setStatus("Inactive");
+					accountDet.setStatus("0");
 					accountData = accountFunctions.accountDetails(accountDet);
 				} else {
 					logger.warning("Invalid Option");
 					continue;
 				}
-				for(AccountDetails individualAccount : accountData) {
+				for (Entry tempIndividualRecord : accountData.entrySet()) {
+					AccountDetails individualAccount = (AccountDetails) tempIndividualRecord.getValue();
 					logger.severe("-" + "-".repeat(40) + "-");
 					logger.severe(String.format("%-15s", "Account Number")
 							+ String.format("%-15s", individualAccount.getAccountNumber()));
@@ -407,6 +429,21 @@ public class EmployeeIO {
 			}
 				break;
 			case 10: {
+				logger.info("Enter the Id or IFSC code to get the Details ");
+				Object value = scanner.next();
+				BranchDetails branchDetail = branchFunction.getBranchDetails(value);
+				logger.severe("-" + "-".repeat(40) + "-");
+				logger.severe(String.format("%-15s", "Id") + String.format("%-15s", branchDetail.getId()));
+				logger.severe(String.format("%-15s", "IFSC Code") + String.format("%-15s", branchDetail.getIfscCode()));
+				logger.severe(String.format("%-15s", "Address") + String.format("%-15s", branchDetail.getAddress()));
+				logger.severe(
+						String.format("%-15s", "ManagerId") + String.format("%-15s", branchDetail.getManagerId()));
+				logger.severe(
+						String.format("%-15s", "Phone Number") + String.format("%-15s", branchDetail.getPhoneNumber()));
+				logger.severe("-" + "-".repeat(40) + "-");
+			}
+				break;
+			case 11: {
 				breakCondition = false;
 			}
 				break;

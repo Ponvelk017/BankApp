@@ -45,8 +45,7 @@ public class EmployeeOperations implements Employee {
 				try (PreparedStatement empStatement = connection.prepareStatement(insertEmployee)) {
 					empStatement.setInt(1, employeeId);
 					empStatement.setString(2, employee.getBranch());
-					empStatement.setBoolean(3, employee.getIsAdmin());
-					empStatement.setDouble(4, Common.dateToMilli(employee.getJoinDate()));
+					empStatement.setBoolean(3, employee.getAdmin());
 					affectedRows = empStatement.executeUpdate();
 					result.add(affectedRows);
 					connection.commit();

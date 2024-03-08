@@ -34,8 +34,8 @@ public class UserFunctions {
 	public String getDesignation(int userId) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(userId);
 		String isUser = (String) userOpertaion.getSingleRecord("Type", "Id", userId);
-		if (!isUser.equals("Customer")) {
-			boolean isAdmin = ((int) employee.getSingleRecord("IsAdmin", "Id", userId) == 1) ? true : false;
+		if (!isUser.equals("0")) {
+			boolean isAdmin = ((int) employee.getSingleRecord("Admin", "Id", userId) == 1) ? true : false;
 			if (isAdmin) {
 				return "Manager";
 			} else {
@@ -53,6 +53,11 @@ public class UserFunctions {
 	public String getType(int userId) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(userId);
 		return (String) userOpertaion.getSingleRecord("Type", "Id", userId);
+	}
+	
+	public String getStatus(int userId) throws InvalidInputException {
+		InputCheck.checkNegativeInteger(userId);
+		return (String) userOpertaion.getSingleRecord("Status", "Id", userId);
 	}
 
 	public int coloumnUpdation(String column, Object value, int userId) throws InvalidInputException {

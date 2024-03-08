@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.Map;
 
 import customDB.Transaction;
 import details.TransactionDetails;
-import utility.Common;
 import utility.DBConnection;
 import utility.InputCheck;
 import utility.InvalidInputException;
@@ -23,7 +21,7 @@ import utility.InvalidInputException;
 public class TransactionOperations implements Transaction {
 
 	private Connection connection = DBConnection.getConnection();
-	private TransactionDetails transactionDetail;
+	private AccountOperations accountOperation = new AccountOperations();
 
 	private final String setTransferTransaction = "insert into Transaction(Id,AccountId,TransactionAccountId,UserId,TransactionTime,TransactionType,Description,Amount,ClosingBalance) "
 			+ "values(?,?,?,?,?,?,?,?,?)";
@@ -96,7 +94,6 @@ public class TransactionOperations implements Transaction {
 	public int setTransferTransaction(TransactionDetails transactionDetails) throws InvalidInputException {
 		InputCheck.checkNull(transactionDetails);
 		int affectedRows = 0;
-		transactionDetail = new TransactionDetails();
 		try (PreparedStatement statement = connection.prepareStatement(setTransferTransaction)) {
 			statement.setLong(1, transactionDetails.getId());
 			statement.setLong(2, transactionDetails.getAccountId());
@@ -134,16 +131,15 @@ public class TransactionOperations implements Transaction {
 
 	@Override
 	public List<TransactionDetails> getCustomData(TransactionDetails transactionDetails, List<String> columnToGet,
-			int duration) throws InvalidInputException {
+			Map<String, Object> condition) throws InvalidInputException {
 		InputCheck.checkNull(transactionDetails);
 		InputCheck.checkNull(columnToGet);
-		InputCheck.checkNegativeInteger(duration);
+		InputCheck.checkNull(condition);
 		List<TransactionDetails> result = new ArrayList<TransactionDetails>();
 		StringBuilder query = new StringBuilder("select ");
 		for (String columns : columnToGet) {
 			query.append(columns + " ,");
 		}
-		long from = 0, to = 0;
 		try {
 			PreparedStatement statement = connection.prepareStatement(query.toString());
 			query = new StringBuilder(query.subSequence(0, query.length() - 1));
@@ -173,16 +169,18 @@ public class TransactionOperations implements Transaction {
 				}
 				query.append("TransactionType = ?");
 			}
-			if (duration != 0) {
+			if ((long) condition.get("From") != 0 && (long) condition.get("To") != 0) {
 				if (count > 1) {
-					query.append("AND ");
+					query.append(" AND ");
 				}
-				query.append("TransactionTime between ? and ? ");
-				from = Common.beforeNDate(duration);
-				to = Common.currentDate();
+				query.append("TransactionTime between ? and ?");
 				count++;
 			}
-			statement = connection.prepareStatement((query.toString()));
+			if (condition.get("Sort") != null) {
+				query.append(" order by TransactionTime " + condition.get("Sort"));
+			}
+			query.append(" limit 150");
+			statement = connection.prepareStatement(query.toString());
 
 			count = 1;
 			if (transactionDetails.getUserId() != 0) {
@@ -197,9 +195,9 @@ public class TransactionOperations implements Transaction {
 			if (transactionDetails.getTransactionType() != null) {
 				statement.setString(count++, transactionDetails.getTransactionType());
 			}
-			if (duration != 0) {
-				statement.setLong(count++, from);
-				statement.setLong(count++, to);
+			if ((long) condition.get("From") != 0 && (long) condition.get("To") != 0) {
+				statement.setLong(count++, (long) condition.get("From"));
+				statement.setLong(count++, (long) condition.get("To"));
 			}
 			ResultSet record = statement.executeQuery();
 			result = setDetails(record);
@@ -223,5 +221,202 @@ public class TransactionOperations implements Transaction {
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience");
 		}
 		return id;
+	}
+
+	@Override
+	public long deposite(TransactionDetails transactionDetails, boolean autoCommitFlag) throws InvalidInputException {
+		InputCheck.checkNull(transactionDetails);
+		InputCheck.checkNull(autoCommitFlag);
+		long transactionId = ((transactionDetails.getId() == 0) ? getId() + 1 : transactionDetails.getId());
+		try {
+			if (autoCommitFlag) {
+				connection.setAutoCommit(false);
+			}
+			long balance = (long) accountOperation.getSingleRecord("Balance", "AccountNumber",
+					transactionDetails.getAccountId());
+			int affectedRows = accountOperation.updateColumn("Balance", transactionDetails.getAmount() + balance,
+					transactionDetails.getAccountId());
+			TransactionDetails transactionDet = new TransactionDetails();
+			if (affectedRows > 0) {
+				transactionDet.setId(transactionId);
+				transactionDet.setAccountId(transactionDetails.getAccountId());
+				transactionDet.setTransactionAccountId(transactionDetails.getTransactionAccountId());
+				transactionDet.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber",
+						transactionDetails.getAccountId()));
+				transactionDet.setTransactionTime(System.currentTimeMillis());
+				transactionDet.setTransactionType("Deposit");
+				transactionDet.setAmount(transactionDetails.getAmount());
+				transactionDet.setClosingBalance((long) accountOperation.getSingleRecord("Balance", "AccountNumber",
+						transactionDetails.getAccountId()));
+				affectedRows = setTransferTransaction(transactionDet);
+			}
+		} catch (SQLException e) {
+			try {
+				if (connection != null) {
+					connection.rollback();
+				}
+			} catch (SQLException e1) {
+				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e1);
+			}
+			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
+		} finally {
+			try {
+				if (autoCommitFlag) {
+					connection.setAutoCommit(true);
+				}
+			} catch (SQLException e) {
+				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
+			}
+		}
+		return transactionId;
+	}
+
+	@Override
+	public long withdraw(TransactionDetails transactionDetails, boolean autoCommitFlag) throws InvalidInputException {
+		InputCheck.checkNull(transactionDetails);
+		InputCheck.checkNull(autoCommitFlag);
+		long transactionId = ((transactionDetails.getId() == 0) ? getId() + 1 : transactionDetails.getId());
+		try {
+			if (autoCommitFlag) {
+				connection.setAutoCommit(false);
+			}
+			long balance = (long) accountOperation.getSingleRecord("Balance", "AccountNumber",
+					transactionDetails.getAccountId());
+			int affectedRows = 0;
+			TransactionDetails transactionDet = new TransactionDetails();
+			if (balance > transactionDetails.getAmount()) {
+				affectedRows = accountOperation.updateColumn("Balance", balance - transactionDetails.getAmount(),
+						transactionDetails.getAccountId());
+				if (affectedRows > 0) {
+					transactionDet.setId(transactionId);
+					transactionDet.setAccountId(transactionDetails.getAccountId());
+					transactionDet.setTransactionAccountId(transactionDetails.getTransactionAccountId());
+					transactionDet.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber",
+							transactionDetails.getAccountId()));
+					transactionDet.setTransactionTime(System.currentTimeMillis());
+					transactionDet.setTransactionType("Withdraw");
+					transactionDet.setDescription(transactionDetails.getDescription());
+					transactionDet.setAmount(transactionDetails.getAmount());
+					transactionDet.setClosingBalance((long) accountOperation.getSingleRecord("Balance", "AccountNumber",
+							transactionDetails.getAccountId()));
+					affectedRows = setTransferTransaction(transactionDet);
+				}
+			}
+		} catch (SQLException e) {
+			try {
+				if (connection != null) {
+					connection.rollback();
+				}
+			} catch (SQLException e1) {
+				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e1);
+			}
+			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
+		} finally {
+			try {
+				if (autoCommitFlag) {
+					connection.setAutoCommit(true);
+				}
+			} catch (SQLException e) {
+				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
+			}
+		}
+		return transactionId;
+	}
+
+	@Override
+	public Map<String, Integer> transferWithinBank(TransactionDetails transactionDetails) throws InvalidInputException {
+		InputCheck.checkNull(transactionDetails);
+		Map<String, Integer> result = new HashMap<String, Integer>();
+		try {
+			connection.setAutoCommit(false);
+			long transactionId = getId() + 1;
+
+			TransactionDetails receiverDet = new TransactionDetails();
+			receiverDet.setId(transactionId);
+			receiverDet.setAccountId(transactionDetails.getTransactionAccountId());
+			receiverDet.setTransactionAccountId(transactionDetails.getAccountId());
+			receiverDet.setAmount(transactionDetails.getAmount());
+			long receiverUpdation = deposite(receiverDet, false);
+
+			TransactionDetails senderDet = new TransactionDetails();
+			senderDet.setId(transactionId);
+			senderDet.setAccountId(transactionDetails.getAccountId());
+			senderDet.setTransactionAccountId(transactionDetails.getTransactionAccountId());
+			senderDet.setDescription(transactionDetails.getDescription());
+			senderDet.setAmount(transactionDetails.getAmount());
+			long senderUpdation = withdraw(senderDet, false);
+
+			long senderBalance = (long) accountOperation.getSingleRecord("Balance", "AccountNumber",
+					transactionDetails.getAccountId());
+			result.put("SuffientBalance", (senderBalance >= transactionDetails.getAmount()) ? 1 : 0);
+			result.put("SenderTransactionid", (int) senderUpdation);
+			result.put("ReciverTransactionid", (int) receiverUpdation);
+			connection.commit();
+		} catch (SQLException e) {
+			try {
+				if (connection != null) {
+					connection.rollback();
+				}
+			} catch (SQLException e1) {
+				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e1);
+			}
+			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
+		} finally {
+			try {
+				connection.setAutoCommit(true);
+			} catch (SQLException e) {
+				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public long transferOtherBank(long senderAcc, long receiverAcc, long amount, String description)
+			throws InvalidInputException {
+		InputCheck.checkNegativeInteger(senderAcc);
+		InputCheck.checkNegativeInteger(receiverAcc);
+		InputCheck.checkNegativeInteger(amount);
+		InputCheck.checkNull(description);
+		long transactionId;
+		try {
+			connection.setAutoCommit(false);
+			transactionId = getId() + 1;
+			long senderBalance = (long) accountOperation.getSingleRecord("Balance", "AccountNumber", senderAcc);
+			int senderBalanceUpdation = 0;
+			TransactionDetails transactionDetails = new TransactionDetails();
+			if (senderBalance >= amount) {
+				senderBalanceUpdation = accountOperation.updateColumn("Balance", senderBalance - amount, senderAcc);
+				if (senderBalanceUpdation > 0) {
+					transactionDetails.setId(transactionId);
+					transactionDetails.setAccountId(senderAcc);
+					transactionDetails.setTransactionAccountId(receiverAcc);
+					transactionDetails
+							.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber", senderAcc));
+					transactionDetails.setTransactionTime(System.currentTimeMillis());
+					transactionDetails.setTransactionType("Withdraw");
+					transactionDetails.setDescription(description);
+					transactionDetails.setAmount(amount);
+					transactionDetails.setClosingBalance(senderBalance - amount);
+					setTransferTransaction(transactionDetails);
+				}
+			}
+		} catch (SQLException e) {
+			try {
+				if (connection != null) {
+					connection.rollback();
+				}
+			} catch (SQLException e1) {
+				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e1);
+			}
+			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
+		} finally {
+			try {
+				connection.setAutoCommit(true);
+			} catch (SQLException e) {
+				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
+			}
+		}
+		return transactionId;
 	}
 }

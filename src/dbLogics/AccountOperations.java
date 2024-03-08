@@ -44,9 +44,9 @@ public class AccountOperations implements Account {
 		}
 	}
 
-	private List<AccountDetails> setDetails(ResultSet record) throws InvalidInputException {
+	private Map<Long, AccountDetails> setDetails(ResultSet record) throws InvalidInputException {
 		getMappingDetails();
-		List<AccountDetails> records = new ArrayList<AccountDetails>();
+		Map<Long, AccountDetails> records = new HashMap<Long, AccountDetails>();
 		ResultSetMetaData metadata;
 		try {
 			metadata = record.getMetaData();
@@ -75,7 +75,7 @@ public class AccountOperations implements Account {
 						method.invoke(accountDetails, record.getLong(i));
 					}
 				}
-				records.add(accountDetails);
+				records.put(record.getLong("AccountNumber"), accountDetails);
 			}
 		} catch (SQLException | InstantiationException | IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException | NoSuchMethodException | SecurityException e) {
@@ -126,9 +126,10 @@ public class AccountOperations implements Account {
 	}
 
 	@Override
-	public List<AccountDetails> getCustomAccountDetails(AccountDetails accountDetails) throws InvalidInputException {
+	public Map<Long, AccountDetails> getCustomAccountDetails(AccountDetails accountDetails)
+			throws InvalidInputException {
 		InputCheck.checkNull(accountDetails);
-		List<AccountDetails> userAccount = new ArrayList<AccountDetails>();
+		Map<Long, AccountDetails> userAccount = new HashMap<Long, AccountDetails>();
 		StringBuilder query = new StringBuilder("select * from Account where ");
 		int count = 1;
 		if (accountDetails.getAccountNumber() != 0) {
@@ -153,9 +154,9 @@ public class AccountOperations implements Account {
 			}
 			if (accountDetails.getStatus() != null) {
 				if (accountDetails.getStatus().endsWith("Active")) {
-					statement.setString(count++,"Active");
-				}else {
-					statement.setString(count++,"Inactive");
+					statement.setString(count++, "Active");
+				} else {
+					statement.setString(count++, "Inactive");
 				}
 			}
 			try (ResultSet record = statement.executeQuery()) {
@@ -168,9 +169,9 @@ public class AccountOperations implements Account {
 	}
 
 	@Override
-	public List<AccountDetails> getAvailableAccount(int userId) throws InvalidInputException {
+	public Map<Long, AccountDetails> getAvailableAccount(int userId) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(userId);
-		List<AccountDetails> availableAccounts = new ArrayList<AccountDetails>();
+		Map<Long, AccountDetails> availableAccounts = new HashMap<Long, AccountDetails>();
 		try (PreparedStatement statement = connection.prepareStatement(getAvailableAccount)) {
 			statement.setInt(1, userId);
 			try (ResultSet record = statement.executeQuery()) {

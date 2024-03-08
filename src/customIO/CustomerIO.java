@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -22,7 +23,7 @@ public class CustomerIO {
 	private static Logger logger = Bankapp.logger;
 	Scanner scanner = new Scanner(System.in);
 
-	public void customerAction(int customerId) throws InvalidInputException {
+	public void customerAction() throws InvalidInputException {
 
 		CustomerIO customerIo = new CustomerIO();
 		CustomerFunctions customerFunctions = new CustomerFunctions();
@@ -30,13 +31,14 @@ public class CustomerIO {
 		TransactionFunctions transactionFunctions = new TransactionFunctions();
 		UserFunctions userFunctions = new UserFunctions();
 		TransactionDetails transactionDetails = new TransactionDetails();
-
+		
+		int customerId = Bankapp.userIdThread.get();
 		long primaryAccount = customerIo.getPrimaryAccount(customerId, accountFunctions.getAllAccount(customerId));
 		logger.info("To change the Account log out and login");
 		boolean condition = true;
 		while (condition) {
 			String status = accountFunctions.getStatus(primaryAccount);
-			if (status.equals("inactive")) {
+			if (status.equals("0")) {
 				logger.warning("Your account has been Blocked, you cannot Proceed now :(");
 				break;
 			}
@@ -45,7 +47,7 @@ public class CustomerIO {
 			logger.info(String.format("%10s", "1.My Profile"));
 			logger.info(String.format("%10s", "2.Account Details"));
 			logger.info(String.format("%10s", "3.View Balance"));
-			logger.info(String.format("%10s", "4.Deposite "));
+			logger.info(String.format("%10s", "4.Deposit "));
 			logger.info(String.format("%10s", "5.Withdraw"));
 			logger.info(String.format("%10s", "6.Transfer within Bank"));
 			logger.info(String.format("%10s", "7.Transfer with other Bank"));
@@ -60,7 +62,7 @@ public class CustomerIO {
 				logger.info("Your Details");
 				CustomerDetails customerDetails = new CustomerDetails();
 				customerDetails.setId(customerId);
-				Map<Integer,CustomerDetails> customerData = customerFunctions.getCustomerProfile(customerDetails);
+				Map<Integer, CustomerDetails> customerData = customerFunctions.getCustomerProfile(customerDetails);
 				CustomerDetails customerDet = customerData.get(customerId);
 				logger.severe("-" + "-".repeat(40) + "-");
 				logger.severe(String.format("%-15s", "Name") + String.format("%-15s", customerDet.getName()));
@@ -80,8 +82,9 @@ public class CustomerIO {
 				logger.info("Account Details");
 				AccountDetails accountDet = new AccountDetails();
 				accountDet.setUserId(customerId);
-				List<AccountDetails> accounts = accountFunctions.accountDetails(accountDet);
-				for (AccountDetails individualAccount : accounts) {
+				Map<Long, AccountDetails> accounts = accountFunctions.accountDetails(accountDet);
+				for (Entry tempIndividualAccount : accounts.entrySet()) {
+					AccountDetails individualAccount = (AccountDetails) tempIndividualAccount.getValue();
 					logger.severe("-" + "-".repeat(40) + "-");
 					logger.severe(String.format("%-15s", "Account Number")
 							+ String.format("%-15s", individualAccount.getAccountNumber()));
@@ -105,9 +108,9 @@ public class CustomerIO {
 			}
 				break;
 			case 4: {
-				logger.info("Enter the Amount to Deposite : ");
+				logger.info("Enter the Amount to Deposit : ");
 				long depositeAmount = scanner.nextLong();
-				long transactionId = accountFunctions.deposite(primaryAccount, depositeAmount);
+				long transactionId = transactionFunctions.newDeposite(primaryAccount, depositeAmount);
 				transactionDetails = transactionFunctions.getTransactionDetails(transactionId, "Id");
 				if (transactionDetails != null) {
 					logger.info("Successfully deposited :)\nYour Transaction statement is");
@@ -137,7 +140,7 @@ public class CustomerIO {
 				logger.info("Enter Description");
 				scanner.nextLine();
 				String description = scanner.nextLine();
-				long transactionId = accountFunctions.withdraw(primaryAccount, withdrawAmount, description);
+				long transactionId = transactionFunctions.newWithdraw(primaryAccount, withdrawAmount, description);
 				transactionDetails = transactionFunctions.getTransactionDetails(transactionId, "Id");
 				if (transactionDetails != null) {
 					logger.info("Successfully Withdrawed :)\nYour Transaction statement is");
@@ -171,16 +174,16 @@ public class CustomerIO {
 				logger.info("Enter Description");
 				scanner.nextLine();
 				String description = scanner.nextLine();
-				Map<String, Integer> result = accountFunctions.transferWithinBank(primaryAccount, receiverAccountNumber,
-						amount, description);
+				Map<String, Integer> result = transactionFunctions.newTransferWithinBank(primaryAccount,
+						receiverAccountNumber, amount, description);
 				if (result.get("SuffientBalance") == 0) {
 					logger.warning("Insuffient Balance");
-				} else if (result.get("UpdateSenderBalance") == 0 || result.get("UpdateReceiverBalance") == 0) {
+				} else if (result.get("SenderTransactionid") == 0 || result.get("ReciverTransactionid") == 0) {
 					logger.warning("Your Transaction is't completed .\nSorry for the inconvenience :(");
 				} else {
 					logger.info("Your Transaction Details");
 					transactionDetails = transactionFunctions.getTransactionDetails(result.get("SenderTransactionid"),
-							"AccountId");
+							"Id");
 					if (transactionDetails != null) {
 						logger.severe("-" + "-".repeat(40) + "-");
 						logger.severe(String.format("%-20s", "Transaction Id")
@@ -213,8 +216,8 @@ public class CustomerIO {
 				logger.info("Enter Description");
 				scanner.nextLine();
 				String description = scanner.nextLine();
-				long transactionId = accountFunctions.transferOtherBank(primaryAccount, receiverAccountNumber, amount,
-						description);
+				long transactionId = transactionFunctions.newTransferOtherBank(primaryAccount, receiverAccountNumber,
+						amount, description);
 				if (transactionId > 0) {
 					logger.info("Your Transaction Details");
 					transactionDetails = transactionFunctions.getTransactionDetails(transactionId, "Id");
@@ -318,6 +321,7 @@ public class CustomerIO {
 				logger.warning("Invalid Account option :(");
 			} else {
 				accountNumber = allAccounts.get(accountOption - 1);
+
 			}
 		} else {
 			accountNumber = allAccounts.get(0);

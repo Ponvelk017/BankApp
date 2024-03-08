@@ -1,9 +1,8 @@
 package details;
 
-public class EmployeeDetails extends UserDetails{
+public class EmployeeDetails extends UserDetails {
 	private String branch;
-	private String joinDate;
-	private Boolean isAdmin;
+	private Boolean admin;
 
 	public String getBranch() {
 		return branch;
@@ -13,20 +12,12 @@ public class EmployeeDetails extends UserDetails{
 		this.branch = branch;
 	}
 
-	public String getJoinDate() {
-		return joinDate;
+	public Boolean getAdmin() {
+		return admin;
 	}
 
-	public void setJoinDate(String joinDate) {
-		this.joinDate = joinDate;
-	}
-
-	public Boolean getIsAdmin() {
-		return isAdmin;
-	}
-
-	public void setIsAdmin(Boolean isAdmin) {
-		this.isAdmin = isAdmin;
+	public void setAdmin(Boolean isAdmin) {
+		this.admin = isAdmin;
 	}
 
 }
