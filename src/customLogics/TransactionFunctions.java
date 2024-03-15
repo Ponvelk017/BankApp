@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import cacheLogics.RedisCache;
+import customDB.Cache;
 import dbLogics.TransactionOperations;
+import details.AccountDetails;
 import details.TransactionDetails;
 import utility.Common;
 import utility.InputCheck;
@@ -14,11 +17,11 @@ import utility.InvalidInputException;
 public class TransactionFunctions {
 
 	private TransactionOperations transactionOpertaion = new TransactionOperations();
+	private Cache accountCache = RedisCache.getInstance();
 
 	public TransactionDetails getTransactionDetails(long transactionId, String conditionColumn)
 			throws InvalidInputException {
 		InputCheck.checkNegativeInteger(transactionId);
-		System.out.println(transactionId + " " + conditionColumn);
 		List<TransactionDetails> record = transactionOpertaion.getTransferTransaction(transactionId, conditionColumn);
 		return record.get(0);
 	}
@@ -42,7 +45,6 @@ public class TransactionFunctions {
 		conditions.put("Sort", "desc");
 		List<TransactionDetails> records = transactionOpertaion.getCustomData(transactionDetails, columnToGet,
 				conditions);
-		Map<Integer, TransactionDetails> result = new HashMap<Integer, TransactionDetails>();
 		long temp = 0, accountNumber = 0;
 		for (TransactionDetails record : records) {
 			temp = record.getAccountId();
@@ -78,21 +80,27 @@ public class TransactionFunctions {
 	public long newDeposite(long accountNumber, long depositeAmount) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(accountNumber);
 		InputCheck.checkNegativeInteger(depositeAmount);
-		TransactionDetails transactionDetails = new TransactionDetails();
-		transactionDetails.setAccountId(accountNumber);
-		transactionDetails.setAmount(depositeAmount);
-		return transactionOpertaion.deposite(transactionDetails, true);
+		AccountDetails accountDetailsLock = (AccountDetails) accountCache.getAccount(accountNumber);
+		synchronized (accountDetailsLock) {
+			TransactionDetails transactionDetails = new TransactionDetails();
+			transactionDetails.setAccountId(accountNumber);
+			transactionDetails.setAmount(depositeAmount);
+			return transactionOpertaion.deposite(transactionDetails, true);
+		}
 	}
 
 	public long newWithdraw(long accountNumber, long withdrawAmount, String description) throws InvalidInputException {
 		InputCheck.checkNegativeInteger(accountNumber);
 		InputCheck.checkNegativeInteger(withdrawAmount);
 		InputCheck.checkNull(description);
-		TransactionDetails transactionDetails = new TransactionDetails();
-		transactionDetails.setAccountId(accountNumber);
-		transactionDetails.setAmount(withdrawAmount);
-		transactionDetails.setDescription(description);
-		return transactionOpertaion.withdraw(transactionDetails, true);
+		AccountDetails accountDetailsLock = (AccountDetails) accountCache.getAccount(accountNumber);
+		synchronized (accountDetailsLock) {
+			TransactionDetails transactionDetails = new TransactionDetails();
+			transactionDetails.setAccountId(accountNumber);
+			transactionDetails.setAmount(withdrawAmount);
+			transactionDetails.setDescription(description);
+			return transactionOpertaion.withdraw(transactionDetails, true);
+		}
 	}
 
 	public Map<String, Integer> newTransferWithinBank(long senderAcc, long receiverAcc, long amount, String description)
@@ -101,20 +109,27 @@ public class TransactionFunctions {
 		InputCheck.checkNegativeInteger(receiverAcc);
 		InputCheck.checkNegativeInteger(amount);
 		InputCheck.checkNull(description);
-		TransactionDetails transactionDetails = new TransactionDetails();
-		transactionDetails.setAccountId(senderAcc);
-		transactionDetails.setTransactionAccountId(receiverAcc);
-		transactionDetails.setAmount(amount);
-		transactionDetails.setDescription(description);
-		return transactionOpertaion.transferWithinBank(transactionDetails);
+		AccountDetails accountDetailsLock = (AccountDetails) accountCache.getAccount(senderAcc);
+		synchronized (accountDetailsLock) {
+			TransactionDetails transactionDetails = new TransactionDetails();
+			transactionDetails.setAccountId(senderAcc);
+			transactionDetails.setTransactionAccountId(receiverAcc);
+			transactionDetails.setAmount(amount);
+			transactionDetails.setDescription(description);
+			return transactionOpertaion.transferWithinBank(transactionDetails);
+		}
 	}
 
-	public long newTransferOtherBank(long senderAcc, long receiverAcc, long amount, String description)
+	public long newTransferOtherBank(long senderAcc, long receiverAcc, long amount, String description, String ifsc)
 			throws InvalidInputException {
 		InputCheck.checkNegativeInteger(senderAcc);
 		InputCheck.checkNegativeInteger(receiverAcc);
 		InputCheck.checkNegativeInteger(amount);
 		InputCheck.checkNull(description);
-		return transactionOpertaion.transferOtherBank(senderAcc, receiverAcc, amount, description);
+		InputCheck.checkNull(ifsc);
+		AccountDetails accountDetailsLock = (AccountDetails) accountCache.getAccount(senderAcc);
+		synchronized (accountDetailsLock) {
+			return transactionOpertaion.transferOtherBank(senderAcc, receiverAcc, amount, description, ifsc);
+		}
 	}
 }

@@ -1,6 +1,9 @@
 package details;
 
-public class CustomerDetails extends UserDetails{
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class CustomerDetails extends UserDetails implements Serializable {
 	private String address;
 	private String aadhar;
 	private String pan;

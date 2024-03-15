@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import cacheLogics.RedisCache;
+import customDB.Cache;
 import dbLogics.AccountOperations;
 import details.AccountDetails;
 import utility.InputCheck;
@@ -13,9 +15,20 @@ import utility.InvalidInputException;
 public class AccountFunctions {
 
 	private AccountOperations accountOperation = new AccountOperations();
+	private Cache accountCache = RedisCache.getInstance();
 
 	public int addAccount(AccountDetails account) throws InvalidInputException {
 		InputCheck.checkNull(account);
+		AccountDetails tempAccountDetails = new AccountDetails();
+		tempAccountDetails.setUserId(account.getUserId());
+		Map<Long, AccountDetails> records = accountOperation.getCustomAccountDetails(tempAccountDetails);
+		for (Entry<?, ?> individualAccount : records.entrySet()) {
+			tempAccountDetails = (AccountDetails) individualAccount.getValue();
+			if (tempAccountDetails.getBranchId().equals(account.getBranchId())
+					&& tempAccountDetails.getAccountType().equals(account.getAccountType())) {
+				return -1;
+			}
+		}
 		return accountOperation.createAccount(account);
 	}
 
@@ -27,8 +40,10 @@ public class AccountFunctions {
 
 	public List<Long> getAllAccount(int customerId) throws InvalidInputException {
 		List<Long> result = new ArrayList<Long>();
-		Map<Long, AccountDetails> records = accountOperation.getAvailableAccount(customerId);
-		for (Entry individualAccount : records.entrySet()) {
+		AccountDetails accountDetails = new AccountDetails();
+		accountDetails.setUserId(customerId);
+		Map<Long, AccountDetails> records = accountDetails(accountDetails);
+		for (Entry<?, ?> individualAccount : records.entrySet()) {
 			result.add((Long) individualAccount.getKey());
 		}
 		return result;
@@ -48,6 +63,18 @@ public class AccountFunctions {
 		InputCheck.checkNull(coloumn);
 		InputCheck.checkNull(value);
 		InputCheck.checkNegativeInteger(accountId);
-		return accountOperation.updateColumn(coloumn, value, accountId);
+		int affectedRows = 0;
+		AccountDetails accountDetailsLock = (AccountDetails) accountCache.getAccount(accountId);
+		synchronized (accountDetailsLock) {
+			affectedRows = accountOperation.updateColumn(coloumn, value, accountId);
+			if (affectedRows > 0) {
+				AccountDetails accountDetails = new AccountDetails();
+				accountDetails.setAccountNumber(accountId);
+				Map<Long, AccountDetails> records = accountDetails(accountDetails);
+				accountDetails = records.get(accountId);
+				accountCache.deleteAccount(accountDetails.getUserId());
+			}
+		}
+		return affectedRows;
 	}
 }

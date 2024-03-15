@@ -8,8 +8,9 @@ import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
+import cacheLogics.RedisCache;
+import customDB.Cache;
 import customLogics.AccountFunctions;
-import customLogics.CustomerFunctions;
 import customLogics.TransactionFunctions;
 import customLogics.UserFunctions;
 import details.AccountDetails;
@@ -26,12 +27,13 @@ public class CustomerIO {
 	public void customerAction() throws InvalidInputException {
 
 		CustomerIO customerIo = new CustomerIO();
-		CustomerFunctions customerFunctions = new CustomerFunctions();
 		AccountFunctions accountFunctions = new AccountFunctions();
 		TransactionFunctions transactionFunctions = new TransactionFunctions();
 		UserFunctions userFunctions = new UserFunctions();
 		TransactionDetails transactionDetails = new TransactionDetails();
-		
+
+		Cache cache = RedisCache.getInstance();
+
 		int customerId = Bankapp.userIdThread.get();
 		long primaryAccount = customerIo.getPrimaryAccount(customerId, accountFunctions.getAllAccount(customerId));
 		logger.info("To change the Account log out and login");
@@ -56,17 +58,14 @@ public class CustomerIO {
 			logger.info(String.format("%10s", "10.Log Out"));
 			logger.info("-" + "-".repeat(40) + "-");
 
-			int option = scanner.nextInt();
+			String option = scanner.next();
 			switch (option) {
-			case 1: {
-				logger.info("Your Details");
-				CustomerDetails customerDetails = new CustomerDetails();
-				customerDetails.setId(customerId);
-				Map<Integer, CustomerDetails> customerData = customerFunctions.getCustomerProfile(customerDetails);
-				CustomerDetails customerDet = customerData.get(customerId);
+			case "1": {
+				CustomerDetails customerDet = cache.getCustomer(customerId);
 				logger.severe("-" + "-".repeat(40) + "-");
 				logger.severe(String.format("%-15s", "Name") + String.format("%-15s", customerDet.getName()));
-				logger.severe(String.format("%-15s", "DOB") + String.format("%-15s", customerDet.getDOB()));
+				logger.severe(String.format("%-15s", "DOB")
+						+ String.format("%-15s", Common.milliToDate(customerDet.getDOB())));
 				logger.severe(
 						String.format("%-15s", "Mobile Number") + String.format("%-15s", customerDet.getMobile()));
 				logger.severe(String.format("%-15s", "Email") + String.format("%-15s", customerDet.getEmail()));
@@ -76,14 +75,15 @@ public class CustomerIO {
 				logger.severe(String.format("%-15s", "PAN Number") + String.format("%-15s", customerDet.getPan()));
 				logger.severe(String.format("%-15s", "Address") + String.format("%-15s", customerDet.getAddress()));
 				logger.severe("-" + "-".repeat(40) + "-");
+				((RedisCache) cache).displayFrequency();
 			}
 				break;
-			case 2: {
+			case "2": {
 				logger.info("Account Details");
-				AccountDetails accountDet = new AccountDetails();
-				accountDet.setUserId(customerId);
-				Map<Long, AccountDetails> accounts = accountFunctions.accountDetails(accountDet);
-				for (Entry tempIndividualAccount : accounts.entrySet()) {
+				AccountDetails accountDetails = new AccountDetails();
+				accountDetails.setUserId(customerId);
+				Map<Long, AccountDetails> accounts = accountFunctions.accountDetails(accountDetails);
+				for (Entry<?, ?> tempIndividualAccount : accounts.entrySet()) {
 					AccountDetails individualAccount = (AccountDetails) tempIndividualAccount.getValue();
 					logger.severe("-" + "-".repeat(40) + "-");
 					logger.severe(String.format("%-15s", "Account Number")
@@ -96,18 +96,19 @@ public class CustomerIO {
 							String.format("%-15s", "Status") + String.format("%-15s", individualAccount.getStatus()));
 					logger.severe(String.format("%-15s", "Branch IFSC code")
 							+ String.format("%-15s", individualAccount.getBranchId()));
+					logger.severe(String.format("%-15s", "Account Type")
+							+ String.format("%-15s", individualAccount.getAccountType()));
 					logger.severe("-" + "-".repeat(40) + "-");
 				}
 			}
 				break;
-			case 3: {
-				long balance;
+			case "3": {
 				logger.info("You have Rs :");
-				balance = accountFunctions.getBalance(primaryAccount);
-				logger.info(balance + "");
+				AccountDetails accountDetails = cache.getAccount(primaryAccount);
+				logger.info(accountDetails.getBalance() + "");
 			}
 				break;
-			case 4: {
+			case "4": {
 				logger.info("Enter the Amount to Deposit : ");
 				long depositeAmount = scanner.nextLong();
 				long transactionId = transactionFunctions.newDeposite(primaryAccount, depositeAmount);
@@ -132,9 +133,10 @@ public class CustomerIO {
 				} else {
 					logger.warning("Sorry , Something went wrong");
 				}
+				((RedisCache) cache).displayFrequency();
 			}
 				break;
-			case 5: {
+			case "5": {
 				logger.info("Enter the Amount to withdraw :");
 				long withdrawAmount = scanner.nextLong();
 				logger.info("Enter Description");
@@ -166,7 +168,7 @@ public class CustomerIO {
 				}
 			}
 				break;
-			case 6: {
+			case "6": {
 				logger.info("Enter the Reciver Account Number : ");
 				long receiverAccountNumber = scanner.nextLong();
 				logger.info("Enter the Amount to send : ");
@@ -198,8 +200,8 @@ public class CustomerIO {
 								+ String.format("%-20s", transactionDetails.getTransactionType()));
 						logger.severe(String.format("%-20s", "Description")
 								+ String.format("%-20s", transactionDetails.getDescription()));
-						logger.severe(String.format("%-20s", "Transaction Status")
-								+ String.format("%-20s", transactionDetails.getStatus()));
+						logger.severe(String.format("%-20s", "Transaction Status") + String.format("%-20s",
+								(transactionDetails.getStatus().equals("1")) ? "Success" : "Failed"));
 						logger.severe(String.format("%-20s", "Transaction Amount")
 								+ String.format("%-20s", transactionDetails.getAmount()));
 						logger.severe(String.format("%-20s", "Closing Balance")
@@ -208,16 +210,18 @@ public class CustomerIO {
 				}
 			}
 				break;
-			case 7: {
+			case "7": {
 				logger.info("Enter the Reciver Account Number : ");
 				long receiverAccountNumber = scanner.nextLong();
+				logger.info("Enter the IFSC Code Of the Sender's Bank : ");
+				String ifsc = scanner.next();
 				logger.info("Enter the Amount to send : ");
 				long amount = scanner.nextLong();
 				logger.info("Enter Description");
 				scanner.nextLine();
 				String description = scanner.nextLine();
 				long transactionId = transactionFunctions.newTransferOtherBank(primaryAccount, receiverAccountNumber,
-						amount, description);
+						amount, description, ifsc);
 				if (transactionId > 0) {
 					logger.info("Your Transaction Details");
 					transactionDetails = transactionFunctions.getTransactionDetails(transactionId, "Id");
@@ -235,19 +239,21 @@ public class CustomerIO {
 								+ String.format("%-20s", transactionDetails.getTransactionType()));
 						logger.severe(String.format("%-20s", "Description")
 								+ String.format("%-20s", transactionDetails.getDescription()));
-						logger.severe(String.format("%-20s", "Transaction Status")
-								+ String.format("%-20s", transactionDetails.getStatus()));
+						logger.severe(String.format("%-20s", "Transaction Status") + String.format("%-20s",
+								(transactionDetails.getStatus().equals("1")) ? "Success" : "Failed"));
 						logger.severe(String.format("%-20s", "Transaction Amount")
 								+ String.format("%-20s", transactionDetails.getAmount()));
 						logger.severe(String.format("%-20s", "Closing Balance")
 								+ String.format("%-20s", transactionDetails.getClosingBalance()));
+						logger.severe(String.format("%-20s", "IFSC Code Of Receiver")
+								+ String.format("%-20s", transactionDetails.getIFSCCode()));
 					}
 				} else {
 					logger.warning("Your Transaction is't completed .\nSorry for the inconvenience :(");
 				}
 			}
 				break;
-			case 8: {
+			case "8": {
 				logger.info("Take Statement for \n1. 1 Month\n2. 2 Months\n3. 3 Months");
 				int statementoption = scanner.nextInt();
 				statementoption = (statementoption == 1 ? 30 : (statementoption == 2) ? 60 : 90);
@@ -282,7 +288,7 @@ public class CustomerIO {
 
 			}
 				break;
-			case 9: {
+			case "9": {
 				logger.info("Enter the old Password");
 				String oldPassword = scanner.next();
 				if (oldPassword.equals(userFunctions.getPassword(customerId))) {
@@ -298,8 +304,12 @@ public class CustomerIO {
 				}
 			}
 				break;
-			case 10: {
+			case "10": {
 				condition = false;
+			}
+				break;
+			default: {
+				logger.warning("Invalid Choice :(");
 			}
 				break;
 			}

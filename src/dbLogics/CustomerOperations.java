@@ -66,7 +66,6 @@ public class CustomerOperations implements Customer {
 						customerId = record.getInt(1);
 					}
 				}
-				insertCustomer = "insert into Customer values (?,?,?,?)";
 				try (PreparedStatement empStatement = connection.prepareStatement(insertCustomer)) {
 					empStatement.setInt(1, customerId);
 					empStatement.setString(2, customer.getAadhar());
@@ -96,7 +95,8 @@ public class CustomerOperations implements Customer {
 		InputCheck.checkNegativeInteger(Id);
 		InputCheck.checkNull(column);
 		InputCheck.checkNull(value);
-		String query = "update User join Customer on User.Id = Customer.ID set " + column + " = ? where User.Id = ?";
+
+		String query = "update User join Customer on User.Id = Customer.Id set " + column + " = ? where User.Id = ?";
 		int affectedRows = 0;
 		try (PreparedStatement statement = connection.prepareStatement(query)) {
 			statement.setObject(1, value);
@@ -116,7 +116,6 @@ public class CustomerOperations implements Customer {
 		getMappingDetails();
 		List<CustomerDetails> records = new ArrayList<CustomerDetails>();
 		StringBuilder query = new StringBuilder("select ");
-//		from User left join Customer on User.Id = Customer.Id where User.Id = ?
 		for (String individualColumn : columnToGet) {
 			query.append(individualColumn + " ,");
 		}
@@ -182,9 +181,10 @@ public class CustomerOperations implements Customer {
 					| IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
 				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 			}
-			return records;
 		} catch (SQLException e) {
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 		}
+
+		return records;
 	}
 }

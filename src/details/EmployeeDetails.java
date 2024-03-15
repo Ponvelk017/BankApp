@@ -1,6 +1,7 @@
 package details;
 
 public class EmployeeDetails extends UserDetails {
+	private static final long serialVersionUID = 1L;
 	private String branch;
 	private Boolean admin;
 

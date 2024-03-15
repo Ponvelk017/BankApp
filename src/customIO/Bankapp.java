@@ -21,7 +21,7 @@ public class Bankapp {
 //	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
 
 	public static Logger logger = Logger.getLogger(Bankapp.class.getName());
-	
+
 	public static ThreadLocal<Integer> userIdThread = new ThreadLocal<Integer>();
 
 	public static void main(String[] args) {
@@ -43,7 +43,6 @@ public class Bankapp {
 			fileHandler = new FileHandler("Bankapp.log", true);
 			fileHandler.setFormatter(new SimpleFormatter());
 			logger.addHandler(fileHandler);
-
 			logger.info(String.format("%50s", " Welcome to Bank of CBE "));
 			boolean breakCondition = true;
 			while (breakCondition) {

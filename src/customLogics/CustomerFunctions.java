@@ -1,6 +1,5 @@
 package customLogics;
 
-import java.sql.Date;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
@@ -10,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import cacheLogics.RedisCache;
+import customDB.Cache;
 import dbLogics.CustomerOperations;
 import details.CustomerDetails;
 import utility.Common;
@@ -18,12 +19,12 @@ import utility.InvalidInputException;
 
 public class CustomerFunctions {
 
+	private Cache customerCache = RedisCache.getInstance();
 	private CustomerOperations customerOpertaion = new CustomerOperations();
-	private CustomerDetails customerDet;
 
 	public static int validateDetails(CustomerDetails customer) throws InvalidInputException {
 		InputCheck.checkNull(customer);
-		if (customer.getName().matches("^[A-Za-z.]+") && (customer.getMobile()+"").matches("^[0-9]{10}$")
+		if (customer.getName().matches("^[A-Za-z.]+") && (customer.getMobile() + "").matches("^[0-9]{10}$")
 				&& customer.getEmail().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 						+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
 			LocalDate currentDate = LocalDate.now();
@@ -59,23 +60,32 @@ public class CustomerFunctions {
 		InputCheck.checkNegativeInteger(Id);
 		InputCheck.checkNull(column);
 		InputCheck.checkNull(value);
-		if (column.equals("DOB")) {
-			value = Common.dateToMilli(value.toString());
+		int affectedColumns = 0;
+		CustomerDetails customerDetails = customerCache.getCustomer(Id);
+		synchronized (customerDetails) {
+			if (column.equals("DOB")) {
+				value = Common.dateToMilli(value.toString());
+			}
+			affectedColumns = customerOpertaion.updateDetails(Id, column, value);
+			if (affectedColumns > 0) {
+				customerCache.deleteCustomer(Id);
+			}
+			return affectedColumns;
 		}
-		return customerOpertaion.updateDetails(Id, column, value);
 	}
 
-	public Map<Integer,CustomerDetails> getCustomerProfile(CustomerDetails customerDetails) throws InvalidInputException {
+	public Map<Integer, CustomerDetails> getCustomerProfile(CustomerDetails customerDetails)
+			throws InvalidInputException {
 		InputCheck.checkNull(customerDetails);
-		customerDet = new CustomerDetails();
+		new CustomerDetails();
 		List<String> columnToGet = new ArrayList<String>();
 		columnToGet.add("User.*");
 		columnToGet.add("Customer.Address");
 		columnToGet.add("Customer.Aadhar");
 		columnToGet.add("Customer.Pan");
-		List<CustomerDetails> customerDet = customerOpertaion.getCustomCustomer(customerDetails , columnToGet);
-		Map<Integer,CustomerDetails> result = new HashMap<Integer,CustomerDetails>();
-		for(CustomerDetails singleRecord : customerDet) {
+		List<CustomerDetails> customerDet = customerOpertaion.getCustomCustomer(customerDetails, columnToGet);
+		Map<Integer, CustomerDetails> result = new HashMap<Integer, CustomerDetails>();
+		for (CustomerDetails singleRecord : customerDet) {
 			result.put(singleRecord.getId(), singleRecord);
 		}
 		return result;

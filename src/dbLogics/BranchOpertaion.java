@@ -13,7 +13,7 @@ import utility.InvalidInputException;
 
 public class BranchOpertaion implements Branch {
 
-	Connection connection = DBConnection.getConnection();
+	private Connection connection = DBConnection.getConnection();
 
 	@Override
 	public int insertBranch(BranchDetails branchDetails) throws InvalidInputException {

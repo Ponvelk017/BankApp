@@ -4,7 +4,6 @@ import java.util.Map;
 
 import dbLogics.EmployeeOperations;
 import dbLogics.UserOperations;
-import details.CustomerDetails;
 import utility.InputCheck;
 import utility.InvalidInputException;
 

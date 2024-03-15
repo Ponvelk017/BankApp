@@ -10,6 +10,8 @@ public interface Transaction {
 
 	public int setTransferTransaction(TransactionDetails transactionDetails) throws InvalidInputException;
 
+	public int setTransferTransactionWithId(TransactionDetails transactionDetails) throws InvalidInputException;
+
 	public List<TransactionDetails> getTransferTransaction(long transactionId, String ConditionColumn)
 			throws InvalidInputException;
 
@@ -24,6 +26,6 @@ public interface Transaction {
 
 	public Map<String, Integer> transferWithinBank(TransactionDetails transactionDetails) throws InvalidInputException;
 
-	public long transferOtherBank(long senderAcc, long receiverAcc, long amount, String description)
+	public long transferOtherBank(long senderAcc, long receiverAcc, long amount, String description ,String ifsc)
 			throws InvalidInputException;
 }

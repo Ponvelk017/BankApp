@@ -1,7 +1,10 @@
 package details;
 
-public abstract class UserDetails {
+import java.io.Serializable;
 
+public abstract class UserDetails implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String name;
 	private long dob;

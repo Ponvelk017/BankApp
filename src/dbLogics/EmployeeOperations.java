@@ -9,7 +9,6 @@ import java.util.List;
 
 import customDB.Employee;
 import details.EmployeeDetails;
-import utility.Common;
 import utility.DBConnection;
 import utility.InputCheck;
 import utility.InvalidInputException;
@@ -93,6 +92,7 @@ public class EmployeeOperations implements Employee {
 			statement.setObject(1, value);
 			statement.setInt(2, Id);
 			affectedRows = statement.executeUpdate();
+			
 		} catch (SQLException e) {
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 		}

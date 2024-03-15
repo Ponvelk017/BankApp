@@ -23,11 +23,10 @@ public class AccountOperations implements Account {
 	private Connection connection = DBConnection.getConnection();
 
 	private final String createAccount = "insert into Account(UserId , BranchId , AccountType) values (?,?,?)";
-	private final String getAvailableAccount = "select AccountNumber from Account where UserId = ? ";
 
 	private Map<String, String> mappingRecords = new HashMap<String, String>();
 
-	public void getMappingDetails() throws InvalidInputException {
+	private void getMappingDetails() throws InvalidInputException {
 		try (PreparedStatement statement = connection
 				.prepareStatement("select * from Account where AccountNumber = -1");
 				ResultSet allColumns = statement.executeQuery()) {
@@ -125,6 +124,7 @@ public class AccountOperations implements Account {
 		return result;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Map<Long, AccountDetails> getCustomAccountDetails(AccountDetails accountDetails)
 			throws InvalidInputException {
@@ -166,21 +166,6 @@ public class AccountOperations implements Account {
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 		}
 		return userAccount;
-	}
-
-	@Override
-	public Map<Long, AccountDetails> getAvailableAccount(int userId) throws InvalidInputException {
-		InputCheck.checkNegativeInteger(userId);
-		Map<Long, AccountDetails> availableAccounts = new HashMap<Long, AccountDetails>();
-		try (PreparedStatement statement = connection.prepareStatement(getAvailableAccount)) {
-			statement.setInt(1, userId);
-			try (ResultSet record = statement.executeQuery()) {
-				availableAccounts = setDetails(record);
-			}
-		} catch (SQLException e) {
-			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
-		}
-		return availableAccounts;
 	}
 
 	@Override

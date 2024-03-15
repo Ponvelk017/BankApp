@@ -28,6 +28,7 @@ public class ManagerIO {
 
 	public void managerActions() throws InvalidInputException {
 
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 
 		CustomerDetails customerDet = new CustomerDetails();
@@ -49,20 +50,27 @@ public class ManagerIO {
 			logger.info(String.format("%10s", "1.Add a Customer"));
 			logger.info(String.format("%10s", "2.Create an Account to User"));
 			logger.info(String.format("%10s", "3.Add a Employee"));
-			logger.info(String.format("%10s", "4.Update the Details of a Customer"));
-			logger.info(String.format("%10s", "5.Update the Details of a Employee"));
-			logger.info(String.format("%10s", "6.Delete a User"));
-			logger.info(String.format("%10s", "7.view Transactions"));
-			logger.info(String.format("%10s", "8.Make a User Active/Inactive"));
-			logger.info(String.format("%10s", "9.Block/Unblock a Account"));
-			logger.info(String.format("%10s", "10.View all (Active/Inactive) User"));
-			logger.info(String.format("%10s", "11.View all (Block/Unblock) Account"));
-			logger.info(String.format("%10s", "12.Add a new Branch"));
-			logger.info(String.format("%10s", "13.Update a Branch"));
-			logger.info(String.format("%10s", "14.View details of a Branch"));
-			logger.info(String.format("%10s", "15.Log Out"));
+			logger.info(String.format("%10s", "4.Deposit for a Account"));
+			logger.info(String.format("%10s", "5.Withdraw for a Account"));
+			logger.info(String.format("%10s", "6.Update the Details of a Customer"));
+			logger.info(String.format("%10s", "7.Update the Details of a Employee"));
+			logger.info(String.format("%10s", "8.Delete a User"));
+			logger.info(String.format("%10s", "9.view Transactions"));
+			logger.info(String.format("%10s", "10.Make a User Active/Inactive"));
+			logger.info(String.format("%10s", "11.Block/Unblock a Account"));
+			logger.info(String.format("%10s", "12.View all (Active/Inactive) User"));
+			logger.info(String.format("%10s", "13.View all (Block/Unblock) Account"));
+			logger.info(String.format("%10s", "14.Add a new Branch"));
+			logger.info(String.format("%10s", "15.Update a Branch"));
+			logger.info(String.format("%10s", "16.View details of a Branch"));
+			logger.info(String.format("%10s", "17.Log Out"));
 			logger.info("-" + "-".repeat(40) + "-");
-			int option = scanner.nextInt();
+			String tempint = scanner.next();
+			if (!tempint.matches("\\d+")) {
+				logger.warning("Invalid Input");
+				continue;
+			}
+			int option = Integer.parseInt(tempint);
 			switch (option) {
 			case 1: {
 				logger.info("How many Customer are you going to add");
@@ -116,6 +124,8 @@ public class ManagerIO {
 				}
 				int affectedRow = accountFunction.addAccount(accountDet);
 				if (affectedRow == -1) {
+					logger.warning("A Account with the same AccountType and BranchId preaent");
+				} else if (affectedRow == -1) {
 					logger.warning("Invalid Input");
 					break;
 				} else if (affectedRow > 0) {
@@ -158,6 +168,69 @@ public class ManagerIO {
 			}
 				break;
 			case 4: {
+				logger.info("Enter the Account Number: ");
+				long primaryAccount = scanner.nextLong();
+				logger.info("Enter the Amount to Deposit : ");
+				long depositeAmount = scanner.nextLong();
+				long transactionId = transactionFunctions.newDeposite(primaryAccount, depositeAmount);
+				transactionDetails = transactionFunctions.getTransactionDetails(transactionId, "Id");
+				if (transactionDetails != null) {
+					logger.info("Successfully deposited :)\nYour Transaction statement is");
+					logger.severe("-" + "-".repeat(40) + "-");
+					logger.severe(String.format("%-20s", "Transaction Id")
+							+ String.format("%-20s", transactionDetails.getId()));
+					logger.severe(String.format("%-20s", "To ")
+							+ String.format("%-20s", transactionDetails.getTransactionAccountId()));
+					logger.severe(String.format("%-20s", "Transaction Time")
+							+ String.format("%-20s", new Date(transactionDetails.getTransactionTime()).toString()));
+					logger.severe(String.format("%-20s", "Transaction type")
+							+ String.format("%-20s", transactionDetails.getTransactionType()));
+					logger.severe(String.format("%-20s", "Transaction Status")
+							+ String.format("%-20s", transactionDetails.getStatus()));
+					logger.severe(String.format("%-20s", "Transaction Amount")
+							+ String.format("%-20s", transactionDetails.getAmount()));
+					logger.severe(String.format("%-20s", "Closing Balance")
+							+ String.format("%-20s", transactionDetails.getClosingBalance()));
+				} else {
+					logger.warning("Sorry , Something went wrong");
+				}
+			}
+				break;
+			case 5: {
+				logger.info("Enter the Account Number: ");
+				long primaryAccount = scanner.nextLong();
+				logger.info("Enter the Amount to withdraw :");
+				long withdrawAmount = scanner.nextLong();
+				logger.info("Enter Description");
+				scanner.nextLine();
+				String description = scanner.nextLine();
+				long transactionId = transactionFunctions.newWithdraw(primaryAccount, withdrawAmount, description);
+				transactionDetails = transactionFunctions.getTransactionDetails(transactionId, "Id");
+				if (transactionDetails != null) {
+					logger.info("Successfully Withdrawed :)\nYour Transaction statement is");
+					logger.severe("-" + "-".repeat(40) + "-");
+					logger.severe(String.format("%-20s", "Transaction Id")
+							+ String.format("%-20s", transactionDetails.getId()));
+					logger.severe(String.format("%-20s", "From ")
+							+ String.format("%-20s", transactionDetails.getAccountId()));
+					logger.severe(String.format("%-20s", "Transaction Time")
+							+ String.format("%-20s", new Date(transactionDetails.getTransactionTime()).toString()));
+					logger.severe(String.format("%-20s", "Transaction type")
+							+ String.format("%-20s", transactionDetails.getTransactionType()));
+					logger.severe(String.format("%-20s", "Description")
+							+ String.format("%-20s", transactionDetails.getDescription()));
+					logger.severe(String.format("%-20s", "Transaction Status")
+							+ String.format("%-20s", transactionDetails.getStatus()));
+					logger.severe(String.format("%-20s", "Transaction Amount")
+							+ String.format("%-20s", transactionDetails.getAmount()));
+					logger.severe(String.format("%-20s", "Closing Balance")
+							+ String.format("%-20s", transactionDetails.getClosingBalance()));
+				} else {
+					logger.warning("Sorry , Something went wrong");
+				}
+			}
+				break;
+			case 6: {
 				logger.info("Enter the details to update the details of the Customer \nUserId");
 				scanner.nextLine();
 				int customerId = scanner.nextInt();
@@ -174,7 +247,7 @@ public class ManagerIO {
 				}
 			}
 				break;
-			case 5: {
+			case 7: {
 				logger.info("Enter the details to update the details of the Employee \nUserId");
 				scanner.nextLine();
 				int cemployeeId = scanner.nextInt();
@@ -191,7 +264,7 @@ public class ManagerIO {
 				}
 			}
 				break;
-			case 6: {
+			case 8: {
 				logger.info("Enter the Customer Id to Delete(make User account Inactive) : ");
 				scanner.nextLine();
 				int userIdToDelete = scanner.nextInt();
@@ -203,7 +276,7 @@ public class ManagerIO {
 				}
 			}
 				break;
-			case 7: {
+			case 9: {
 				logger.info("1. View all Transacions Of the User");
 				logger.info("2. View Single Transacions");
 				logger.info("3. View transaction of a Account");
@@ -343,7 +416,7 @@ public class ManagerIO {
 				}
 			}
 				break;
-			case 8: {
+			case 10: {
 				logger.info("1. Make Customer Active \n2. Make User Inactive");
 				int activeOption = scanner.nextInt();
 				logger.info("Enter the User Id");
@@ -371,7 +444,7 @@ public class ManagerIO {
 			}
 				break;
 
-			case 9: {
+			case 11: {
 				logger.info("1. Make Account Active \n2. Make Account Inactive");
 				int activeOption = scanner.nextInt();
 				logger.info("Enter the Account Number");
@@ -398,7 +471,7 @@ public class ManagerIO {
 				}
 			}
 				break;
-			case 10: {
+			case 12: {
 				logger.info("Which User Details do you need ?\n1.Active\n2.Inactive");
 				String statusOption = scanner.next();
 				CustomerDetails customerStatus = new CustomerDetails();
@@ -413,7 +486,7 @@ public class ManagerIO {
 					logger.warning("Invalid Option");
 					continue;
 				}
-				for (Entry individualRecord : activeUsers.entrySet()) {
+				for (Entry<?, ?> individualRecord : activeUsers.entrySet()) {
 					customerDet = (CustomerDetails) individualRecord.getValue();
 					logger.severe("-" + "-".repeat(40) + "-");
 					logger.severe(String.format("%-15s", "Name") + String.format("%-15s", customerDet.getName()));
@@ -430,7 +503,7 @@ public class ManagerIO {
 				}
 			}
 				break;
-			case 11: {
+			case 13: {
 				logger.info("Which Account Details do you need ?\n1.Active\n2.Inactive");
 				String statusOption = scanner.next();
 				AccountDetails accountDetail = new AccountDetails();
@@ -445,7 +518,7 @@ public class ManagerIO {
 					logger.warning("Invalid Option");
 					continue;
 				}
-				for (Entry tempIndividualRecord : accountData.entrySet()) {
+				for (Entry<?, ?> tempIndividualRecord : accountData.entrySet()) {
 					AccountDetails individualAccount = (AccountDetails) tempIndividualRecord.getValue();
 					logger.severe("-" + "-".repeat(40) + "-");
 					logger.severe(String.format("%-15s", "Account Number")
@@ -462,7 +535,7 @@ public class ManagerIO {
 				}
 			}
 				break;
-			case 12: {
+			case 14: {
 				logger.info("Enter the IFSC code of the new branch");
 				branchDetails.setIfscCode(scanner.next());
 				logger.info("Enter the Address");
@@ -480,7 +553,7 @@ public class ManagerIO {
 				}
 			}
 				break;
-			case 13: {
+			case 15: {
 				logger.info("Enter the column to update");
 				String column = scanner.next();
 				logger.info("Enter the Id");
@@ -495,7 +568,7 @@ public class ManagerIO {
 				}
 			}
 				break;
-			case 14: {
+			case 16: {
 				logger.info("Enter the Id or IFSC code to get the Details ");
 				Object value = scanner.next();
 				BranchDetails branchDetail = branchFunction.getBranchDetails(value);
@@ -510,7 +583,7 @@ public class ManagerIO {
 				logger.severe("-" + "-".repeat(40) + "-");
 			}
 				break;
-			case 15: {
+			case 17: {
 				breakCondition = false;
 			}
 				break;

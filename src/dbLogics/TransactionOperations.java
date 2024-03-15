@@ -23,7 +23,9 @@ public class TransactionOperations implements Transaction {
 	private Connection connection = DBConnection.getConnection();
 	private AccountOperations accountOperation = new AccountOperations();
 
-	private final String setTransferTransaction = "insert into Transaction(Id,AccountId,TransactionAccountId,UserId,TransactionTime,TransactionType,Description,Amount,ClosingBalance) "
+	private final String setTransferTransaction = "insert into Transaction(AccountId,TransactionAccountId,UserId,TransactionTime,TransactionType,Description,Amount,ClosingBalance,IFSCCode) "
+			+ "values(?,?,?,?,?,?,?,?,?)";
+	private final String setTransferTransactionWithId = "insert into Transaction(Id,AccountId,TransactionAccountId,UserId,TransactionTime,TransactionType,Description,Amount,ClosingBalance) "
 			+ "values(?,?,?,?,?,?,?,?,?)";
 
 	private Map<String, String> mappingRecords = new HashMap<String, String>();
@@ -95,15 +97,35 @@ public class TransactionOperations implements Transaction {
 		InputCheck.checkNull(transactionDetails);
 		int affectedRows = 0;
 		try (PreparedStatement statement = connection.prepareStatement(setTransferTransaction)) {
-			statement.setLong(1, transactionDetails.getId());
-			statement.setLong(2, transactionDetails.getAccountId());
-			statement.setLong(3, transactionDetails.getTransactionAccountId());
-			statement.setInt(4, transactionDetails.getUserId());
-			statement.setLong(5, transactionDetails.getTransactionTime());
-			statement.setString(6, transactionDetails.getTransactionType());
-			statement.setString(7, transactionDetails.getDescription() + " ");
-			statement.setLong(8, transactionDetails.getAmount());
-			statement.setLong(9, transactionDetails.getClosingBalance());
+			statement.setLong(1, transactionDetails.getAccountId());
+			statement.setLong(2, transactionDetails.getTransactionAccountId());
+			statement.setInt(3, transactionDetails.getUserId());
+			statement.setLong(4, transactionDetails.getTransactionTime());
+			statement.setString(5, transactionDetails.getTransactionType());
+			statement.setString(6, transactionDetails.getDescription() + " ");
+			statement.setLong(7, transactionDetails.getAmount());
+			statement.setLong(8, transactionDetails.getClosingBalance());
+			statement.setString(9, transactionDetails.getIFSCCode());
+			affectedRows = statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
+		}
+		return affectedRows;
+	}
+
+	@Override
+	public int setTransferTransactionWithId(TransactionDetails transactionDetails) throws InvalidInputException {
+		InputCheck.checkNull(transactionDetails);
+		int affectedRows = 0;
+		try (PreparedStatement statement = connection.prepareStatement(setTransferTransactionWithId)) {
+			statement.setLong(1, transactionDetails.getAccountId());
+			statement.setLong(2, transactionDetails.getTransactionAccountId());
+			statement.setInt(3, transactionDetails.getUserId());
+			statement.setLong(4, transactionDetails.getTransactionTime());
+			statement.setString(5, transactionDetails.getTransactionType());
+			statement.setString(6, transactionDetails.getDescription() + " ");
+			statement.setLong(7, transactionDetails.getAmount());
+			statement.setLong(8, transactionDetails.getClosingBalance());
 			affectedRows = statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
@@ -227,7 +249,6 @@ public class TransactionOperations implements Transaction {
 	public long deposite(TransactionDetails transactionDetails, boolean autoCommitFlag) throws InvalidInputException {
 		InputCheck.checkNull(transactionDetails);
 		InputCheck.checkNull(autoCommitFlag);
-		long transactionId = ((transactionDetails.getId() == 0) ? getId() + 1 : transactionDetails.getId());
 		try {
 			if (autoCommitFlag) {
 				connection.setAutoCommit(false);
@@ -238,7 +259,6 @@ public class TransactionOperations implements Transaction {
 					transactionDetails.getAccountId());
 			TransactionDetails transactionDet = new TransactionDetails();
 			if (affectedRows > 0) {
-				transactionDet.setId(transactionId);
 				transactionDet.setAccountId(transactionDetails.getAccountId());
 				transactionDet.setTransactionAccountId(transactionDetails.getTransactionAccountId());
 				transactionDet.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber",
@@ -248,7 +268,12 @@ public class TransactionOperations implements Transaction {
 				transactionDet.setAmount(transactionDetails.getAmount());
 				transactionDet.setClosingBalance((long) accountOperation.getSingleRecord("Balance", "AccountNumber",
 						transactionDetails.getAccountId()));
-				affectedRows = setTransferTransaction(transactionDet);
+				if (transactionDetails.getId() > 0) {
+					transactionDet.setId(transactionDetails.getId());
+					affectedRows = setTransferTransactionWithId(transactionDetails);
+				} else {
+					affectedRows = setTransferTransaction(transactionDet);
+				}
 			}
 		} catch (SQLException e) {
 			try {
@@ -268,14 +293,13 @@ public class TransactionOperations implements Transaction {
 				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 			}
 		}
-		return transactionId;
+		return getId();
 	}
 
 	@Override
 	public long withdraw(TransactionDetails transactionDetails, boolean autoCommitFlag) throws InvalidInputException {
 		InputCheck.checkNull(transactionDetails);
 		InputCheck.checkNull(autoCommitFlag);
-		long transactionId = ((transactionDetails.getId() == 0) ? getId() + 1 : transactionDetails.getId());
 		try {
 			if (autoCommitFlag) {
 				connection.setAutoCommit(false);
@@ -288,7 +312,6 @@ public class TransactionOperations implements Transaction {
 				affectedRows = accountOperation.updateColumn("Balance", balance - transactionDetails.getAmount(),
 						transactionDetails.getAccountId());
 				if (affectedRows > 0) {
-					transactionDet.setId(transactionId);
 					transactionDet.setAccountId(transactionDetails.getAccountId());
 					transactionDet.setTransactionAccountId(transactionDetails.getTransactionAccountId());
 					transactionDet.setUserId((int) accountOperation.getSingleRecord("UserId", "AccountNumber",
@@ -320,7 +343,7 @@ public class TransactionOperations implements Transaction {
 				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 			}
 		}
-		return transactionId;
+		return getId();
 	}
 
 	@Override
@@ -329,17 +352,15 @@ public class TransactionOperations implements Transaction {
 		Map<String, Integer> result = new HashMap<String, Integer>();
 		try {
 			connection.setAutoCommit(false);
-			long transactionId = getId() + 1;
 
 			TransactionDetails receiverDet = new TransactionDetails();
-			receiverDet.setId(transactionId);
 			receiverDet.setAccountId(transactionDetails.getTransactionAccountId());
 			receiverDet.setTransactionAccountId(transactionDetails.getAccountId());
 			receiverDet.setAmount(transactionDetails.getAmount());
 			long receiverUpdation = deposite(receiverDet, false);
 
 			TransactionDetails senderDet = new TransactionDetails();
-			senderDet.setId(transactionId);
+			senderDet.setId(getId());
 			senderDet.setAccountId(transactionDetails.getAccountId());
 			senderDet.setTransactionAccountId(transactionDetails.getTransactionAccountId());
 			senderDet.setDescription(transactionDetails.getDescription());
@@ -372,23 +393,21 @@ public class TransactionOperations implements Transaction {
 	}
 
 	@Override
-	public long transferOtherBank(long senderAcc, long receiverAcc, long amount, String description)
+	public long transferOtherBank(long senderAcc, long receiverAcc, long amount, String description , String ifsc)
 			throws InvalidInputException {
 		InputCheck.checkNegativeInteger(senderAcc);
 		InputCheck.checkNegativeInteger(receiverAcc);
 		InputCheck.checkNegativeInteger(amount);
 		InputCheck.checkNull(description);
-		long transactionId;
+		InputCheck.checkNull(ifsc);
 		try {
 			connection.setAutoCommit(false);
-			transactionId = getId() + 1;
 			long senderBalance = (long) accountOperation.getSingleRecord("Balance", "AccountNumber", senderAcc);
 			int senderBalanceUpdation = 0;
 			TransactionDetails transactionDetails = new TransactionDetails();
 			if (senderBalance >= amount) {
 				senderBalanceUpdation = accountOperation.updateColumn("Balance", senderBalance - amount, senderAcc);
 				if (senderBalanceUpdation > 0) {
-					transactionDetails.setId(transactionId);
 					transactionDetails.setAccountId(senderAcc);
 					transactionDetails.setTransactionAccountId(receiverAcc);
 					transactionDetails
@@ -398,6 +417,7 @@ public class TransactionOperations implements Transaction {
 					transactionDetails.setDescription(description);
 					transactionDetails.setAmount(amount);
 					transactionDetails.setClosingBalance(senderBalance - amount);
+					transactionDetails.setIFSCCode(ifsc);
 					setTransferTransaction(transactionDetails);
 				}
 			}
@@ -417,6 +437,6 @@ public class TransactionOperations implements Transaction {
 				throw new InvalidInputException("An Error Occured , Sorry for the Inconvenience", e);
 			}
 		}
-		return transactionId;
+		return getId();
 	}
 }

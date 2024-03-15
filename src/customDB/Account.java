@@ -11,9 +11,7 @@ public interface Account {
 
 	public Object getSingleRecord(String columnToGet, String column, Object value) throws InvalidInputException;
 
-	public Map<Long, AccountDetails> getCustomAccountDetails(AccountDetails accountDetails) throws InvalidInputException;
-
-	public Map<Long, AccountDetails> getAvailableAccount(int userId) throws InvalidInputException;
+	public <K, V> Map<K, V> getCustomAccountDetails(AccountDetails accountDetails) throws InvalidInputException;
 
 	public int updateColumn(String column, Object DepositeAmount, long accountNumber) throws InvalidInputException;
 }

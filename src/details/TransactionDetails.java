@@ -13,6 +13,40 @@ public class TransactionDetails {
 	private long closingBalance;
 	private long time;
 
+	public String getTranactionType() {
+		return tranactionType;
+	}
+
+	public void setTranactionType(String tranactionType) {
+		this.tranactionType = tranactionType;
+	}
+
+	public String getTransactionStatus() {
+		return transactionStatus;
+	}
+
+	public void setTransactionStatus(String transactionStatus) {
+		this.transactionStatus = transactionStatus;
+	}
+
+	public long getTime() {
+		return time;
+	}
+
+	public void setTime(long time) {
+		this.time = time;
+	}
+
+	public String getIFSCCode() {
+		return IFSCCode;
+	}
+
+	public void setIFSCCode(String iFSCCode) {
+		IFSCCode = iFSCCode;
+	}
+
+	private String IFSCCode;
+
 	public long getId() {
 		return id;
 	}
